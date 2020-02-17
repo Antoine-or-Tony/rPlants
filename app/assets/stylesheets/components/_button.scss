@@ -1,0 +1,14 @@
+// <a class="btn btn-plant" href="#">Book now</a>
+
+.btn-plant {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #1EDD88;
+  transition: background 0.3s ease;
+}
+
+.btn-plant:hover {
+  background: #1BCB7F;
+  color: white;
+}
