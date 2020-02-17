@@ -1,3 +1,13 @@
 class UsersController < ApplicationController
-  has_many :plants
+  def index
+    @users = User.all
+  end
+
+  def show
+    @user = User.new()
+  end
+
+  def new
+    @user = User.new()
+  end
 end

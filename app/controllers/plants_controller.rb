@@ -1,3 +1,13 @@
 class PlantsController < ApplicationController
-  belongs_to :user
+  def index
+    @plants = Plant.all
+  end
+
+  def show
+    @plant = Plant.new()
+  end
+
+  def new
+    @plant = Plant.new()
+  end
 end
