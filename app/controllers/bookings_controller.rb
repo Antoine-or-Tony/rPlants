@@ -4,10 +4,12 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.new()
+    @booking = Booking.find([:id])
   end
 
   def new
     @booking = Booking.new()
   end
+
+  # TO DO : create, destroy
 end
