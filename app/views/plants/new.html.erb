@@ -1,0 +1,13 @@
+<h1>Create a new plant</h1>
+
+<%= simple_form_for(@plant) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :price %>
+  <%= f.input :weight %>
+  <%= f.input :size %>
+  <%= f.input :species %>
+  <%= f.input :comments %>
+  <%= f.input :indoor_outdoor %>
+  <%= f.input :disponibility %>
+  <%= f.submit %>
+<% end %>
