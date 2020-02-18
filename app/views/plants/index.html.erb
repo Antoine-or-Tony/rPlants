@@ -15,8 +15,8 @@
 
         <div class="cards">
           <% @plants.each do |plant| %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(src=)">
-              <p><%= link_to plant.name, plant_path(plant), class:"btn-plant"%></p>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url('<%= cl_image_path @plant.photo.key, height: 300, width: 400, crop: :fill %>')">
+              <p><%= link_to plant.name, plant_path(plant)%></p>
             </div>
           <% end %>
         </div>
