@@ -1,4 +1,6 @@
 class PlantsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show ]
+
   def index
     @plants = Plant.all
   end
@@ -29,7 +31,8 @@ class PlantsController < ApplicationController
                                   :species,
                                   :comments,
                                   :disponibility,
-                                  :indoor_outdoor)
+                                  :indoor_outdoor,
+                                  :photo)
   end
 
 # TO DO - destroy, edit, update

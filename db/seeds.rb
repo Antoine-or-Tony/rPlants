@@ -10,6 +10,7 @@ p "reset seed database"
 User.destroy_all
 Plant.destroy_all
 Booking.destroy_all
+Review.destroy_all
 
 p "generate new seed"
 julien = User.new(email: "julien-du-93@gmail.com",
