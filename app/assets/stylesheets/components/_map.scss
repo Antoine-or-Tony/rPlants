@@ -1,0 +1,17 @@
+#map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+@media(max-width: 768px) {
+  #map {
+    display: none
+  }
+}
+
+@media(max-width: 768px) {
+  .main-container {
+    display: block
+  }
+}

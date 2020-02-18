@@ -1,12 +1,24 @@
-<h1>Plant list</h1>
+<div class="main-container">
+  <h1>List of your selected plants</h1>
+    <div class="d-flex">
+          <div class="cards">
+            <% @plants.each do |plant| %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+              <p><%= link_to plant.name, plant_path(plant)%></p>
+            </div>
 
-<% @plants.each do |plant| %>
-  <p><%= link_to plant.name, plant_path(plant) %></p>
-  <% if policy(plant).edit? %>
-    <%= link_to "Update", edit_plant_path(plant) %>
-  <% end %>
-<% end %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
+              <p><%= link_to plant.name, plant_path(plant) %></p>
+            </div>
 
-<% if policy(Plant).create? %>
-  <%= link_to "Add a new plant", new_plant_path %>
-<% end %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+              <p><%= link_to plant.name, plant_path(plant) %></p>
+            </div>
+             <% end %>
+          </div>
+
+      <div>
+        <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiZGp1bGVzZGV2IiwiYSI6ImNrNmFtaTZpZjA2dW0zZnA5eGxhaTNtdWwifQ.C_-YH3aBuC47FZ3OR64-bA'>
+      </div>
+    </div>
+</div>
