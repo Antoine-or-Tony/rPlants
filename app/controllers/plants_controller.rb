@@ -2,24 +2,47 @@ class PlantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show ]
 
   def index
-    @plants = Plant.all
+    @plants = policy_scope(Plant).order(created_at: :desc)
   end
 
   def show
     @plant = Plant.find(params[:id])
     @reviews = @plant.reviews
+    authorize @plant
   end
 
   def new
     @plant = Plant.new()
+    authorize @plant
   end
 
   def create
     @plant = Plant.new(plant_params)
     @plant.user = current_user
     @plant.save
+    authorize @plant
+    redirect_to plants_path
+  end
 
-    redirect_to user_path(@user)
+  def edit
+    @plant = Plant.find(params[:id])
+    authorize @plant
+  end
+
+  def update
+    @plant = Plant.find(params[:id])
+    @plant.update(plant_params)
+    authorize @plant
+
+    # no need for app/views/restaurants/update.html.erb
+    redirect_to plants_path
+  end
+
+  def destroy
+    @plant = Plant.find(params[:id])
+    @plant.destroy
+    authorize @plant
+    redirect_to plants_path
   end
 
   private
@@ -35,7 +58,5 @@ class PlantsController < ApplicationController
                                   :indoor_outdoor,
                                   :photo)
   end
-
-# TO DO - destroy, edit, update
 
 end
