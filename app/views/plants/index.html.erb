@@ -1,3 +1,6 @@
+<h1>Plant list</h1>
+
 <% @plants.each do |plant| %>
-  <p><%= plant.name %></p>
+  <p><%= link_to plant.name, plant_path(plant) %></p>
 <% end %>
+
