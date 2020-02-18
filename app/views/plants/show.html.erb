@@ -1,4 +1,5 @@
 <div class="container">
+   <%= cl_image_tag @plant.photo.key, height: 130, width: 200, crop: :fill %>
   <h1><%= @plant.name %></h1>
   <p> <%=  @plant.comments %>(Comment a mettre a gauche)</p>
   <p>TO DO METTRE CAROUSEL (mettre a droire)</p>
