@@ -1,6 +1,5 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn-images-1.medium.com/max/2000/1*zycJdgMbLw3jODarBkR-PA.jpeg);">
   <div class="container">
-
     <div class="row" style="justify-content: space-between;">
       <div class = "form-home">
         <%= simple_form_for ("http://localhost:3000/") do |f| %>
@@ -25,4 +24,10 @@
     </div>
 
   </div>
+</div>
+
+<div> 
+  <p> <%= link_to "Browse all plants", plants_path %></p>
+  <p><%= link_to "Show all bookings", bookings_path %></p>
+  <p><%= link_to "Show all users", users_path %></p>
 </div>
