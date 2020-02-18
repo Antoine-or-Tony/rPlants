@@ -1,4 +1,6 @@
 <h1><%= @plant.name %></h1>
+<p> Contacter le propriétaire : <%= @plant.user.email %> </p>
+<p> <%= link_to "Consulter le profil du propriétaire", user_path(@plant.user) %></p>
 
 <p> <%= link_to "Back to plants", plants_path %></p>
 
