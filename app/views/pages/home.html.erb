@@ -1,10 +1,33 @@
-<h1>Welcome to AirPlants</h1>
-<p>A very cool marketplace for plants lovers</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn-images-1.medium.com/max/2000/1*zycJdgMbLw3jODarBkR-PA.jpeg);">
+  <div class="container">
+    <div class="row" style="justify-content: space-between;">
+      <div class = "form-home">
+        <%= simple_form_for ("http://localhost:3000/") do |f| %>
+          <div class="row">
+            <%= f.input :start_date, as: :date %>
+            <%= f.input :end_date, as: :date %>
+            <div class="row">
+              <%= f.input :indoor_outdoor, as: :check_boxes, collection: [ "Indoor", "Outdoor"] %>
+              <%= f.input :size, as: :check_boxes, collection: [ "Tight", "Middle", "Tall"] %>
+              <%= f.input :delivery, as: :radio_buttons, collection: [ "pickup", "delivery"] %>
+            </div>
+          </div>
 
-<<<<<<< HEAD
-<p> <%= link_to "Browse all plants", plants_path %></p>
-<p><%= link_to "Show all bookings", bookings_path %></p>
+            <%= f.button :submit, "Search", class: "btn-warning" %>
+            <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-white" %>
+        <% end %>
+      </div>
+      <div class="text-format">
+        <h1>Welcome to AirPlants</strong>!</h1>
+        <p>A very cool marketplace for plants lovers</p>
+      </div>
+    </div>
 
-<p><%= link_to "Show all users", users_path %></p>
-=======
->>>>>>> 09a639797b0e4ce4cc1832974d2f492438e84839
+  </div>
+</div>
+
+<div> 
+  <p> <%= link_to "Browse all plants", plants_path %></p>
+  <p><%= link_to "Show all bookings", bookings_path %></p>
+  <p><%= link_to "Show all users", users_path %></p>
+</div>
