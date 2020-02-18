@@ -29,7 +29,8 @@ class PlantsController < ApplicationController
                                   :species,
                                   :comments,
                                   :disponibility,
-                                  :indoor_outdoor)
+                                  :indoor_outdoor,
+                                  :photo)
   end
 
 # TO DO - destroy, edit, update
