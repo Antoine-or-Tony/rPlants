@@ -1,22 +1,24 @@
 <div class="main-container">
   <h1>List of your selected plants</h1>
+  <div class="d-flex">
+  <div class="dropdown mr-1">
+    <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+      Offset
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+    </div>
+  </div>
     <div class="d-flex">
-          <div class="cards">
-            <% @plants.each do |plant| %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <div class="cards">
+          <% @plants.each do |plant| %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(src=)>
               <p><%= link_to plant.name, plant_path(plant)%></p>
             </div>
-
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
-              <p><%= link_to plant.name, plant_path(plant) %></p>
-            </div>
-
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-              <p><%= link_to plant.name, plant_path(plant) %></p>
-            </div>
-             <% end %>
-          </div>
-
+          <% end %>
+        </div>
       <div>
         <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiZGp1bGVzZGV2IiwiYSI6ImNrNmFtaTZpZjA2dW0zZnA5eGxhaTNtdWwifQ.C_-YH3aBuC47FZ3OR64-bA'>
       </div>
