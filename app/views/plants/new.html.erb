@@ -1,6 +1,7 @@
 <h1>Create a new plant</h1>
 
 <%= simple_form_for(@plant) do |f| %>
+  <%= f.input :photo, as: :file %>
   <%= f.input :name %>
   <%= f.input :price %>
   <%= f.input :weight %>
