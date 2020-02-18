@@ -32,7 +32,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(user_params)
     authorize @user
-
     # no need for app/views/restaurants/update.html.erb
     redirect_to users_path
   end
