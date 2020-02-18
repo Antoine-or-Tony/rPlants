@@ -1,3 +1,32 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn-images-1.medium.com/max/2000/1*zycJdgMbLw3jODarBkR-PA.jpeg);">
+  <div class="container">
+
+    <div class="row" style="justify-content: space-between;">
+      <div class = "form-home">
+        <%= simple_form_for ("http://localhost:3000/") do |f| %>
+          <div class="row">
+            <%= f.input :start_date, as: :date %>
+            <%= f.input :end_date, as: :date %>
+            <div class="row">
+              <%= f.input :indoor_outdoor, as: :check_boxes, collection: [ "Indoor", "Outdoor"] %>
+              <%= f.input :size, as: :check_boxes, collection: [ "Tight", "Middle", "Tall"] %>
+              <%= f.input :delivery, as: :check_boxes, collection: [ "pickup", "delivery"] %>
+            </div>
+          </div>
+
+            <%= f.button :submit, "Search", class: "btn-warning" %>
+            <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-white" %>
+        <% end %>
+      </div>
+      <div class="text-format">
+        <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
+        <p>Change your life and learn to code at one of our campuses around the world.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
 
