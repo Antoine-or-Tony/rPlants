@@ -12,14 +12,15 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new()
+    @plant = Plant.find(params[:plant_id])
     authorize @booking
   end
 
   def create
-    authorize @booking
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.save
+    authorize @booking
 
     redirect_to bookings_path
   end
