@@ -1,0 +1,34 @@
+<div class="form-new-banner">
+  <h1 class="text-center">Create a new booking</h1>
+</div>
+
+<div class="container text-center">
+  <h1>Booking information</h1>
+    <!-- cl_image_tag @plant.photo, height: 130, width: 200, crop: :fill -->
+    <p>Name: <%= @plant.name %></p>
+    <p>Price: <%= @plant.price %></p>
+    <p>Weight: <%= @plant.weight %></p>
+    <p>Size: <%= @plant.size%></p>
+    <p>Species: <%= @plant.species %></p>
+    <p>Comments: <%= @plant.comments %></p>
+    <p>Indoor/outdoor: <%= @plant.indoor_outdoor %></p>
+    <p>Disponibility: <%= @plant.disponibility %></p>
+</div>
+
+<div class="container text-center">
+  <p>--------------------------------------</p>
+  <h1>CREER UNE METHODE DE PAIEMENT ICI</h1>
+  <p>--------------------------------------</p>
+</div>
+
+<div class="container text-center">
+  <h2>Please confirm booking</h2>
+  <%= link_to "Confirm booking",
+                  plant_bookings_path(),
+                  method: :post,
+                  data: { confirm: "Are you sure?" },
+                  class:"btn-plant"%>
+
+</div>
+
+<%= link_to "Back to plants", plants_path %>

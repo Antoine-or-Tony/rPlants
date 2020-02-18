@@ -7,6 +7,7 @@ class PlantsController < ApplicationController
 
   def show
     @plant = Plant.find(params[:id])
+    @reviews = @plant.reviews
     authorize @plant
   end
 
@@ -20,7 +21,6 @@ class PlantsController < ApplicationController
     @plant.user = current_user
     @plant.save
     authorize @plant
-
     redirect_to plants_path
   end
 
@@ -58,7 +58,5 @@ class PlantsController < ApplicationController
                                   :indoor_outdoor,
                                   :photo)
   end
-
-# TO DO - destroy, edit, update
 
 end
