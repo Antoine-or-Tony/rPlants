@@ -2,23 +2,48 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show ]
 
   def index
-    @users = User.all
+    @users = policy_scope(User).order(created_at: :desc)
   end
 
   def show
     @user = User.find(params[:id])
+    authorize @user
   end
 
   def new
     @user = User.new()
+    authorize @user
   end
 
   def create
     @user = User.new(user_params)
     @user.save
+    authorize @user
 
     redirect_to user_path(@user)
   end
+
+  def edit
+    @user = User.find(params[:id])
+    authorize @user
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    authorize @user
+
+    # no need for app/views/restaurants/update.html.erb
+    redirect_to users_path
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    # no need for app/views/bookings/destroy.html.erb
+    redirect_to users_path
+  end
+
 
   private
 
