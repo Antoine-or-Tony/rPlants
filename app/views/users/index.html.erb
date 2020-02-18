@@ -1,6 +1,8 @@
 <h1>Liste des users</h1>
 
 <% @users.each do |user| %>
-  <p><%= link_to user.email, user_path(user) %></p>
+  <ul>
+    <p><%= link_to user.email, user_path(user), class:"text-dark" %></p>
+  </ul>
 <% end %>
 
