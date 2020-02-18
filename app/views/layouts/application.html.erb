@@ -14,6 +14,11 @@
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+    <!-- Added flashes for sign-in/log-in -->
+    <%= render 'shared/flashes' %>
+
+    <!-- To delete with final version -->
     <p><%= link_to "back to homepage", root_path %></p>
   </body>
 </html>
