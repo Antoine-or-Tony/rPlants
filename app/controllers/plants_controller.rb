@@ -16,11 +16,32 @@ class PlantsController < ApplicationController
   end
 
   def create
-    authorize @plant
     @plant = Plant.new(plant_params)
     @plant.user = current_user
     @plant.save
+    authorize @plant
 
+    redirect_to plants_path
+  end
+
+  def edit
+    @plant = Plant.find(params[:id])
+    authorize @plant
+  end
+
+  def update
+    @plant = Plant.find(params[:id])
+    @plant.update(plant_params)
+    authorize @plant
+
+    # no need for app/views/restaurants/update.html.erb
+    redirect_to plants_path
+  end
+
+  def destroy
+    @plant = Plant.find(params[:id])
+    @plant.destroy
+    authorize @plant
     redirect_to plants_path
   end
 

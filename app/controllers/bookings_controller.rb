@@ -16,11 +16,25 @@ class BookingsController < ApplicationController
   end
 
   def create
-    authorize @booking
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.save
+    authorize @booking
 
+    redirect_to bookings_path
+  end
+
+  def edit
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    authorize @booking
+
+    # no need for app/views/restaurants/update.html.erb
     redirect_to bookings_path
   end
 

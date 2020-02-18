@@ -4,6 +4,7 @@
   <p><%= link_to plant.name, plant_path(plant) %></p>
   <% if policy(plant).edit? %>
     <%= link_to "Update", edit_plant_path(plant) %>
+    <%= link_to "Delete", plant_path(plant), method: :delete %>
   <% end %>
 <% end %>
 
