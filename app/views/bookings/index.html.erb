@@ -1,7 +1,9 @@
+<h1>Booking index</h1>
 <ul>
   <% @bookings.each do |booking| %>
     <p>Plant booked: <%= booking.plant.name %></p>
     <p>Start date: <%= booking.start_date %></p>
     <p>End date: <%= booking.end_date %></p>
+    <%= link_to "Booking details", booking_path(booking) %>
   <% end %>
 </ul>
