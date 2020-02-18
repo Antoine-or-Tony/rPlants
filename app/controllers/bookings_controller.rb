@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new()
+    @plant = Plant.find(params[:plant_id])
     authorize @booking
   end
 
@@ -44,8 +45,6 @@ class BookingsController < ApplicationController
     # no need for app/views/bookings/destroy.html.erb
     redirect_to bookings_path
   end
-
-  # TO DO : create, destroy
 
   def booking_params
     params.require(:plant).permit(:start_date,
