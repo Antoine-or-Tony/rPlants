@@ -10,7 +10,7 @@
             <div class="row">
               <%= f.input :indoor_outdoor, as: :check_boxes, collection: [ "Indoor", "Outdoor"] %>
               <%= f.input :size, as: :check_boxes, collection: [ "Tight", "Middle", "Tall"] %>
-              <%= f.input :delivery, as: :check_boxes, collection: [ "pickup", "delivery"] %>
+              <%= f.input :delivery, as: :radio_buttons, collection: [ "pickup", "delivery"] %>
             </div>
           </div>
 
