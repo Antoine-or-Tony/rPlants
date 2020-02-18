@@ -1,1 +1,35 @@
 // Specific CSS for your home-page
+
+
+.text-format {
+  width: 45%;
+  align-self: center;
+}
+
+.form-home {
+  width: 45%;
+  background-color: rgba(0,0,0,0.4);
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.form-home .row {
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+label {
+  color: white;
+}
+
+legend {
+  color: white;
+}
+
+
+.btn-outline-white {
+    color: white;
+    border-color: white;
+}
