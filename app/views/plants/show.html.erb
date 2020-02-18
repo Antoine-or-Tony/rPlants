@@ -1,6 +1,61 @@
-<h1><%= @plant.name %></h1>
-<p> Contacter le propriétaire : <%= @plant.user.email %> </p>
-<p> <%= link_to "Consulter le profil du propriétaire", user_path(@plant.user) %></p>
 
-<p> <%= link_to "Back to plants", plants_path %></p>
+<div class="container">
+  <h1><%= @plant.name %></h1>
+  <p> <%=  @plant.comments %>(Comment a mettre a gauche)</p>
+  <p>TO DO METTRE CAROUSEL (mettre a droire)</p>
 
+  <div class = "d-flex justify-content-center">
+    <div class = "form-home">
+      <%= simple_form_for ("http://localhost:3000/") do |f| %>
+        <div class="row">
+          <%= f.input :start_date, as: :date %>
+          <%= f.input :end_date, as: :date %>
+        </div>
+          <%= f.button :submit, "Search", class: "btn-warning" %>
+          <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-white" %>
+      <% end %>
+    </div>
+  </div>
+
+  <br>
+
+  <p> TO DO: CALENDRIER DISPO <%= @plant.disponibility %></p>
+  <p> Contacter le propriétaire : <%= @plant.user.email %> </p>
+
+  <h5> Product details </h5>
+    <table class="table table-striped table-secondary">
+      <tbody>
+        <tr>
+          <th scope="row">species</th>
+          <td><%= @plant.species %></td>
+        </tr>
+        <tr>
+          <th scope="row">size</th>
+          <td><%= @plant.size %></td>
+        </tr>
+        <tr>
+          <th scope="row">weight</th>
+          <td><%= @plant.weight %></td>
+        </tr>
+        <tr>
+          <th scope="row">indoor_outdoor</th>
+          <td><%= @plant.indoor_outdoor %></td>
+        </tr>
+      </tbody>
+    </table>
+
+  <div class="row space-around">
+    <p> <%= link_to "Back to plants", plants_path, class:"btn btn-outline-success btn-width-100" %></p>
+    <p> <%= link_to "Consult the owner profil", user_path(@plant.user), class:"btn btn-outline-success btn-width-100"%></p>
+  </div>
+
+  <% @reviews.each do |review| %>
+    <div class="card-review">
+     <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+     <div class="card-review-infos">
+       <p><%= review.comments %></p>
+       <p><%= "⭐️"*review.rating%></p>
+     </div>
+    </div>
+  <% end %>
+</div>
