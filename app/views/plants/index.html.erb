@@ -4,15 +4,15 @@
           <div class="cards">
             <% @plants.each do |plant| %>
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-              <p><%= link_to plant.name, plant_path(plant)%></p>
+              <p><%= link_to plant.name, plant_path(plant), class:"btn-plant"%></p>
             </div>
 
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
-              <p><%= link_to plant.name, plant_path(plant) %></p>
+              <p><%= link_to plant.name, plant_path(plant), class:"btn-plant"%></p>
             </div>
 
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-              <p><%= link_to plant.name, plant_path(plant) %></p>
+              <p><%= link_to plant.name, plant_path(plant), class:"btn-plant"%></p>
             </div>
              <% end %>
           </div>
