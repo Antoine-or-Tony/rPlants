@@ -9,7 +9,7 @@ class CreatePlants < ActiveRecord::Migration[6.0]
       t.string :comments
       t.string :disponibility
       t.string :indoor_outdoor
-      t.references :user, null: false, foreign_key: true
+      # t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

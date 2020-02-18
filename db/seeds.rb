@@ -12,14 +12,12 @@ Plant.destroy_all
 Booking.destroy_all
 
 p "generate new seed"
-julien = User.new(username: "julien-du-93",
-                  firstname: "julien",
-                  lastname: "lalou")
+julien = User.new(email: "julien-du-93@gmail.com",
+  password: 123456)
 julien.save!
 
-antoine = User.new(username: "antoine-du-93",
-                  firstname: "antoine",
-                  lastname: "lalou")
+antoine = User.new(email: "antoine-du-93@gmail.com",
+  password: 567890)
 antoine.save!
 
 
