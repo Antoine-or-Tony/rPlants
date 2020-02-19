@@ -1,20 +1,22 @@
 <div class="container mt-3">
-  <div class="row">
-    <p> <%= link_to "Back to plants", plants_path, class:"btn btn-success btn-width-100" %></p>
+  <div class="row pl-3">
+    <p> <%= link_to "Back to plants", plants_path, class:"btn btn-secondary btn-width-100" %></p>
   </div>
 </div>
 
 <div class="container">
   <h1><%= @plant.name %></h1>
-    <p> <%= link_to "Consult the owner profile", user_path(@plant.user), class:"btn btn-secondary btn-width-100"%></p>
-  <div class="row mt-3">
+    <p> <%= link_to "Consult the owner profile", user_path(@plant.user), class:"btn btn-primary btn-width-100"%></p>
+  <div class="row">
     <div class="col-6">
-      <!-- <p> @plant.address </p> -->
-      <p> <%=  @plant.comments %></p>
-
       <!-- Affichage des infos de la plante -->
-      <div class="container bg-white shadow pt-3">
+      <div class="container bg-white shadow mt-3 pt-3">
         <h2> Product details </h2>
+        <div class="row">
+          <div class="col-12">
+            <p> <%=  @plant.comments %></p>
+          </div>
+        </div>
         <div class="row">
           <div class="col-6">
             <p>Species</p>
@@ -33,10 +35,10 @@
         </div>
         <div class="row">
           <div class="col-6">
-            <p>Weight</p>
+            <p>Weight (kg)</p>
           </div>
           <div class="col-6">
-            <p><%= @plant.indoor_outdoor %></p>
+            <p><%= @plant.weight %></p>
           </div>
         </div>
         <div class="row">
@@ -47,6 +49,15 @@
             <p><%= @plant.indoor_outdoor %></p>
           </div>
         </div>
+        <div class="row">
+          <div class="col-6">
+            <p>Address</p>
+          </div>
+          <div class="col-6">
+            <p><%= @plant.address %></p>
+          </div>
+        </div>
+
       </div>
 
     <!-- Affichage des reviews -->
@@ -64,7 +75,7 @@
 
   <!-- Choix des dates  -->
   <div class="container mt-3 mb-3 bg-white shadow pt-3">
-    <h2>Choose your dates</h2>
+    <h2>Availabilities</h2>
     <div class="row mt-3">
       <div class="col-12">
         <p>
