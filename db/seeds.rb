@@ -22,8 +22,7 @@ julien.save!
 
 p "julien created"
 
-antoine = User.new(email: "antoine-du-93@gmail.com",
-  password: "567890")
+antoine = User.new(email: "antoine-du-93@gmail.com", password: "567890")
 antoine.save!
 
 p "antoine created"
@@ -45,13 +44,11 @@ sapin_file = URI.open('https://photos.gammvert.fr/v5/products/full/50697-sapin-d
 p "generate seed plants"
 begonia = Plant.new(name: "Mon beau begonia",
                     price: 10,
-                    disponibility: true,
                     species: "begonia",
-                    address: "16 Villa Gaudelet Paris")
+                    address: "16 Villa Gaudelet Paris",
                     disponibility_start: DateTime.new(2020,5,1),
                     disponibility_end: DateTime.new(2020,8,4),
                     species: "begonia")
-
 begonia.user = julien
 begonia.photo.attach(io: begonia_file, filename: 'begonia.jpg', content_type: 'image/jpg')
 begonia.save!
@@ -60,6 +57,7 @@ p "begonia created"
 
 p tulipe = Plant.new(name: "Tulipe",
                     price: 10,
+                    address: "10 rue des batignolles Paris",
                     disponibility_start: DateTime.new(2020,3,6),
                     disponibility_end: DateTime.new(2020,5,7),
                     species: "gros bulbe")
@@ -94,23 +92,23 @@ ficus.save!
 
 p "ficus created"
 
-sapin = Plant.new(name: "sapin",
-                    price: 10,
-                    disponibility_start: DateTime.new(2020,12,11),
-                    disponibility_end: DateTime.new(2021,8,4),
-                    species: "gros bulbe")
-sapin.user = antoine
-sapin.photo.attach(io: sapin_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
-sapin.save!
+# sapin = Plant.new(name: "sapin",
+#                     price: 10,
+#                     disponibility_start: DateTime.new(2020,12,11),
+#                     disponibility_end: DateTime.new(2021,8,4),
+#                     species: "gros bulbe")
+# sapin.user = antoine
+# sapin.photo.attach(io: sapin_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
+# sapin.save!
 
-lierre = Plant.new(name: "lierre",
-                    price: 10,
-                    disponibility_start: DateTime.new(2020,4,7),
-                    disponibility_end: DateTime.new(2020,8,5),
-                    species: "lierrebud")
-lierre.user = antoine
-lierre.photo.attach(io: rose_file, filename: 'rose.jpg', content_type: 'image/jpg')
-lierre.save!
+# lierre = Plant.new(name: "lierre",
+#                     price: 10,
+#                     disponibility_start: DateTime.new(2020,4,7),
+#                     disponibility_end: DateTime.new(2020,8,5),
+#                     species: "lierrebud")
+# lierre.user = antoine
+# lierre.photo.attach(io: rose_file, filename: 'rose.jpg', content_type: 'image/jpg')
+# lierre.save!
 
 # p "lierre created"
 
