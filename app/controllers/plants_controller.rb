@@ -21,7 +21,7 @@ class PlantsController < ApplicationController
     @plant.user = current_user
     @plant.save
     authorize @plant
-    redirect_to plants_path
+    redirect_to user_path(@plant.user)
   end
 
   def edit
@@ -34,15 +34,14 @@ class PlantsController < ApplicationController
     @plant.update(plant_params)
     authorize @plant
 
-    # no need for app/views/restaurants/update.html.erb
-    redirect_to plants_path
+    redirect_to user_path(@plant.user)
   end
 
   def destroy
     @plant = Plant.find(params[:id])
     @plant.destroy
     authorize @plant
-    redirect_to plants_path
+    redirect_to user_path(@plant.user)
   end
 
   private
