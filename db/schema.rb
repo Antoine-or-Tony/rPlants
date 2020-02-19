@@ -59,11 +59,11 @@ ActiveRecord::Schema.define(version: 2020_02_19_102436) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
-    t.date "disponibility_start"
-    t.date "disponibility_end"
     t.float "latitude"
     t.float "longitude"
     t.string "address"
+    t.date "disponibility_start"
+    t.date "disponibility_end"
     t.index ["user_id"], name: "index_plants_on_user_id"
   end
 
