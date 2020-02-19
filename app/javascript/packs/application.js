@@ -24,8 +24,6 @@ require("channels")
 
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
-
-
 import flatpickr from "flatpickr";
 import "flatpickr/dist/themes/airbnb.css"
 
