@@ -92,14 +92,17 @@ ficus.save!
 
 p "ficus created"
 
-# sapin = Plant.new(name: "sapin",
-#                     price: 10,
-#                     disponibility_start: DateTime.new(2020,12,11),
-#                     disponibility_end: DateTime.new(2021,8,4),
-#                     species: "gros bulbe")
-# sapin.user = antoine
-# sapin.photo.attach(io: sapin_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
-# sapin.save!
+
+sapin = Plant.new(name: "sapin",
+                    price: 10,
+                    disponibility_start: DateTime.new(2020,12,11),
+                    disponibility_end: DateTime.new(2021,8,4),
+                    species: "gros bulbe")
+sapin.user = antoine
+sapin.photo.attach(io: sapin_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
+sapin.save!
+
+p "sapin created"
 
 # lierre = Plant.new(name: "lierre",
 #                     price: 10,
