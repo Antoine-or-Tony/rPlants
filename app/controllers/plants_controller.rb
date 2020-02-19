@@ -6,8 +6,7 @@ class PlantsController < ApplicationController
 
     @plants = Plant.where(
       indoor_outdoor: params[:indoor_outdoor],
-      size: params[:size],
-      delivery: params[:delivery])
+      size: params[:size])
 
     @plants_for_map = Plant.geocoded
 
@@ -71,8 +70,7 @@ class PlantsController < ApplicationController
                                   :disponibility_start,
                                   :disponibility_end,
                                   :indoor_outdoor,
-                                  :photo,
-                                  :delivery)
+                                  :photo)
   end
 
 end
