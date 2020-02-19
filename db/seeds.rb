@@ -110,7 +110,7 @@ p "sapin created"
 # lierre.photo.attach(io: rose_file, filename: 'rose.jpg', content_type: 'image/jpg')
 # lierre.save!
 
-p "lierre created"
+# p "lierre created"
 
 p "generate seed bookings"
 booking1 = Booking.new(start_date: DateTime.now,
