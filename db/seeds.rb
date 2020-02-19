@@ -10,25 +10,25 @@
 require "open-uri"
 
 p "reset seed database"
-User.destroy_all
-Plant.destroy_all
-Booking.destroy_all
 Review.destroy_all
+Booking.destroy_all
+Plant.destroy_all
+User.destroy_all
 
 p "generate new users"
 julien = User.new(email: "julien-du-93@gmail.com",
-  password: 123456)
+  password: "123456")
 julien.save!
 
 p "julien created"
 
 antoine = User.new(email: "antoine-du-93@gmail.com",
-  password: 567890)
+  password: "567890")
 antoine.save!
 
 p "antoine created"
 
-laurent = User.new(email: "laurent@gmail.com", password: 123456)
+p laurent = User.new(email: "laurent@gmail.com", password: "123456")
 laurent.save!
 
 p "laurent created"
@@ -40,6 +40,7 @@ begonia_file = URI.open('https://www.queenflowerbulbs.fr/media/product/187/bulbe
 tulipe_file = URI.open('https://media.ooreka.fr/public/image/plant/80/mainImage-source-9412304.jpg')
 rose_file = URI.open('https://www.jacksonandperkins.com/images/xxl/v1780.jpg')
 ficus_file = URI.open('https://www.jardinpourvous.com/media/catalog/product/cache/13/image/500x/9df78eab33525d08d6e5fb8d27136e95/F/D/FD19307WH_13.jpg')
+sapin_file = URI.open('https://photos.gammvert.fr/v5/products/full/50697-sapin-de-noel-artificiel-vert-tsuga-h215xd137cm-2.jpg')
 
 p "generate seed plants"
 begonia = Plant.new(name: "Mon beau begonia",
@@ -52,14 +53,14 @@ begonia.save!
 
 p "begonia created"
 
-tulipe = Plant.new(name: "Tulipe",
+p tulipe = Plant.new(name: "Tulipe",
                     price: 10,
                     disponibility: true,
                     species: "gros bulbe")
 p "tulipe new"
 tulipe.photo.attach(io: tulipe_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
 p "tulipe photo saved"
-tulipe.user = julien
+p tulipe.user = laurent
 p "laurent saved to tulipe"
 tulipe.save!
 
@@ -79,7 +80,7 @@ ficus = Plant.new(name: "Mon beau ficus",
                     price: 10,
                     disponibility: true,
                     species: "ficus")
-ficus.user = laurent
+ficus.user = antoine
 ficus.photo.attach(io: ficus_file, filename: 'rose.jpg', content_type: 'image/jpg')
 ficus.save!
 
@@ -90,20 +91,10 @@ sapin = Plant.new(name: "sapin",
                     disponibility: true,
                     species: "gros bulbe")
 sapin.user = antoine
-sapin.photo.attach(io: tulipe_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
+sapin.photo.attach(io: sapin_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
 sapin.save!
 
 p "sapin created"
-
-lierre = Plant.new(name: "lierre",
-                    price: 10,
-                    disponibility: true,
-                    species: "lierrebud")
-lierre.user = antoine
-lierre.photo.attach(io: rose_file, filename: 'rose.jpg', content_type: 'image/jpg')
-lierre.save!
-
-p "lierre created"
 
 p "generate seed bookings"
 booking1 = Booking.new(start_date: DateTime.now,
@@ -119,7 +110,7 @@ booking2 = Booking.new(start_date: DateTime.now,
                     end_date: DateTime.now,
                     total_price: 10)
 booking2.user = julien
-booking2.plant = begoni
+booking2.plant = begonia
 booking2.save!
 
 p "booking2 created"
@@ -128,7 +119,7 @@ booking3 = Booking.new(start_date: DateTime.now,
                     end_date: DateTime.now,
                     total_price: 10)
 booking3.user = laurent
-booking3.plant = lierre
+booking3.plant = tulipe
 booking3.save!
 
 p "generate seed reviews"
