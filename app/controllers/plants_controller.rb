@@ -3,6 +3,15 @@ class PlantsController < ApplicationController
 
   def index
     @plants = policy_scope(Plant).order(created_at: :desc)
+    @plants_for_map = Plant.geocoded
+
+    @markers = @plants_for_map.map do |plant|
+      {
+        lat: plant.latitude,
+        lng: plant.longitude,
+        image_url: helpers.asset_url('marker.png')
+      }
+    end
   end
 
   def show

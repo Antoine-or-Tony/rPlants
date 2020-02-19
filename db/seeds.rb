@@ -22,8 +22,7 @@ julien.save!
 
 p "julien created"
 
-antoine = User.new(email: "antoine-du-93@gmail.com",
-  password: "567890")
+antoine = User.new(email: "antoine-du-93@gmail.com", password: "567890")
 antoine.save!
 
 p "antoine created"
@@ -45,6 +44,8 @@ sapin_file = URI.open('https://photos.gammvert.fr/v5/products/full/50697-sapin-d
 p "generate seed plants"
 begonia = Plant.new(name: "Mon beau begonia",
                     price: 10,
+                    species: "begonia",
+                    address: "16 Villa Gaudelet Paris",
                     disponibility_start: DateTime.new(2020,5,1),
                     disponibility_end: DateTime.new(2020,8,4),
                     species: "begonia")
@@ -56,6 +57,7 @@ p "begonia created"
 
 p tulipe = Plant.new(name: "Tulipe",
                     price: 10,
+                    address: "10 rue des batignolles Paris",
                     disponibility_start: DateTime.new(2020,3,6),
                     disponibility_end: DateTime.new(2020,5,7),
                     species: "gros bulbe")
@@ -89,6 +91,7 @@ ficus.photo.attach(io: ficus_file, filename: 'rose.jpg', content_type: 'image/jp
 ficus.save!
 
 p "ficus created"
+
 
 sapin = Plant.new(name: "sapin",
                     price: 10,
