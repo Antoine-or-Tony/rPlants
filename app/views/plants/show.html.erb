@@ -85,18 +85,26 @@
     </div class="col-12">
       <div class = "mt-3 pb-3">
         <div>
-          <h3>Choose your dates</h3>
-          <%= simple_form_for ("http://localhost:3000/") do |f| %>
+          <h3 class="choose-dates" data-start="<%= @plant.disponibility_start %>" data-end="<%= @plant.disponibility_end %>">Choose your dates</h3>
+            <input placeholder="Select Date.." id="flatpickr-start">
+            <input placeholder="Select Date.." id="flatpickr-end">
+
+            <%= link_to "Book this plant without saved dates", new_plant_booking_path(plant_id: @plant.id, dates: "hello"), class:"btn-plant link-to-booking"  %>
+
+<!--
+            <%#= simple_form_for @booking, :url => {controller: "booking", action: "new" } do |f| %>
             <div>
-              <%= f.input :start_date, as: :date, label_html: {class: "label_new"} %>
+              <%#= f.input :start_date, as: :date input_html: {id: "flatpickr-start"} %>
             </div>
             <div>
-              <%= f.input :end_date, as: :date, label_html: {class: "label_new"} %>
+              <%#= f.input :end_date, input_html: {id: "flatpickr-end"} %>
             </div>
             <div class="text-center">
-              <%= f.button :submit, "Book this plant", class: "btn-success btn-width-200" %>
+              <%#= f.button :submit, "Book this plant", class: "btn-success btn-width-200" %>
             </div>
-          <% end %>
+          <%# end %>
+ -->
+
         </div>
       </div>
     </div>
