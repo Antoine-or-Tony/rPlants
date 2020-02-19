@@ -45,7 +45,8 @@ sapin_file = URI.open('https://photos.gammvert.fr/v5/products/full/50697-sapin-d
 p "generate seed plants"
 begonia = Plant.new(name: "Mon beau begonia",
                     price: 10,
-                    disponibility: true,
+                    disponibility_start: DateTime.new(2020,5,1),
+                    disponibility_end: DateTime.new(2020,8,4),
                     species: "begonia")
 begonia.user = julien
 begonia.photo.attach(io: begonia_file, filename: 'begonia.jpg', content_type: 'image/jpg')
@@ -55,7 +56,8 @@ p "begonia created"
 
 p tulipe = Plant.new(name: "Tulipe",
                     price: 10,
-                    disponibility: true,
+                    disponibility_start: DateTime.new(2020,3,6),
+                    disponibility_end: DateTime.new(2020,5,7),
                     species: "gros bulbe")
 p "tulipe new"
 tulipe.photo.attach(io: tulipe_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
@@ -68,7 +70,8 @@ p "tulipe created"
 
 rose = Plant.new(name: "Rose",
                     price: 10,
-                    disponibility: true,
+                    disponibility_start: DateTime.new(2020,4,9),
+                    disponibility_end: DateTime.new(2020,5,3),
                     species: "Rosebud")
 rose.user = antoine
 rose.photo.attach(io: rose_file, filename: 'rose.jpg', content_type: 'image/jpg')
@@ -78,7 +81,8 @@ p "rose created"
 
 ficus = Plant.new(name: "Mon beau ficus",
                     price: 10,
-                    disponibility: true,
+                    disponibility_start: DateTime.new(2020,6,3),
+                    disponibility_end: DateTime.new(2020,9,12),
                     species: "ficus")
 ficus.user = antoine
 ficus.photo.attach(io: ficus_file, filename: 'rose.jpg', content_type: 'image/jpg')
@@ -88,13 +92,25 @@ p "ficus created"
 
 sapin = Plant.new(name: "sapin",
                     price: 10,
-                    disponibility: true,
+                    disponibility_start: DateTime.new(2020,12,11),
+                    disponibility_end: DateTime.new(2021,8,4),
                     species: "gros bulbe")
 sapin.user = antoine
 sapin.photo.attach(io: sapin_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
 sapin.save!
 
 p "sapin created"
+
+lierre = Plant.new(name: "lierre",
+                    price: 10,
+                    disponibility_start: DateTime.new(2020,4,7),
+                    disponibility_end: DateTime.new(2020,8,5),
+                    species: "lierrebud")
+lierre.user = antoine
+lierre.photo.attach(io: rose_file, filename: 'rose.jpg', content_type: 'image/jpg')
+lierre.save!
+
+p "lierre created"
 
 p "generate seed bookings"
 booking1 = Booking.new(start_date: DateTime.now,

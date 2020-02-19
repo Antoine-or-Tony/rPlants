@@ -53,7 +53,8 @@ class PlantsController < ApplicationController
                                   :size,
                                   :species,
                                   :comments,
-                                  :disponibility,
+                                  :disponibility_start,
+                                  :disponibility_end,
                                   :indoor_outdoor,
                                   :photo)
   end
