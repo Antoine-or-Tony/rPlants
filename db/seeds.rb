@@ -31,8 +31,7 @@ julien.save!
 
 p "julien created"
 
-antoine = User.new(email: "antoine-du-93@gmail.com",
-  password: "567890")
+antoine = User.new(email: "antoine-du-93@gmail.com", password: "567890")
 antoine.save!
 
 p "antoine created"
@@ -66,6 +65,8 @@ geranium_file = URI.open('https://www.jardiner-malin.fr/wp-content/uploads/2018/
 p "generate seed plants"
 begonia = Plant.new(name: "Begonia",
                     price: 10,
+                    species: "begonia",
+                    address: "16 Villa Gaudelet Paris",
                     disponibility_start: DateTime.new(2020,5,1),
                     disponibility_end: DateTime.new(2020,8,4),
                     species: "Begonia scharffii",
@@ -80,6 +81,7 @@ p "begonia created"
 
 p tulipe = Plant.new(name: "Tulipe",
                     price: 10,
+                    address: "10 rue des batignolles Paris",
                     disponibility_start: DateTime.new(2020,3,6),
                     disponibility_end: DateTime.new(2020,5,7),
                     species: "Tulipa clusiana ",
@@ -125,7 +127,7 @@ ficus.save!
 
 p "ficus created"
 
-sapin = Plant.new(name: "Sapin",
+sapin = Plant.new(name: "sapin",
                     price: 10,
                     disponibility_start: DateTime.new(2020,12,11),
                     disponibility_end: DateTime.new(2021,8,4),
@@ -160,7 +162,7 @@ geranium = Plant.new(name: "Geranium",
                     disponibility_start: DateTime.new(2020,4,7),
                     disponibility_end: DateTime.new(2020,8,5),
                     species: "Géranium fabulum",
-                    species: "1 rue du Commerce, Paris",
+                    address: "1 rue du Commerce, Paris",
                     size: "S",
                     weight: "3kg",
                     indoor_outdoor: "Outdoor")
