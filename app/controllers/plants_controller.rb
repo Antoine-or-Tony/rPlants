@@ -4,11 +4,20 @@ class PlantsController < ApplicationController
   def index
     @plants = policy_scope(Plant).order(created_at: :desc)
 
-
     @plants = Plant.where(
       indoor_outdoor: params[:indoor_outdoor],
       size: params[:size],
       delivery: params[:delivery])
+
+    @plants_for_map = Plant.geocoded
+
+    @markers = @plants_for_map.map do |plant|
+      {
+        lat: plant.latitude,
+        lng: plant.longitude,
+        image_url: helpers.asset_url('marker.png')
+      }
+    end
   end
 
   def show
@@ -27,7 +36,7 @@ class PlantsController < ApplicationController
     @plant.user = current_user
     @plant.save
     authorize @plant
-    redirect_to plants_path
+    redirect_to user_path(@plant.user)
   end
 
   def edit
@@ -40,15 +49,14 @@ class PlantsController < ApplicationController
     @plant.update(plant_params)
     authorize @plant
 
-    # no need for app/views/restaurants/update.html.erb
-    redirect_to plants_path
+    redirect_to user_path(@plant.user)
   end
 
   def destroy
     @plant = Plant.find(params[:id])
     @plant.destroy
     authorize @plant
-    redirect_to plants_path
+    redirect_to user_path(@plant.user)
   end
 
   private
@@ -56,11 +64,12 @@ class PlantsController < ApplicationController
   def plant_params
     params.require(:plant).permit(:name,
                                   :price,
-                                  :weigth,
+                                  :weight,
                                   :size,
                                   :species,
                                   :comments,
-                                  :disponibility,
+                                  :disponibility_start,
+                                  :disponibility_end,
                                   :indoor_outdoor,
                                   :photo,
                                   :delivery)

@@ -33,3 +33,24 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   border: 1px solid #E7E7E7;
 }
+
+.form-new {
+  width: 60%;
+  background-color: rgba(0,0,0,0.08);
+  padding: 15px;
+  border-radius: 3px;
+  display: inline-block;
+}
+.container-new-plant {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-new .row {
+  justify-content: space-between;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
