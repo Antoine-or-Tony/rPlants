@@ -45,7 +45,8 @@ p "generate seed plants"
 begonia = Plant.new(name: "Mon beau begonia",
                     price: 10,
                     disponibility: true,
-                    species: "begonia")
+                    species: "begonia",
+                    address: "16 Villa Gaudelet Paris")
 begonia.user = julien
 begonia.photo.attach(io: begonia_file, filename: 'begonia.jpg', content_type: 'image/jpg')
 begonia.save!

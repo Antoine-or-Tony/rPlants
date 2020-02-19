@@ -3,6 +3,14 @@ class PlantsController < ApplicationController
 
   def index
     @plants = policy_scope(Plant).order(created_at: :desc)
+    @plants_for_map = Plant.geocoded # returns plats with coordinates
+
+    @markers = @plants_for_map.map do |plant|
+      {
+        lat: plant.latitude,
+        lng: plant.longitude
+      }
+    end
   end
 
   def show
