@@ -6,41 +6,14 @@
       <%= f.input :photo, as: :file %>
       <%= f.input :name, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
       <%= f.input :price, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
-      <%= f.input :weight, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
-      <%= f.input :size, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
-      <%= f.input :species, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
+      <%= f.input :weight, collection: [ "1kg - 10kg", "10kg - 50kg", "+ 50kg"], input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
+      <%= f.input :size, collection: [ "Small", "Medium", "Large"], input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
+      <%= f.input :species,collection: [ "Orchidaceae", "Almond – Prunus dulcis", "Angel trumpet – Brugmansia suaveolens", "Apricot – Prunus armeniaca", "Apple – Malus domestica"], input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
       <%= f.input :comments, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
-      <%= f.input :indoor_outdoor, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
+      <%= f.input :indoor_outdoor, collection: [ "Indoor", "Outdoor"], input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
       <%= f.input :disponibility_start, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
       <%= f.input :disponibility_end, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
       <%= f.submit class: "btn-plant"%>
     <% end %>
     <%= link_to "Back to my profile", :back, class:"btn"  %>
 </div>
-
-
-  <div class="container">
-    <div class="row" style="justify-content: space-between;">
-      <div class = "form-home">
-        <%= simple_form_for (@plant) do |f| %>
-          <div class="row">
-            <%= f.input :start_date, as: :date %>
-            <%= f.input :end_date, as: :date %>
-            <div class="row">
-              <%= f.input :indoor_outdoor, as: :check_boxes, collection: [ "Indoor", "Outdoor"] %>
-              <%= f.input :size, as: :check_boxes, collection: [ "Tight", "Middle", "Tall"] %>
-              <%= f.input :delivery, as: :radio_buttons, collection: [ "pickup", "delivery"] %>
-            </div>
-          </div>
-
-            <%= f.button :submit, "Search", class: "btn-warning" %>
-            <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-white" %>
-        <% end %>
-      </div>
-      <div class="text-format">
-        <h1>Welcome to AirPlants</strong>!</h1>
-        <p>A very cool marketplace for plants lovers</p>
-      </div>
-    </div>
-
-  </div>

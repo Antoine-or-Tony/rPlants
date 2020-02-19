@@ -101,16 +101,16 @@ sapin.save!
 
 p "sapin created"
 
-lierre = Plant.new(name: "lierre",
-                    price: 10,
-                    disponibility_start: DateTime.new(2020,4,7),
-                    disponibility_end: DateTime.new(2020,8,5),
-                    species: "lierrebud")
-lierre.user = antoine
-lierre.photo.attach(io: rose_file, filename: 'rose.jpg', content_type: 'image/jpg')
-lierre.save!
+# lierre = Plant.new(name: "lierre",
+#                     price: 10,
+#                     disponibility_start: DateTime.new(2020,4,7),
+#                     disponibility_end: DateTime.new(2020,8,5),
+#                     species: "lierrebud")
+# lierre.user = antoine
+# lierre.photo.attach(io: rose_file, filename: 'rose.jpg', content_type: 'image/jpg')
+# lierre.save!
 
-p "lierre created"
+# p "lierre created"
 
 p "generate seed bookings"
 booking1 = Booking.new(start_date: DateTime.now,
