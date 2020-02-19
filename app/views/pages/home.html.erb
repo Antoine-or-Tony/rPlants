@@ -4,19 +4,35 @@
   <div class="container">
     <div class="row" style="justify-content: space-between;">
       <div class = "form-home">
-        <%= simple_form_for("local") do |f| %>
+        <%= form_tag plants_path, method: :get do %>
           <div class="row">
-            <%= f.input :start_date, as: :date %>
-            <%= f.input :end_date, as: :date %>
-            <div class="row">
-              <%= f.input :indoor_outdoor, as: :check_boxes, collection: [ "Indoor", "Outdoor"] %>
-              <%= f.input :size, as: :check_boxes, collection: [ "Tight", "Middle", "Tall"] %>
-              <%= f.input :delivery, as: :radio_buttons, collection: [ "pickup", "delivery"] %>
+            <%= date_field_tag :start_date, Date.today() %>
+            <%= date_field_tag :end_date, Date.today() %>
+          </div>
+          <div class="row">
+            <div>
+              <p class="text-white mt-3 font-weight-bold"><%= label_tag 'indoor_outdoor', 'Indoor Outdoor' %></p>
+              <p class="text-white mt-3"><%= check_box_tag 'indoor_outdoor', 'Indoor' %> indoor </p>
+              <p class="text-white mt-3"><%= check_box_tag 'indoor_outdoor', 'Outdoor' %> Outdoor </p>
+            </div>
+
+            <div>
+              <p class="text-white mt-3 font-weight-bold"><%= label_tag 'size', 'Size' %></p>
+              <p class="text-white mt-3"><%= check_box_tag 'size', 'Small' %> Small </p>
+              <p class="text-white mt-3"><%= check_box_tag 'size', 'Middle' %> Middle </p>
+              <p class="text-white mt-3"><%= check_box_tag 'size', 'Tall' %> Tall </p>
+            </div>
+
+            <div>
+              <p class="text-white mt-3 font-weight-bold"><%= label_tag 'delivery', 'Delivery' %></p>
+              <p class="text-white mt-3"><%= check_box_tag 'delivery', 'pickup' %> pickup </p>
+              <p class="text-white mt-3"><%= check_box_tag 'delivery', 'delivery' %> delivery </p>
             </div>
           </div>
 
-            <%= f.button :submit, "Search", class: "btn-warning" %>
-            <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-white" %>
+          <%= submit_tag "Search", class: "btn btn-warning" %>
+          <%= submit_tag "Cancel", type: "reset", class: "btn btn-outline-white" %>
+            <%#= f.button :button, "Cancel", type: "reset", class: "btn-outline-white" %>
         <% end %>
       </div>
       <div class="text-format">

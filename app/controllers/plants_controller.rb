@@ -3,6 +3,12 @@ class PlantsController < ApplicationController
 
   def index
     @plants = policy_scope(Plant).order(created_at: :desc)
+
+
+    @plants = Plant.where(
+      indoor_outdoor: params[:indoor_outdoor],
+      size: params[:size],
+      delivery: params[:delivery])
   end
 
   def show
@@ -56,7 +62,8 @@ class PlantsController < ApplicationController
                                   :comments,
                                   :disponibility,
                                   :indoor_outdoor,
-                                  :photo)
+                                  :photo,
+                                  :delivery)
   end
 
 end
