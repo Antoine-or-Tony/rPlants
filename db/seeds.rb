@@ -10,10 +10,10 @@
 require "open-uri"
 
 p "reset seed database"
-User.destroy_all
-Plant.destroy_all
-Booking.destroy_all
 Review.destroy_all
+Booking.destroy_all
+Plant.destroy_all
+User.destroy_all
 
 p "generate new users"
 julien = User.new(email: "julien-du-93@gmail.com",
@@ -86,25 +86,25 @@ ficus.save!
 
 p "ficus created"
 
-sapin = Plant.new(name: "sapin",
-                    price: 10,
-                    disponibility: true,
-                    species: "gros bulbe")
-sapin.user = antoine
-sapin.photo.attach(io: tulipe_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
-sapin.save!
+# sapin = Plant.new(name: "sapin",
+#                     price: 10,
+#                     disponibility: true,
+#                     species: "gros bulbe")
+# sapin.user = antoine
+# sapin.photo.attach(io: tulipe_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
+# sapin.save!
 
-p "sapin created"
+# p "sapin created"
 
-lierre = Plant.new(name: "lierre",
-                    price: 10,
-                    disponibility: true,
-                    species: "lierrebud")
-lierre.user = antoine
-lierre.photo.attach(io: rose_file, filename: 'rose.jpg', content_type: 'image/jpg')
-lierre.save!
+# lierre = Plant.new(name: "lierre",
+#                     price: 10,
+#                     disponibility: true,
+#                     species: "lierrebud")
+# lierre.user = antoine
+# lierre.photo.attach(io: rose_file, filename: 'rose.jpg', content_type: 'image/jpg')
+# lierre.save!
 
-p "lierre created"
+# p "lierre created"
 
 p "generate seed bookings"
 booking1 = Booking.new(start_date: DateTime.now,
@@ -120,17 +120,17 @@ booking2 = Booking.new(start_date: DateTime.now,
                     end_date: DateTime.now,
                     total_price: 10)
 booking2.user = julien
-booking2.plant = begoni
+booking2.plant = begonia
 booking2.save!
 
 p "booking2 created"
 
-booking3 = Booking.new(start_date: DateTime.now,
-                    end_date: DateTime.now,
-                    total_price: 10)
-booking3.user = laurent
-booking3.plant = lierre
-booking3.save!
+# booking3 = Booking.new(start_date: DateTime.now,
+#                     end_date: DateTime.now,
+#                     total_price: 10)
+# booking3.user = laurent
+# booking3.plant = lierre
+# booking3.save!
 
 p "generate seed reviews"
 review1 = Review.new(rating: 5, comments: "good")

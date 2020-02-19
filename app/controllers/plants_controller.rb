@@ -8,7 +8,8 @@ class PlantsController < ApplicationController
     @markers = @plants_for_map.map do |plant|
       {
         lat: plant.latitude,
-        lng: plant.longitude
+        lng: plant.longitude,
+        image_url: helpers.asset_url('marker.png')
       }
     end
   end

@@ -1,17 +1,6 @@
 <div class="main-container">
   <h1>List of your selected plants</h1>
   <div class="d-flex">
-    <div class="dropdown mr-1">
-      <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-        Offset
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-      </div>
-    </div>
-    <div class="d-flex">
       <div class="cards">
         <% @plants.each do |plant| %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url('<%= cl_image_path plant.photo.key, height: 300, width: 400, crop: :fill %>')">
