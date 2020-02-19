@@ -18,7 +18,8 @@
       <%= f.input :photo, as: :file, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}%>
       <%= f.input :comments, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
       <%= f.submit class: "btn-plant"%>
+      <br>
+      <%= link_to "Back to my profile", user_path(current_user), class:"btn btn-secondary mt-3"  %>
     <% end %>
   </div>
 </div>
-<%= link_to "Back to my profile", user_path(current_user), class:"btn-plant"  %>
