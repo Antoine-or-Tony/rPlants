@@ -44,7 +44,8 @@ ficus_file = URI.open('https://www.jardinpourvous.com/media/catalog/product/cach
 p "generate seed plants"
 begonia = Plant.new(name: "Mon beau begonia",
                     price: 10,
-                    disponibility: true,
+                    disponibility_start: 20/05/2020,
+                    disponibility_end: 23/07/2020,
                     species: "begonia")
 begonia.user = julien
 begonia.photo.attach(io: begonia_file, filename: 'begonia.jpg', content_type: 'image/jpg')
@@ -54,7 +55,8 @@ p "begonia created"
 
 tulipe = Plant.new(name: "Tulipe",
                     price: 10,
-                    disponibility: true,
+                    disponibility_start: 12/03/2020,
+                    disponibility_end: 13/04/2020,
                     species: "gros bulbe")
 p "tulipe new"
 tulipe.photo.attach(io: tulipe_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
@@ -67,7 +69,8 @@ p "tulipe created"
 
 rose = Plant.new(name: "Rose",
                     price: 10,
-                    disponibility: true,
+                    disponibility_start: 21/03/2020,
+                    disponibility_end: 23/05/2020,
                     species: "Rosebud")
 rose.user = antoine
 rose.photo.attach(io: rose_file, filename: 'rose.jpg', content_type: 'image/jpg')
@@ -77,7 +80,8 @@ p "rose created"
 
 ficus = Plant.new(name: "Mon beau ficus",
                     price: 10,
-                    disponibility: true,
+                    disponibility_start: 27/03/2020,
+                    disponibility_end: 24/08/2020,
                     species: "ficus")
 ficus.user = laurent
 ficus.photo.attach(io: ficus_file, filename: 'rose.jpg', content_type: 'image/jpg')
@@ -87,7 +91,8 @@ p "ficus created"
 
 sapin = Plant.new(name: "sapin",
                     price: 10,
-                    disponibility: true,
+                    disponibility_start: 11/03/2020,
+                    disponibility_end: 28/09/2021,
                     species: "gros bulbe")
 sapin.user = antoine
 sapin.photo.attach(io: tulipe_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
@@ -97,7 +102,8 @@ p "sapin created"
 
 lierre = Plant.new(name: "lierre",
                     price: 10,
-                    disponibility: true,
+                    disponibility_start: 26/08/2020,
+                    disponibility_end: 29/12/2020,
                     species: "lierrebud")
 lierre.user = antoine
 lierre.photo.attach(io: rose_file, filename: 'rose.jpg', content_type: 'image/jpg')
