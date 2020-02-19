@@ -29,16 +29,16 @@ import { initMapbox } from '../plugins/init_mapbox';
 import flatpickr from "flatpickr";
 import "flatpickr/dist/themes/airbnb.css"
 
-const elementStart = document.querySelector("#flatpickr-start")
-const elementEnd = document.querySelector("#flatpickr-end")
-const startDate = document.querySelector(".choose-dates").dataset.start
-const endDate = document.querySelector(".choose-dates").dataset.end
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
 
-  console.log(elementStart)
-  if (elementStart) {
+  if (document.querySelector(".choose-dates")) {
+    const elementStart = document.querySelector("#flatpickr-start")
+    const elementEnd = document.querySelector("#flatpickr-end")
+    const startDate = document.querySelector(".choose-dates").dataset.start
+    const endDate = document.querySelector(".choose-dates").dataset.end
+
     var href = document.querySelector(".link-to-booking").href.split("=")[0] + '='
     console.log("flatpickr")
     flatpickr(elementStart, {
