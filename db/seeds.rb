@@ -9,11 +9,20 @@
 # Require pour photo
 require "open-uri"
 
+# --------------------------------------------------------------------------------------
+# RESET
+# --------------------------------------------------------------------------------------
+
+
 p "reset seed database"
 Review.destroy_all
 Booking.destroy_all
 Plant.destroy_all
 User.destroy_all
+
+# --------------------------------------------------------------------------------------
+# USERS
+# --------------------------------------------------------------------------------------
 
 p "generate new users"
 julien = User.new(email: "julien-du-93@gmail.com",
@@ -22,8 +31,7 @@ julien.save!
 
 p "julien created"
 
-antoine = User.new(email: "antoine-du-93@gmail.com",
-  password: "567890")
+antoine = User.new(email: "antoine-du-93@gmail.com", password: "567890")
 antoine.save!
 
 p "antoine created"
@@ -33,6 +41,10 @@ laurent.save!
 
 p "laurent created"
 
+# --------------------------------------------------------------------------------------
+# IMAGES
+# --------------------------------------------------------------------------------------
+
 
 p "save images"
 
@@ -41,13 +53,26 @@ tulipe_file = URI.open('https://media.ooreka.fr/public/image/plant/80/mainImage-
 rose_file = URI.open('https://www.jacksonandperkins.com/images/xxl/v1780.jpg')
 ficus_file = URI.open('https://www.jardinpourvous.com/media/catalog/product/cache/13/image/500x/9df78eab33525d08d6e5fb8d27136e95/F/D/FD19307WH_13.jpg')
 sapin_file = URI.open('https://photos.gammvert.fr/v5/products/full/50697-sapin-de-noel-artificiel-vert-tsuga-h215xd137cm-2.jpg')
+lierre_file = URI.open('https://www.artificielles.com/Files/24827/Img/23/12372-80430-Lierre-artificiel-Hedera-Helix-en-chute-80-cm-artificielles-com-.jpg')
+geranium_file = URI.open('https://www.jardiner-malin.fr/wp-content/uploads/2018/10/geranium.jpg')
+
+
+# --------------------------------------------------------------------------------------
+# PLANTS
+# --------------------------------------------------------------------------------------
+
 
 p "generate seed plants"
-begonia = Plant.new(name: "Mon beau begonia",
+begonia = Plant.new(name: "Begonia",
                     price: 10,
+                    species: "begonia",
+                    address: "16 Villa Gaudelet Paris",
                     disponibility_start: DateTime.new(2020,5,1),
                     disponibility_end: DateTime.new(2020,8,4),
-                    species: "begonia")
+                    species: "Begonia scharffii",
+                    size: "M",
+                    weight: "7kg",
+                    indoor_outdoor: "Outdoor")
 begonia.user = julien
 begonia.photo.attach(io: begonia_file, filename: 'begonia.jpg', content_type: 'image/jpg')
 begonia.save!
@@ -56,9 +81,13 @@ p "begonia created"
 
 p tulipe = Plant.new(name: "Tulipe",
                     price: 10,
+                    address: "10 rue des batignolles Paris",
                     disponibility_start: DateTime.new(2020,3,6),
                     disponibility_end: DateTime.new(2020,5,7),
-                    species: "gros bulbe")
+                    species: "Tulipa clusiana ",
+                    size: "S",
+                    weight: "3kg",
+                    indoor_outdoor: "Outdoor")
 p "tulipe new"
 tulipe.photo.attach(io: tulipe_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
 p "tulipe photo saved"
@@ -68,22 +97,30 @@ tulipe.save!
 
 p "tulipe created"
 
-rose = Plant.new(name: "Rose",
+rose = Plant.new(name: "Roses rouges",
                     price: 10,
                     disponibility_start: DateTime.new(2020,4,9),
                     disponibility_end: DateTime.new(2020,5,3),
-                    species: "Rosebud")
+                    address: "7 avenue des champs elysées, paris",
+                    species: "Rosebud",
+                    size: "S",
+                    weight: "1kg",
+                    indoor_outdoor: "Outdoor")
 rose.user = antoine
 rose.photo.attach(io: rose_file, filename: 'rose.jpg', content_type: 'image/jpg')
 rose.save!
 
 p "rose created"
 
-ficus = Plant.new(name: "Mon beau ficus",
+ficus = Plant.new(name: "Ficus coréen",
                     price: 10,
                     disponibility_start: DateTime.new(2020,6,3),
                     disponibility_end: DateTime.new(2020,9,12),
-                    species: "ficus")
+                    species: "Ficus benghalensis",
+                    address: "25 rue de l'université, Paris",
+                    size: "M",
+                    weight: "10kg",
+                    indoor_outdoor: "Indoor")
 ficus.user = antoine
 ficus.photo.attach(io: ficus_file, filename: 'rose.jpg', content_type: 'image/jpg')
 ficus.save!
@@ -94,59 +131,141 @@ sapin = Plant.new(name: "sapin",
                     price: 10,
                     disponibility_start: DateTime.new(2020,12,11),
                     disponibility_end: DateTime.new(2021,8,4),
-                    species: "gros bulbe")
+                    species: "Norman",
+                    address: "porte de la Villette, Paris",
+                    size: "L",
+                    weight: "30kg",
+                    indoor_outdoor: "Outdoor")
 sapin.user = antoine
 sapin.photo.attach(io: sapin_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
 sapin.save!
 
 p "sapin created"
 
-# lierre = Plant.new(name: "lierre",
-#                     price: 10,
-#                     disponibility_start: DateTime.new(2020,4,7),
-#                     disponibility_end: DateTime.new(2020,8,5),
-#                     species: "lierrebud")
-# lierre.user = antoine
-# lierre.photo.attach(io: rose_file, filename: 'rose.jpg', content_type: 'image/jpg')
-# lierre.save!
+lierre = Plant.new(name: "Lierre",
+                    price: 10,
+                    disponibility_start: DateTime.new(2020,4,7),
+                    disponibility_end: DateTime.new(2020,8,5),
+                    species: "Lierre hongrois",
+                    address: "129 rue de l'Abbé Groult, Paris",
+                    size: "M",
+                    weight: "10kg",
+                    indoor_outdoor: "Outdoor")
+lierre.user = antoine
+lierre.photo.attach(io: lierre_file, filename: 'lierre.jpg', content_type: 'image/jpg')
+lierre.save!
 
-# p "lierre created"
+p "lierre created"
+
+geranium = Plant.new(name: "Geranium",
+                    price: 10,
+                    disponibility_start: DateTime.new(2020,4,7),
+                    disponibility_end: DateTime.new(2020,8,5),
+                    species: "Géranium fabulum",
+                    address: "1 rue du Commerce, Paris",
+                    size: "S",
+                    weight: "3kg",
+                    indoor_outdoor: "Outdoor")
+geranium.user = antoine
+geranium.photo.attach(io: geranium_file, filename: 'geranium.jpg', content_type: 'image/jpg')
+geranium.save!
+
+p "geranium created"
+
+# --------------------------------------------------------------------------------------
+# BOOKINGS
+# --------------------------------------------------------------------------------------
+
 
 p "generate seed bookings"
-booking1 = Booking.new(start_date: DateTime.now,
+booking_geranium = Booking.new(start_date: DateTime.now,
                     end_date: DateTime.now,
                     total_price: 5)
-booking1.user = antoine
-booking1.plant = begonia
-booking1.save!
+booking_geranium.user = antoine
+booking_geranium.plant = geranium
+booking_geranium.save!
 
-p "booking1 created"
+p "booking_geranium created"
 
-booking2 = Booking.new(start_date: DateTime.now,
+booking_begonia = Booking.new(start_date: DateTime.now,
                     end_date: DateTime.now,
                     total_price: 10)
-booking2.user = julien
-booking2.plant = begonia
-booking2.save!
+booking_begonia.user = julien
+booking_begonia.plant = begonia
+booking_begonia.save!
 
-p "booking2 created"
+p "booking_begonia created"
 
-booking3 = Booking.new(start_date: DateTime.now,
+booking_rose = Booking.new(start_date: DateTime.now,
                     end_date: DateTime.now,
                     total_price: 10)
-booking3.user = laurent
-booking3.plant = tulipe
-booking3.save!
+booking_rose.user = laurent
+booking_rose.plant = rose
+booking_rose.save!
+
+p "booking_rose created"
+
+
+booking_tulipe1 = Booking.new(start_date: DateTime.now,
+                    end_date: DateTime.now,
+                    total_price: 10)
+booking_tulipe1.user = laurent
+booking_tulipe1.plant = tulipe
+booking_tulipe1.save!
+
+p "booking_tulipe1 created"
+
+booking_tulipe2 = Booking.new(start_date: DateTime.now,
+                    end_date: DateTime.now,
+                    total_price: 10)
+booking_tulipe2.user = laurent
+booking_tulipe2.plant = tulipe
+booking_tulipe2.save!
+
+p "booking_tulipe2 created"
+
+booking_tulipe3 = Booking.new(start_date: DateTime.now,
+                    end_date: DateTime.now,
+                    total_price: 10)
+booking_tulipe3.user = antoine
+booking_tulipe3.plant = tulipe
+booking_tulipe3.save!
+
+p "booking_tulipe3 created"
+
+
+# --------------------------------------------------------------------------------------
+# REVIEWS
+# --------------------------------------------------------------------------------------
 
 p "generate seed reviews"
-review1 = Review.new(rating: 5, comments: "good")
-review1.booking = booking1
-review1.save!
+review1_booking_begonia = Review.new(rating: 5, comments: "good")
+review1_booking_begonia.booking = booking_begonia
+review1_booking_begonia.save!
 
-p "review1 created"
+p "review1_booking_begonia created"
 
-review2 = Review.new(rating: 1, comments: "bad")
-review2.booking = booking2
-review2.save!
+review2_booking_begonia = Review.new(rating: 1, comments: "bad")
+review2_booking_begonia.booking = booking_begonia
+review2_booking_begonia.save!
 
-p "review2 created"
+p "review2_booking_begonia created"
+
+
+review1_booking_tulipe1 = Review.new(rating: 1, comments: "bad")
+review1_booking_tulipe1.booking = booking_tulipe1
+review1_booking_tulipe1.save!
+
+p "review1_booking_tulipe1 created"
+
+review2_booking_tulipe = Review.new(rating: 1, comments: "bad")
+review2_booking_tulipe.booking = booking_tulipe2
+review2_booking_tulipe.save!
+
+p "review2_booking_tulipe created"
+
+review3_booking_tulipe = Review.new(rating: 1, comments: "bad")
+review3_booking_tulipe.booking = booking_tulipe3
+review3_booking_tulipe.save!
+
+p "review3_booking_tulipe created"

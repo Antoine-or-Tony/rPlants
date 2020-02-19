@@ -23,6 +23,8 @@ require("channels")
 // ----------------------------------------------------
 
 import "bootstrap";
+import { initMapbox } from '../plugins/init_mapbox';
+
 
 import flatpickr from "flatpickr";
 import "flatpickr/dist/themes/airbnb.css"
@@ -33,6 +35,8 @@ const startDate = document.querySelector(".choose-dates").dataset.start
 const endDate = document.querySelector(".choose-dates").dataset.end
 
 document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+
   console.log(elementStart)
   if (elementStart) {
     var href = document.querySelector(".link-to-booking").href.split("=")[0] + '='
