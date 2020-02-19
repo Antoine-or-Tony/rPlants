@@ -1,46 +1,24 @@
 <div class="form-new-banner">
   <h1 class="text-center">Create a new plant</h1>
 </div>
-<div class="container m-100">
+<div class="container-new-plant">
+  <div class = "form-new">
     <%= simple_form_for(@plant) do |f|%>
-      <%= f.input :photo, as: :file %>
-      <%= f.input :name, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
-      <%= f.input :price, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
-      <%= f.input :weight, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
-      <%= f.input :size, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
-      <%= f.input :species, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
-      <%= f.input :comments, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
-      <%= f.input :indoor_outdoor, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
+      <div class="row" style="justify-content: space-between;">
+        <%= f.input :name, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
+        <%= f.input :price, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
+        <%= f.input :indoor_outdoor, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
+        <%= f.input :species, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
+        <%= f.input :weight, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
+        <%= f.input :size, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
+      </div>
       <%= f.input :disponibility_start, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
       <%= f.input :disponibility_end, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
+      <%= f.input :address, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}%>
+      <%= f.input :photo, as: :file, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}%>
+      <%= f.input :comments, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
       <%= f.submit class: "btn-plant"%>
     <% end %>
-    <%= link_to "Back to my profile", :back, class:"btn"  %>
-</div>
-
-
-  <div class="container">
-    <div class="row" style="justify-content: space-between;">
-      <div class = "form-home">
-        <%= simple_form_for (@plant) do |f| %>
-          <div class="row">
-            <%= f.input :start_date, as: :date %>
-            <%= f.input :end_date, as: :date %>
-            <div class="row">
-              <%= f.input :indoor_outdoor, as: :check_boxes, collection: [ "Indoor", "Outdoor"] %>
-              <%= f.input :size, as: :check_boxes, collection: [ "Tight", "Middle", "Tall"] %>
-              <%= f.input :delivery, as: :radio_buttons, collection: [ "pickup", "delivery"] %>
-            </div>
-          </div>
-
-            <%= f.button :submit, "Search", class: "btn-warning" %>
-            <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-white" %>
-        <% end %>
-      </div>
-      <div class="text-format">
-        <h1>Welcome to AirPlants</strong>!</h1>
-        <p>A very cool marketplace for plants lovers</p>
-      </div>
-    </div>
-
   </div>
+</div>
+      <%= link_to "Back to my profile", user_path(current_user), class:"btn-plant"  %>
