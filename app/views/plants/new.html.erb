@@ -7,9 +7,9 @@
       <div class="row" style="justify-content: space-between;">
         <%= f.input :name, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
         <%= f.input :price, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
-        <%= f.input :indoor_outdoor, collection: [ "Indoor", "Outdoor"], input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
+        <%= f.input :indoor_outdoor, collection: [ "Indoor", "Outdoor", "Indoor/Outdoor"], input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
         <%= f.input :species,collection: [ "Orchidaceae", "Almond – Prunus dulcis", "Angel trumpet – Brugmansia suaveolens", "Apricot – Prunus armeniaca", "Apple – Malus domestica"], input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
-        <%= f.input :weight, collection: [ "1kg - 10kg", "10kg - 50kg", "+ 50kg"], input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
+        <%= f.input :weight, collection: [ "Light (0-2kg)", "Medium (2-5kg)", "Heavy (5-10kg)", "Extra heavy (>10kg)"], input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
         <%= f.input :size, collection: [ "Small", "Medium", "Large"], input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
       </div>
       <%= f.input :disponibility_start, input_wrapper: {class: "form-control"}, label_html: {class: "label_new"}  %>
