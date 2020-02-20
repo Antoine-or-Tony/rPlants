@@ -137,6 +137,7 @@
         <div class="card-review">
          <div class="card-review-infos">
             <p><%= review.comments %></p>
+            <%= review.user.email %>
             <% review.rating.times do %>
               <i class="fas fa-star" style="color: orange"></i>
             <% end %>
