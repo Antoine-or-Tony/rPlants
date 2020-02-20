@@ -17,18 +17,25 @@ const displayTotalPrice = (date) => {
     dates.addEventListener('input', updateValue);
   };
 }
-const availableDatesTag = document.querySelector('#available_dates');
-const plantEndDate = availableDatesTag.dataset.date
-flatpickr("#range_start", {
-  altInput: true,
-  plugins: [new rangePlugin({ input: "#range_end"})],
-  onClose: displayTotalPrice,
-  minDate: "today",
-  maxDate: plantEndDate
-})
+
+const initFlatPickr = () => {
+  const availableDatesTag = document.querySelector('#available_dates');
+  if (availableDatesTag) {
+    const plantEndDate = availableDatesTag.dataset.date
+    flatpickr("#range_start", {
+      altInput: true,
+      plugins: [new rangePlugin({ input: "#range_end"})],
+      onClose: displayTotalPrice,
+      minDate: "today",
+      maxDate: plantEndDate
+    })
+
+  }
+
+}
 
 
-export { flatpickr };
+export { initFlatPickr };
 
 
 // old code

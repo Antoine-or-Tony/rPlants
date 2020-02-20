@@ -10,12 +10,12 @@ require("channels")
 
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
-import { flatpickr } from '../plugins/flatpickr';
+import { initFlatPickr } from '../plugins/flatpickr';
 import { initAutocomplete } from '../plugins/init_autocomplete'
 
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
-  flatpickr();
+  initFlatPickr();
   initAutocomplete();
 })
