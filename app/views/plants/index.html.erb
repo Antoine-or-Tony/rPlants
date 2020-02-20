@@ -4,8 +4,15 @@
     <div class="d-flex">
         <div class="cards">
           <% @plants.each do |plant| %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url('<%= cl_image_path plant.photo.key, height: 300, width: 400, crop: :fill %>')">
-              <p><%= link_to plant.name, plant_path(plant)%></p>
+            <div class="card-trip">
+              <%= cl_image_tag plant.photo.key, height: 250, width: 250, crop: :fill, :class =>'image-trip'%>
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= link_to plant.name, plant_path(plant)%></h2>
+                  <p>review + review.count<i class="fas fa-star"></i></p>
+                </div>
+                <h2><%= link_to plant.price, plant_path(plant), class:"card-trip-pricing"%>€</h2>
+              </div>
             </div>
           <% end %>
         </div>
