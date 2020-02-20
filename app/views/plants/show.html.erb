@@ -1,36 +1,44 @@
 <div class="container">
 
-  <div class="row">
+<div class="card-trip">
+  <div class="card-trip-infos">
+    <div>
+      <h2>Title here</h2>
+      <p>Short description here!</p>
+    </div>
+    <h2 class="card-trip-pricing">£99.99</h2>
+  </div>
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+</div>
 
-    <div class="col-6">
+
+  <div class="row">
+    <div class="col-8">
       <div class="mt-3 pt-3 pl-3 pb-3 bg-white shadow">
-  <!-- Nom et prix -->
+      <!-- Nom et prix -->
         <h2><%= @plant.name %></h2>
         <h4><%= @plant.price %>€ per day</h4>
-  <!-- Affichage de l'image -->
+        <h5 id="available_dates" data-date="<%= @plant.disponibility_end %>">Available from <%= @plant.disponibility_start %> to <%= @plant.disponibility_end %></h5>
+      <!-- Affichage de l'image -->
         <div class="text-center">
           <%= cl_image_tag @plant.photo.key, height: 300, crop: :fill %>
         </div>
       </div>
     </div>
 
-    <div class="col-6">
-      <div class="mt-3 pt-3 pl-3 pb-3 bg-white shadow">
-  <!-- Affichage du booking -->
-        <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-          <h2>Booking Request</h2>
-          <%= simple_form_for [@plant, @booking] do |f| %>
-            <%= f.input :start_date, as: :string, placeholder: "Choose date", required: false, input_html: {id: "range_start"} %>
-            <%= f.input :end_date, as: :string, placeholder: "Choose date", required: false, input_html: {id: "range_end"} %>
-            <h5 id="available_dates" data-date="<%= @plant.disponibility_end %>">Dates available from <%= @plant.disponibility_start %> to <%= @plant.disponibility_end %></h5>
-            <h4>The total price will be:</h4>
-            <h4 data-price="<%= @plant.price %>" id="total_price">Price</h4>
-            <%= f.submit "Confirm booking", class: "btn-plant"%>
-          <% end %>
-        </div>
+      <!-- Affichage du booking -->
+    <div class="col-4">
+      <div class = "form-booking sticky-booking mt-3">
+        <h5>Booking Request</h5>
+        <%= simple_form_for [@plant, @booking] do |f| %>
+          <%= f.input :start_date, as: :string, placeholder: "Choose start date", required: false, input_html: {id: "range_start"}, label_html: {class: "label_new"} %>
+          <%= f.input :end_date, as: :string, placeholder: "Choose end date", required: false, input_html: {id: "range_end"}, label_html: {class: "label_new"} %>
+          <h5>Total price:</h5>
+          <h6 data-price="<%= @plant.price %>" id="total_price">choose dates first</h6>
+          <%= f.submit "Confirm booking", class: "btn-plant"%>
+        <% end %>
       </div>
     </div>
-
   </div>
 
   <div class="row">
