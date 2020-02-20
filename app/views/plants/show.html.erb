@@ -1,21 +1,177 @@
+<div class="container">
+  
+  <div class="row">
+    
+    <div class="col-6">
+      <div class="mt-3 pt-3 pl-3 pb-3 bg-white shadow">
+  <!-- Nom et prix -->
+        <h2><%= @plant.name %></h2>
+        <h4><%= @plant.price %>€ per day</h4>
+  <!-- Affichage de l'image -->
+        <div class="text-center">
+          <%= cl_image_tag @plant.photo.key, height: 300, crop: :fill %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-6">
   <!-- Affichage du booking -->
-
-  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-    <h2>Booking Request</h2>
-    <%= simple_form_for [@plant, @booking] do |f| %>
-      <%= f.input :start_date, as: :string, placeholder: "Choose date", required: false, input_html: {id: "range_start"} %>
-      <%= f.input :end_date, as: :string, placeholder: "Choose date", required: false, input_html: {id: "range_end"} %>
-      <h5 id="available_dates" data-date="<%= @plant.disponibility_end %>">Dates available from <%= @plant.disponibility_start %> to <%= @plant.disponibility_end %></h5>
-      <h4>The total price will be:</h4>
-      <h4 data-price="<%= @plant.price %>" id="total_price">Price</h4>
-      <%= f.submit "Confirm booking", class: "btn-plant"%>
-    <% end %>
+      <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+        <h2>Booking Request</h2>
+        <%= simple_form_for [@plant, @booking] do |f| %>
+          <%= f.input :start_date, as: :string, placeholder: "Choose date", required: false, input_html: {id: "range_start"} %>
+          <%= f.input :end_date, as: :string, placeholder: "Choose date", required: false, input_html: {id: "range_end"} %>
+          <h5 id="available_dates" data-date="<%= @plant.disponibility_end %>">Dates available from <%= @plant.disponibility_start %> to <%= @plant.disponibility_end %></h5>
+          <h4>The total price will be:</h4>
+          <h4 data-price="<%= @plant.price %>" id="total_price">Price</h4>
+          <%= f.submit "Confirm booking", class: "btn-plant"%>
+        <% end %>
+      </div>      
+    </div>    
+    
   </div>
 
+  <div class="row">
+    <div class="col-6">
+<!-- Affichage des infos & espèce de la plante -->
+      <div class="container bg-white shadow mt-3 pt-3">
+        <h3> Product details </h3>
+        <div class="row">
+          <div class="col-12">
+            <p> <%=  @plant.comments %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5">
+            <p><em>Species</em></p>
+          </div>
+          <div class="col-7">
+            <p><%= @plant.species %></p>
+          </div>
+        </div>
 
+<!-- Picto size -->
+        <div class="row">
+          <div class="col-5">
+            <p><em>Size</em></p>
+          </div>
+          <div class="col-7">
+            <% if @plant.size == "Small" %>
+              <p>
+                <i class="fas fa-leaf fa-xs" style="color: green"></i>
+                <i class="fas fa-leaf fa-sm" style="color: lightgrey "></i>
+                <i class="fas fa-leaf fa-lg" style="color: lightgrey"></i>
+              </p>
+            <% elsif @plant.size == "Medium" %>
+              <p>
+                <i class="fas fa-leaf fa-xs" style="color: green"></i>
+                <i class="fas fa-leaf fa-sm" style="color: green"></i>
+                <i class="fas fa-leaf fa-lg" style="color: lightgrey"></i>
+              </p>
+            <% elsif @plant.size == "Large" %>
+              <p>
+                <i class="fas fa-leaf fa-xs" style="color: green"></i>
+                <i class="fas fa-leaf fa-sm" style="color: green"></i>
+                <i class="fas fa-leaf fa-lg" style="color: green"></i>
+              </p>
+            <% else %>
+            <% end %>
+          </div>
+        </div>
 
+<!-- Picto weight -->
+        <div class="row">
+          <div class="col-5">
+            <p><em>Weight</em></p>
+          </div>
+          <div class="col-7">
+            <% if @plant.weight == "Light (0-2kg)" %>
+              <p>
+                <i class="fas fa-weight-hanging" style="color: green"></i>
+                <i class="fas fa-weight-hanging"style="color: lightgrey"></i>
+                <i class="fas fa-weight-hanging" style="color: lightgrey"></i>
+                <i class="fas fa-weight-hanging" style="color: lightgrey"></i>
+              </p>
+            <% elsif @plant.weight == "Medium (2-5kg)" %>
+              <p>
+                <i class="fas fa-weight-hanging" style="color: green"></i>
+                <i class="fas fa-weight-hanging" style="color: green"></i>
+                <i class="fas fa-weight-hanging" style="color: lightgrey"></i>
+                <i class="fas fa-weight-hanging" style="color: lightgrey"></i>
+              </p>
+            <% elsif @plant.weight == "Heavy (5-10kg)" %>
+              <p>
+                <i class="fas fa-weight-hanging" style="color: green"></i>
+                <i class="fas fa-weight-hanging" style="color: green"></i>
+                <i class="fas fa-weight-hanging" style="color: green"></i>
+                <i class="fas fa-weight-hanging" style="color: lightgrey"></i>
+              </p>
+            <% elsif @plant.weight == "Extra heavy (>10kg)" %>
+              <p>
+                <i class="fas fa-weight-hanging" style="color: green"></i>
+                <i class="fas fa-weight-hanging" style="color: green"></i>
+                <i class="fas fa-weight-hanging" style="color: green"></i>
+                <i class="fas fa-weight-hanging" style="color: green"></i>
+              </p>
+            <% else %>
+            <% end %>
+          </div>
+        </div>
 
+<!-- Picto indoor/outdoor -->
+        <div class="row">
+          <div class="col-5">
+            <p><em>Indoor <i class="fas fa-tree"></i> / Outdoor <i class="fas fa-home"></i></em></p>
+          </div>
+          <div class="col-7">
+            <% if  @plant.indoor_outdoor == "Indoor" %>
+              <i class="fas fa-home fa-lg" style="color: green"></i>
+            <% elsif  @plant.indoor_outdoor == "Outdoor" %>
+              <i class="fas fa-tree fa-lg" style="color: green"></i>
+            <% elsif  @plant.indoor_outdoor == "Indoor/Outdoor" %>
+              <p>
+                <i class="fas fa-home fa-lg" style="color: green"></i> / <i class="fas fa-tree fa-lg" style="color: green"></i>
+              </p>
+            <% else %>
+            <% end %>
+          </div>
+        </div>
 
+<!-- Address -->
+        <div class="row">
+          <div class="col-5">
+            <p><em>Address</em></p>
+          </div>
+          <div class="col-7">
+            <p><%= @plant.address %></p>
+          </div>
+        </div>
+      </div>
 
+    <!-- Affichage des reviews -->
+    <div class="container mt-3 pt-3 pb-2 bg-white shadow">
+      <h3>Reviews</h3>
+      <% @reviews.each do |review| %>
+        <div class="card-review">
+         <div class="card-review-infos">
+            <p><%= review.comments %></p>
+            <% review.rating.times do %>
+              <i class="fas fa-star" style="color: orange"></i>
+            <% end %>
+            <% (5 - review.rating).times do  %>
+              <i class="fas fa-star" style="color: lightgrey"></i>
+            <% end %>
+         </div>
+        </div>
+      <% end %>
+    <p> <%= link_to "Consult the owner profile", user_path(@plant.user), class:"btn btn-light"%></p>
+    </div>
+  </div>
+</div>
 
+<div class="container mt-3">
+  <div class="row pl-3">
+    <p> <%= link_to "Back to plants", plants_path, class:"btn btn-secondary" %></p>
+  </div>
+</div>
 
