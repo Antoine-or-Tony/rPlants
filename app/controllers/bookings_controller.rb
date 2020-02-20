@@ -13,18 +13,24 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new()
     @plant = Plant.find(params[:plant_id])
-    @start_date = params[:dates].split("|start:")[1].split("|end:")[0]
-    @end_date = params[:dates].split("|start:")[1].split("|end:")[1]
+    @user = current_user
+    # @start_date = params[:dates].split("|start:")[1].split("|end:")[0]
+    # @end_date = params[:dates].split("|start:")[1].split("|end:")[1]
     authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
+    @plant = Plant.find(params[:plant_id])
+    @booking.total_price = (@booking.end_date - @booking.start_date) * @plant.price
     @booking.user = current_user
-    @booking.save
-    authorize @booking
-
-    redirect_to bookings_path
+    @booking.plant = @plant
+    if @booking.save
+      authorize @booking
+      redirect_to plant_bookings_path
+      else
+        render :new
+      end
   end
 
   def edit
@@ -49,7 +55,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:plant).permit(:start_date,
+    params.require(:booking).permit(:start_date,
                                   :end_date,
                                   :total_price)
   end
