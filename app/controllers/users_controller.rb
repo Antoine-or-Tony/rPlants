@@ -24,13 +24,14 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
     authorize @user
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = current_user
     @user.update(user_params)
+    @user.save
     authorize @user
     # no need for app/views/restaurants/update.html.erb
     redirect_to users_path
@@ -42,7 +43,6 @@ class UsersController < ApplicationController
     # no need for app/views/bookings/destroy.html.erb
     redirect_to users_path
   end
-
 
   private
 

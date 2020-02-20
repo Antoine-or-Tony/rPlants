@@ -1,17 +1,20 @@
 
 <div class="container">
   <% if @user == current_user %>
-    <h2>My profile</h2>
-    <p>My email: <%= @user.email %></p>
+    <h3>Welcome to your profile <%= @user.first_name %></h3>
+    <p><%= @user.bio %></p>
   <% else %>
-    <h2>Profile</h2>
+    <h3>Profile - <%= @user.first_name %> <%= @user.last_name %></h3>
   <% end %>
+
+  <!-- Display current booking only if current_user is the user plage -->
+  <h4>Current bookings</h4>
 
   <!-- Display all current plants -->
   <% if @user == current_user %>
-    <h3>My current plants</h3>
+    <h4>My current plants</h4>
   <% else %>
-    <h3>Current plants</h3>
+    <h4>Current plants</h4>
   <% end %>
 
   <div class="row">
@@ -41,15 +44,14 @@
   <% end %>
   <br>
 
-  <!-- Display current booking only if current_user is the user plage -->
-  <h3>Current bookings</h3>
 
   <!-- To do -->
 
   <br>
   <!-- Display edit options only if current_user is the user plage -->
   <% if @user == current_user %>
-    <h3>Edit my profile</h3>
-    <%= link_to "Edit or delete account", edit_user_registration_path, class:"btn btn-secondary" %>
+    <h4>My profile</h4>
+    <%= link_to "Edit my infos", edit_user_registration_path, class:"btn btn-secondary" %>
+    <%= link_to "Edit my password", edit_user_registration_path, class:"btn btn-secondary" %>
   <% end %>
 </div>
