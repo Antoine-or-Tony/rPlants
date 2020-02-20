@@ -26,17 +26,28 @@ User.destroy_all
 
 p "generate new users"
 julien = User.new(email: "julien-du-93@gmail.com",
-  password: "123456")
+                  password: "123456",
+                  first_name: "Julien",
+                  last_name: "Dupuis",
+                  bio: "I love begonias!")
 julien.save!
 
 p "julien created"
 
-antoine = User.new(email: "antoine-du-93@gmail.com", password: "567890")
+antoine = User.new(email: "antoine-du-93@gmail.com",
+                  password: "567890",
+                   first_name: "Antoine",
+                  last_name: "Durand",
+                  bio: "I have amazing roses to share :)")
 antoine.save!
 
 p "antoine created"
 
-p laurent = User.new(email: "laurent@gmail.com", password: "123456")
+p laurent = User.new(email: "laurent@gmail.com",
+                    password: "123456",
+                    first_name: "Laurent",
+                    last_name: "Martin",
+                    bio: "A real plant lover!")
 laurent.save!
 
 p "laurent created"
