@@ -71,7 +71,7 @@ begonia = Plant.new(name: "Begonia",
                     disponibility_end: DateTime.new(2020,8,4),
                     species: "Begonia scharffii",
                     size: "M",
-                    weight: "7kg",
+                    weight: "Light",
                     indoor_outdoor: "Outdoor")
 begonia.user = julien
 begonia.photo.attach(io: begonia_file, filename: 'begonia.jpg', content_type: 'image/jpg')
@@ -87,7 +87,7 @@ p tulipe = Plant.new(name: "Tulipe",
                     disponibility_end: DateTime.new(2020,5,7),
                     species: "Tulipa clusiana ",
                     size: "S",
-                    weight: "3kg",
+                    weight: "Light",
                     indoor_outdoor: "Outdoor")
 p "tulipe new"
 tulipe.photo.attach(io: tulipe_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
@@ -106,7 +106,7 @@ rose = Plant.new(name: "Roses rouges",
                     address: "7 avenue des champs elysées, paris",
                     species: "Rosebud",
                     size: "S",
-                    weight: "1kg",
+                    weight: "Light",
                     indoor_outdoor: "Outdoor")
 rose.user = antoine
 rose.photo.attach(io: rose_file, filename: 'rose.jpg', content_type: 'image/jpg')
@@ -122,7 +122,7 @@ ficus = Plant.new(name: "Ficus coréen",
                     species: "Ficus benghalensis",
                     address: "25 rue de l'université, Paris",
                     size: "M",
-                    weight: "10kg",
+                    weight: "Heavy",
                     indoor_outdoor: "Indoor")
 ficus.user = antoine
 ficus.photo.attach(io: ficus_file, filename: 'rose.jpg', content_type: 'image/jpg')
@@ -138,7 +138,7 @@ sapin = Plant.new(name: "Sapin",
                     species: "Norman",
                     address: "porte de la Villette, Paris",
                     size: "L",
-                    weight: "30kg",
+                    weight: "Extra heavy",
                     indoor_outdoor: "Outdoor")
 sapin.user = antoine
 sapin.photo.attach(io: sapin_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
@@ -154,7 +154,7 @@ lierre = Plant.new(name: "Lierre",
                     species: "Lierre hongrois",
                     address: "129 rue de l'Abbé Groult, Paris",
                     size: "M",
-                    weight: "10kg",
+                    weight: "Medium",
                     indoor_outdoor: "Outdoor")
 lierre.user = antoine
 lierre.photo.attach(io: lierre_file, filename: 'lierre.jpg', content_type: 'image/jpg')
@@ -170,7 +170,7 @@ geranium = Plant.new(name: "Geranium",
                     species: "Géranium fabulum",
                     address: "1 rue du Commerce, Paris",
                     size: "S",
-                    weight: "3kg",
+                    weight: "Light",
                     indoor_outdoor: "Outdoor")
 geranium.user = antoine
 geranium.photo.attach(io: geranium_file, filename: 'geranium.jpg', content_type: 'image/jpg')
