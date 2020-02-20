@@ -1,7 +1,7 @@
 <div class="container">
-  
+
   <div class="row">
-    
+
     <div class="col-6">
       <div class="mt-3 pt-3 pl-3 pb-3 bg-white shadow">
   <!-- Nom et prix -->
@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="col-6">
   <!-- Affichage du booking -->
       <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
@@ -26,9 +26,9 @@
           <h4 data-price="<%= @plant.price %>" id="total_price">Price</h4>
           <%= f.submit "Confirm booking", class: "btn-plant"%>
         <% end %>
-      </div>      
-    </div>    
-    
+      </div>
+    </div>
+
   </div>
 
   <div class="row">
@@ -121,7 +121,7 @@
 <!-- Picto indoor/outdoor -->
         <div class="row">
           <div class="col-5">
-            <p><em>Indoor <i class="fas fa-tree"></i> / Outdoor <i class="fas fa-home"></i></em></p>
+            <p><em>Indoor <i class="fas fa-home"></i> / Outdoor <i class="fas fa-tree"></i></em></p>
           </div>
           <div class="col-7">
             <% if  @plant.indoor_outdoor == "Indoor" %>
@@ -164,7 +164,7 @@
          </div>
         </div>
       <% end %>
-    <p> <%= link_to "Consult the owner profile", user_path(@plant.user), class:"btn btn-light"%></p>
+    <p> <%= link_to "Consult the owner profile: #{@plant.user.first_name} #{@plant.user.last_name}", user_path(@plant.user), class:"btn btn-light"%></p>
     </div>
   </div>
 </div>

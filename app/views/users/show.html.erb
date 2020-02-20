@@ -3,45 +3,74 @@
   <div class="mt-3">
     <% if @user == current_user %>
       <h3>Welcome to your profile <%= @user.first_name %></h3>
-      <p class="pl-3"><%= @user.bio %></p>
     <% else %>
       <h3>Profile - <%= @user.first_name %> <%= @user.last_name %></h3>
     <% end %>
   </div>
 
-  <!-- Display current booking only if current_user is the user plage -->
-  <div class="mt-5">
-    <h4 class=>My bookings</h4>
+  <!-- Current and upcoming bookings -->
+  <div class="mt-3">
+    <h4 class=>My current bookings</h4>
     <div class="row">
       <% @user.bookings.each do |booking|  %>
-        <div class="col-4 mb-3">
-          <div class="card-trip">
-            <%= cl_image_tag booking.plant.photo.key, height: 250, width: 250, crop: :fill, :class =>'image-trip'%>
-            <div class="card-trip-infos">
+        <% if booking.reviews[0].nil? %> <!-- Check si il y a des reviews -->
+          <div class="col-4 mb-3">
+            <div class="card-trip">
+              <%= cl_image_tag booking.plant.photo.key, height: 250, width: 250, crop: :fill, :class =>'image-trip'%>
+              <div class="card-trip-infos">
 
-             <!-- Div à gauche -->
-              <div>
-                <h2><%= booking.plant.name %> - <%= booking.total_price%> €</h2>
-                <p>From <%= booking.start_date %></p>
-                 <p>to <%= booking.end_date %></p>
+               <!-- Div à gauche -->
+                <div>
+                  <h2><%= booking.plant.name %> - <%= booking.total_price%> €</h2>
+                  <p>From <%= booking.start_date %></p>
+                   <p>to <%= booking.end_date %></p>
+                </div>
+
+                  <!-- Bouton review -->
+                <div>
+                    <%= link_to "Add a review", new_plant_booking_review_path(booking.plant, booking), class:"btn btn-secondary" %>  <!--  si pas de reviews: bouton a ajouter  -->
+                </div>
               </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 
-                <!-- Affichage des notes -->
-              <div>
-                <% if booking.reviews[0].nil? %> <!-- Check si il y a des reviews -->
-                  <%= link_to "Add a review", new_plant_booking_review_path(booking.plant, booking), class:"btn btn-secondary" %>  <!--  si pas de reviews: bouton a ajouter  -->
-                <% else %>
+
+
+  <!-- previous bookings -->
+  <div class="mt-3">
+    <h4 class=>My previous bookings</h4>
+    <div class="row">
+      <% @user.bookings.each do |booking|  %>
+        <% if booking.reviews[0].nil? == false %> <!-- Check si il y a des reviews -->
+          <div class="col-4 mb-3">
+            <div class="card-trip">
+              <%= cl_image_tag booking.plant.photo.key, height: 250, width: 250, crop: :fill, :class =>'image-trip'%>
+              <div class="card-trip-infos">
+
+               <!-- Div à gauche -->
+                <div>
+                  <h2><%= booking.plant.name %> - <%= booking.total_price%> €</h2>
+                  <p>From <%= booking.start_date %></p>
+                   <p>to <%= booking.end_date %></p>
+                </div>
+
+                  <!-- Affichage des notes -->
+                <div>
                   <% booking.reviews[0].rating.times do %>
                     <i class="fas fa-star" style="color: orange"></i>
                   <% end %>
                   <% (5 - booking.reviews[0].rating).times do  %>
                     <i class="fas fa-star" style="color: lightgrey"></i>
                   <% end %>
-              <% end %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -87,9 +116,6 @@
   <% end %>
   <br>
 
-
-  <!-- To do -->
-
   <div class="mt-5">
     <!-- Display edit options only if current_user is the user plage -->
     <% if @user == current_user %>
@@ -99,4 +125,4 @@
     <% end %>
     </div>
 
-</div>  <!-- End main container -->
+</div>

@@ -12,16 +12,19 @@ class ReviewsController < ApplicationController
 
   def new
     @booking = Booking.find(params[:booking_id])
+    @plant = Plant.find(params[:plant_id])
     @review = Review.new()
     authorize @review
   end
 
   def create
     @review = Review.new(review_params)
+    @booking = Booking.find(params[:booking_id])
+    @review.booking = @booking
     @review.save
     authorize @review
 
-    redirect_to root_path
+    redirect_to user_path(current_user)
   end
 
   # No edit, update, destroy for reviews
