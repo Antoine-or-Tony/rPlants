@@ -42,11 +42,11 @@
       </div>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col-8">
 <!-- Affichage des infos & espèce de la plante -->
-      <div class="container bg-white shadow card-booking-tony">
+      <div class="container bg-white shadow card-booking-tony pb-3">
         <h3> Product details </h3>
         <p id="available_dates" data-date="<%= @plant.disponibility_end %>">Available from <strong><%= @plant.disponibility_start %></strong> to <strong><%= @plant.disponibility_end %></strong></p>
         <div class="row">
@@ -162,22 +162,22 @@
       </div>
 
     <!-- Affichage des reviews -->
-    <div class="container mt-3 pt-3 pb-2 bg-white shadow">
-      <h3>Reviews</h3>
-      <% @reviews.each do |review| %>
-        <div class="card-review">
-         <div class="card-review-infos">
-            <p><%= review.comments %></p>
-            <% review.rating.times do %>
-              <i class="fas fa-star" style="color: orange"></i>
-            <% end %>
-            <% (5 - review.rating).times do  %>
-              <i class="fas fa-star" style="color: lightgrey"></i>
-            <% end %>
-         </div>
-        </div>
-      <% end %>
-    <p> <%= link_to "Consult the owner profile: #{@plant.user.first_name} #{@plant.user.last_name}", user_path(@plant.user), class:"btn btn-light"%></p>
+        <div class="container bg-white shadow card-booking-tony mt-3 pt-3">
+          <h3>Reviews</h3>
+          <% @reviews.each do |review| %>
+            <div class="card-review">
+             <div class="card-review-infos">
+                <p><%= review.comments %></p>
+                <% review.rating.times do %>
+                  <i class="fas fa-star" style="color: orange"></i>
+                <% end %>
+                <% (5 - review.rating).times do  %>
+                  <i class="fas fa-star" style="color: lightgrey"></i>
+                <% end %>
+             </div>
+            </div>
+          <% end %>
+        <p> <%= link_to "Consult the owner profile: #{@plant.user.first_name} #{@plant.user.last_name}", user_path(@plant.user), class:"btn btn-light"%></p>
     </div>
   </div>
 </div>
