@@ -4,8 +4,8 @@ class PlantsController < ApplicationController
   def index
     @plants = policy_scope(Plant).order(created_at: :desc)
 
-    @plants = @plants.all
-    @plants_for_map = Plant.geocoded
+    # @plants = @plants.all
+    # @plants_for_map = Plant.geocoded
 
 
     if (params[:query].present? || params[:indoor_outdoor].present? || params[:address].present?)
