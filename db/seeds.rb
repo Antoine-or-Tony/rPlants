@@ -84,7 +84,7 @@ begonia = Plant.new(name: "Begonia",
                     size: "Medium",
                     weight: "Light (0-2kg)",
                     indoor_outdoor: "Indoor/Outdoor")
-begonia.user = julien
+begonia.user = laurent
 begonia.photo.attach(io: begonia_file, filename: 'begonia.jpg', content_type: 'image/jpg')
 begonia.save!
 
@@ -151,7 +151,7 @@ sapin = Plant.new(name: "Fir",
                     size: "Large",
                     weight: "Extra heavy (>10kg)",
                     indoor_outdoor: "Outdoor")
-sapin.user = antoine
+sapin.user = julien
 sapin.photo.attach(io: sapin_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
 sapin.save!
 
@@ -167,7 +167,7 @@ lierre = Plant.new(name: "Ivy",
                     size: "Medium",
                     weight: "Medium (2-5kg)",
                     indoor_outdoor: "Outdoor")
-lierre.user = antoine
+lierre.user = julien
 lierre.photo.attach(io: lierre_file, filename: 'lierre.jpg', content_type: 'image/jpg')
 lierre.save!
 
@@ -195,23 +195,33 @@ p "geranium created"
 
 
 p "generate seed bookings"
-booking_geranium = Booking.new(start_date: DateTime.now,
+booking_geranium1 = Booking.new(start_date: DateTime.now,
                     end_date: DateTime.now,
                     total_price: 5)
-booking_geranium.user = antoine
-booking_geranium.plant = geranium
-booking_geranium.save!
+booking_geranium1.user = antoine
+booking_geranium1.plant = geranium
+booking_geranium1.save!
 
-p "booking_geranium created"
+p "booking_geranium1 created"
 
-booking_begonia = Booking.new(start_date: DateTime.now,
+booking_begonia1 = Booking.new(start_date: DateTime.now,
                     end_date: DateTime.now,
                     total_price: 10)
-booking_begonia.user = julien
-booking_begonia.plant = begonia
-booking_begonia.save!
+booking_begonia1.user = julien
+booking_begonia1.plant = begonia
+booking_begonia1.save!
 
-p "booking_begonia created"
+p "booking_begonia1 created"
+
+
+booking_begonia2 = Booking.new(start_date: DateTime.now,
+                    end_date: DateTime.now,
+                    total_price: 10)
+booking_begonia2.user = julien
+booking_begonia2.plant = begonia
+booking_begonia2.save!
+
+p "booking_begonia2 created"
 
 booking_rose = Booking.new(start_date: DateTime.now,
                     end_date: DateTime.now,
@@ -226,7 +236,7 @@ p "booking_rose created"
 booking_tulipe1 = Booking.new(start_date: DateTime.now,
                     end_date: DateTime.now,
                     total_price: 10)
-booking_tulipe1.user = laurent
+booking_tulipe1.user = julien
 booking_tulipe1.plant = tulipe
 booking_tulipe1.save!
 
@@ -235,7 +245,7 @@ p "booking_tulipe1 created"
 booking_tulipe2 = Booking.new(start_date: DateTime.now,
                     end_date: DateTime.now,
                     total_price: 10)
-booking_tulipe2.user = laurent
+booking_tulipe2.user = julien
 booking_tulipe2.plant = tulipe
 booking_tulipe2.save!
 
@@ -256,17 +266,17 @@ p "booking_tulipe3 created"
 # --------------------------------------------------------------------------------------
 
 p "generate seed reviews"
-review1_booking_begonia = Review.new(rating: 5, comments: "Very nice begonias, it all went fine!")
-review1_booking_begonia.booking = booking_begonia
-review1_booking_begonia.save!
+review1_booking_geranium1 = Review.new(rating: 5, comments: "Very nice geraniums, it all went fine!")
+review1_booking_geranium1.booking = booking_geranium1
+review1_booking_geranium1.save!
 
-p "review1_booking_begonia created"
+p "review1_booking_begonia1 created"
 
-review2_booking_begonia = Review.new(rating: 3, comments: "Nice plants")
-review2_booking_begonia.booking = booking_begonia
-review2_booking_begonia.save!
+review1_booking_begonia2 = Review.new(rating: 4, comments: "Nice plants")
+review1_booking_begonia2.booking = booking_begonia2
+review1_booking_begonia2.save!
 
-p "review2_booking_begonia created"
+p "review1_booking_begonia2 created"
 
 
 review1_booking_tulipe1 = Review.new(rating: 1, comments: "Owner didn't come to meeting point")
@@ -275,14 +285,14 @@ review1_booking_tulipe1.save!
 
 p "review1_booking_tulipe1 created"
 
-review2_booking_tulipe = Review.new(rating: 3, comments: "Nice flowers but owner hard to reach")
-review2_booking_tulipe.booking = booking_tulipe2
-review2_booking_tulipe.save!
+review1_booking_tulipe2 = Review.new(rating: 3, comments: "Nice flowers but owner hard to reach")
+review1_booking_tulipe2.booking = booking_tulipe2
+review1_booking_tulipe2.save!
 
-p "review2_booking_tulipe created"
+p "review1_booking_tulipe2 created"
 
-review3_booking_tulipe = Review.new(rating: 4, comments: "Very nice tulipes, thank you!")
-review3_booking_tulipe.booking = booking_tulipe3
-review3_booking_tulipe.save!
+review1_booking_tulipe3 = Review.new(rating: 4, comments: "Very nice tulipes, thank you!")
+review1_booking_tulipe3.booking = booking_tulipe3
+review1_booking_tulipe3.save!
 
 p "review3_booking_tulipe created"

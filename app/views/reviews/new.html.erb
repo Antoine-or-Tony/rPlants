@@ -1,8 +1,12 @@
-<h1>Add a review on your booking</h1>
+<div class="container">
 
-<%= simple_form_for [ @booking, @review ] do |f| %>
-  <%= f.input :rating %>
-  <%= f.input :comments %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
-<% end %>
 
+  <h2>Add a review on your booking</h2>
+
+  <%= simple_form_for [@booking.plant, @booking, @review] do |f| %>
+    <%= f.input :rating, label_html: {class: "label_new"} %>
+    <%= f.input :comments, label_html: {class: "label_new"} %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <% end %>
+
+</div>
