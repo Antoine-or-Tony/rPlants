@@ -32,33 +32,4 @@ import { initAutocomplete } from '../plugins/init_autocomplete'
 document.addEventListener('turbolinks:load', () => {
     initMapbox();
     initAutocomplete();
-
-
-// if (document.querySelector(".choose-dates")) {
-//   const elementStart = document.querySelector("#flatpickr-start")
-//   const elementEnd = document.querySelector("#flatpickr-end")
-//   const startDate = document.querySelector(".choose-dates").dataset.start
-//   const endDate = document.querySelector(".choose-dates").dataset.end
-
-//   var href = document.querySelector(".link-to-booking").href.split("=")[0] + '='
-//   console.log("flatpickr")
-//   flatpickr(elementStart, {
-//     enable: [{from: startDate, to: endDate}],
-//     onChange: function(selectedDates, dateStr, instance) {
-//       console.log(dateStr)
-//       href = href + "|start:" + dateStr
-//       document.querySelector(".link-to-booking").href = href
-//       console.log(href)
-//     },
-//   });
-//   flatpickr(elementEnd, {
-//     enable: [{from: startDate, to: endDate}],
-//     onChange: function(selectedDates, dateStr, instance) {
-//       console.log(dateStr)
-//       href = href + "|end:" + dateStr
-//       document.querySelector(".link-to-booking").href = href
-//       console.log(href)
-//     },
-//   });
-// }
 })
