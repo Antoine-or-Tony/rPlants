@@ -1,41 +1,54 @@
 <div class="container">
 
   <div class="row">
-
-    <div class="col-6">
-      <div class="mt-3 pt-3 pl-3 pb-3 bg-white shadow">
-  <!-- Nom et prix -->
-        <h2><%= @plant.name %></h2>
-        <h4><%= @plant.price %>€ per day</h4>
-  <!-- Affichage de l'image -->
-        <div class="text-center">
-          <%= cl_image_tag @plant.photo.key, height: 300, crop: :fill %>
+<!-- Affichage de la plante et sa photo -->
+    <div class="col-8">
+      <div class="pt-3 pb-3">
+        <div class="card-booking-tony">
+          <div class="card-trip-infos">
+            <div class="row">
+              <div class="col-9">
+                <h3><%= @plant.name %></h3>
+              </div>
+              <div class="col-3">
+                <h3 class="card-trip-pricing"><%= @plant.price %>€ /day</h3>
+              </div>
+            </div>
+          </div>
+          <%= cl_image_tag @plant.photo.key, crop: :fill %>
         </div>
       </div>
     </div>
-
-    <div class="col-6">
-  <!-- Affichage du booking -->
-      <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-        <h2>Booking Request</h2>
+<!-- Affichage du booking -->
+    <div class="col-4">
+      <div class = "form-booking sticky-booking mt-3 pt-3 pl-3 pb-3">
+        <h4 class="text-center">Booking Request</h4>
         <%= simple_form_for [@plant, @booking] do |f| %>
-          <%= f.input :start_date, as: :string, placeholder: "Choose date", required: false, input_html: {id: "range_start"} %>
-          <%= f.input :end_date, as: :string, placeholder: "Choose date", required: false, input_html: {id: "range_end"} %>
-          <h5 id="available_dates" data-date="<%= @plant.disponibility_end %>">Dates available from <%= @plant.disponibility_start %> to <%= @plant.disponibility_end %></h5>
-          <h4>The total price will be:</h4>
-          <h4 data-price="<%= @plant.price %>" id="total_price">Price</h4>
+          <%= f.input :start_date, as: :string, placeholder: "Choose start date", required: false, input_html: {id: "range_start"}, label_html: {class: "label_new"} %>
+          <%= f.input :end_date, as: :string, placeholder: "Choose end date", required: false, input_html: {id: "range_end"}, label_html: {class: "label_new"} %>
+            <div class="row">
+              <div class="col-8">
+                <h4 >Total price :</h4>
+              </div>
+              <div class="col-2">
+                <h4 data-price="<%= @plant.price %>" id="total_price">...</h4>
+              </div>
+              <div class="col-1">
+                <h4>€</h4>
+              </div>
+            </div>
           <%= f.submit "Confirm booking", class: "btn-plant"%>
         <% end %>
       </div>
     </div>
-
   </div>
-
+  
   <div class="row">
-    <div class="col-6">
+    <div class="col-8">
 <!-- Affichage des infos & espèce de la plante -->
-      <div class="container bg-white shadow mt-3 pt-3">
+      <div class="container bg-white shadow card-booking-tony">
         <h3> Product details </h3>
+        <p id="available_dates" data-date="<%= @plant.disponibility_end %>">Available from <strong><%= @plant.disponibility_start %></strong> to <strong><%= @plant.disponibility_end %></strong></p>
         <div class="row">
           <div class="col-12">
             <p> <%=  @plant.comments %></p>
@@ -43,7 +56,7 @@
         </div>
         <div class="row">
           <div class="col-5">
-            <p><em>Species</em></p>
+            <p><strong>Species</strong></p>
           </div>
           <div class="col-7">
             <p><%= @plant.species %></p>
@@ -53,7 +66,7 @@
 <!-- Picto size -->
         <div class="row">
           <div class="col-5">
-            <p><em>Size</em></p>
+            <p><strong>Size</strong></p>
           </div>
           <div class="col-7">
             <% if @plant.size == "Small" %>
@@ -82,7 +95,7 @@
 <!-- Picto weight -->
         <div class="row">
           <div class="col-5">
-            <p><em>Weight</em></p>
+            <p><strong>Weight</strong></p>
           </div>
           <div class="col-7">
             <% if @plant.weight == "Light (0-2kg)" %>
@@ -121,7 +134,7 @@
 <!-- Picto indoor/outdoor -->
         <div class="row">
           <div class="col-5">
-            <p><em>Indoor <i class="fas fa-home"></i> / Outdoor <i class="fas fa-tree"></i></em></p>
+            <p><strong>Indoor <i class="fas fa-tree"></i> / Outdoor <i class="fas fa-home"></i></strong></p>
           </div>
           <div class="col-7">
             <% if  @plant.indoor_outdoor == "Indoor" %>
@@ -140,7 +153,7 @@
 <!-- Address -->
         <div class="row">
           <div class="col-5">
-            <p><em>Address</em></p>
+            <p><strong>Address</strong></p>
           </div>
           <div class="col-7">
             <p><%= @plant.address %></p>
@@ -170,7 +183,7 @@
 </div>
 
 <div class="container mt-3">
-  <div class="row pl-3">
+  <div class="row">
     <p> <%= link_to "Back to plants", plants_path, class:"btn btn-secondary" %></p>
   </div>
 </div>

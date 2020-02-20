@@ -13,6 +13,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
+  border-radius: 3px;
   align-items: center;
 }
 
@@ -38,5 +39,52 @@
 
 .card-booking .card-booking-infos {
   padding: 16px;
+  border-radius: 3px;
+}
+
+// Version Antoine
+
+
+.card-booking-tony {
+  overflow: hidden;
+  border-radius: 3px;
+  padding: 15px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+
+.card-booking-tony > img {
+  height: 284px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-booking-tony h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-booking-tony p {
+  font-size: 16px;
+  color: grey;
+  margin: 4px;
+}
+
+
+.card-booking-tony .card-booking-tony-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-booking-tony-infos .card-booking-tony-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
 }
 
