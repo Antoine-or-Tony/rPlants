@@ -65,29 +65,29 @@ geranium_file = URI.open('https://www.jardiner-malin.fr/wp-content/uploads/2018/
 p "generate seed plants"
 begonia = Plant.new(name: "Begonia",
                     price: 10,
-                    comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                    comments: "Typically used as houseplants and in shaded summer beds. Some are grown for their asymmetrical, patterned and variegated foliage, and others to add color to shady garden areas with their bright blooms.",
                     address: "16 Villa Gaudelet Paris",
                     disponibility_start: DateTime.new(2020,5,1),
                     disponibility_end: DateTime.new(2020,8,4),
                     species: "Begonia scharffii",
-                    size: "M",
-                    weight: "Light",
-                    indoor_outdoor: "Outdoor")
+                    size: "Medium",
+                    weight: "Light (0-2kg)",
+                    indoor_outdoor: "Indoor/Outdoor")
 begonia.user = julien
 begonia.photo.attach(io: begonia_file, filename: 'begonia.jpg', content_type: 'image/jpg')
 begonia.save!
 
 p "begonia created"
 
-p tulipe = Plant.new(name: "Tulipe",
+p tulipe = Plant.new(name: "Tulipes",
                     price: 10,
-                    comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                    comments: "An unusual member of the iris family, snake’s head iris has striking yellow-green standards and velvety, nearly black falls that have a high-fashion cocktail-dress allure.",
                     address: "10 rue des batignolles Paris",
                     disponibility_start: DateTime.new(2020,3,6),
                     disponibility_end: DateTime.new(2020,5,7),
                     species: "Tulipa clusiana ",
-                    size: "S",
-                    weight: "Light",
+                    size: "Small",
+                    weight: "Light (0-2kg)",
                     indoor_outdoor: "Outdoor")
 p "tulipe new"
 tulipe.photo.attach(io: tulipe_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
@@ -98,15 +98,15 @@ tulipe.save!
 
 p "tulipe created"
 
-rose = Plant.new(name: "Roses rouges",
+rose = Plant.new(name: "Roses",
                     price: 10,
-                    comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                    comments: "15 white and red flowers, typically last 2 weeks.",
                     disponibility_start: DateTime.new(2020,4,9),
                     disponibility_end: DateTime.new(2020,5,3),
                     address: "7 avenue des champs elysées, paris",
                     species: "Rosebud",
-                    size: "S",
-                    weight: "Light",
+                    size: "Small",
+                    weight: "Light (0-2kg)",
                     indoor_outdoor: "Outdoor")
 rose.user = antoine
 rose.photo.attach(io: rose_file, filename: 'rose.jpg', content_type: 'image/jpg')
@@ -114,15 +114,15 @@ rose.save!
 
 p "rose created"
 
-ficus = Plant.new(name: "Ficus coréen",
+ficus = Plant.new(name: "Korean Ficus",
                     price: 10,
-                    comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                    comments: "A nice small tree with glossy deep green leaves with white along the edges on short drooping branches. 1m high, perfect for your living room!",
                     disponibility_start: DateTime.new(2020,6,3),
                     disponibility_end: DateTime.new(2020,9,12),
                     species: "Ficus benghalensis",
                     address: "25 rue de l'université, Paris",
-                    size: "M",
-                    weight: "Heavy",
+                    size: "Medium",
+                    weight: "Heavy (5-10kg)",
                     indoor_outdoor: "Indoor")
 ficus.user = antoine
 ficus.photo.attach(io: ficus_file, filename: 'rose.jpg', content_type: 'image/jpg')
@@ -130,15 +130,15 @@ ficus.save!
 
 p "ficus created"
 
-sapin = Plant.new(name: "Sapin",
+sapin = Plant.new(name: "Fir",
                     price: 10,
-                    comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                    comments: "A large evergreen coniferous tree. 2m high, perfect for Christmas!",
                     disponibility_start: DateTime.new(2020,12,11),
                     disponibility_end: DateTime.new(2021,8,4),
-                    species: "Norman",
+                    species: "Nordman",
                     address: "porte de la Villette, Paris",
-                    size: "L",
-                    weight: "Extra heavy",
+                    size: "Large",
+                    weight: "Extra heavy (>10kg)",
                     indoor_outdoor: "Outdoor")
 sapin.user = antoine
 sapin.photo.attach(io: sapin_file, filename: 'tulipe.jpg', content_type: 'image/jpg')
@@ -146,15 +146,15 @@ sapin.save!
 
 p "sapin created"
 
-lierre = Plant.new(name: "Lierre",
+lierre = Plant.new(name: "Ivy",
                     price: 10,
-                    comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                    comments: "1m high evergreen climbing or ground-creeping woody plants, native to central Europe.",
                     disponibility_start: DateTime.new(2020,4,7),
                     disponibility_end: DateTime.new(2020,8,5),
                     species: "Lierre hongrois",
                     address: "129 rue de l'Abbé Groult, Paris",
-                    size: "M",
-                    weight: "Medium",
+                    size: "Medium",
+                    weight: "Medium (2-5kg)",
                     indoor_outdoor: "Outdoor")
 lierre.user = antoine
 lierre.photo.attach(io: lierre_file, filename: 'lierre.jpg', content_type: 'image/jpg')
@@ -164,13 +164,13 @@ p "lierre created"
 
 geranium = Plant.new(name: "Geranium",
                     price: 10,
-                    comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                    comments: "The flowers have five petals and are coloured white, pink, purple and blue",
                     disponibility_start: DateTime.new(2020,4,7),
                     disponibility_end: DateTime.new(2020,8,5),
                     species: "Géranium fabulum",
                     address: "1 rue du Commerce, Paris",
-                    size: "S",
-                    weight: "Light",
+                    size: "Small",
+                    weight: "Light (0-2kg)",
                     indoor_outdoor: "Outdoor")
 geranium.user = antoine
 geranium.photo.attach(io: geranium_file, filename: 'geranium.jpg', content_type: 'image/jpg')

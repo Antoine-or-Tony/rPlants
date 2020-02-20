@@ -38,19 +38,19 @@
             <p><em>Size</em></p>
           </div>
           <div class="col-7">
-            <% if @plant.size == "S" %>
+            <% if @plant.size == "Small" %>
               <p>
                 <i class="fas fa-leaf fa-xs" style="color: green"></i>
                 <i class="fas fa-leaf fa-sm" style="color: lightgrey "></i>
                 <i class="fas fa-leaf fa-lg" style="color: lightgrey"></i>
               </p>
-            <% elsif @plant.size == "M" %>
+            <% elsif @plant.size == "Medium" %>
               <p>
                 <i class="fas fa-leaf fa-xs" style="color: green"></i>
                 <i class="fas fa-leaf fa-sm" style="color: green"></i>
                 <i class="fas fa-leaf fa-lg" style="color: lightgrey"></i>
               </p>
-            <% elsif @plant.size == "L" %>
+            <% elsif @plant.size == "Large" %>
               <p>
                 <i class="fas fa-leaf fa-xs" style="color: green"></i>
                 <i class="fas fa-leaf fa-sm" style="color: green"></i>
@@ -67,28 +67,28 @@
             <p><em>Weight</em></p>
           </div>
           <div class="col-7">
-            <% if @plant.weight == "Light" %>
+            <% if @plant.weight == "Light (0-2kg)" %>
               <p>
                 <i class="fas fa-weight-hanging" style="color: green"></i>
                 <i class="fas fa-weight-hanging"style="color: lightgrey"></i>
                 <i class="fas fa-weight-hanging" style="color: lightgrey"></i>
                 <i class="fas fa-weight-hanging" style="color: lightgrey"></i>
               </p>
-            <% elsif @plant.weight == "Medium" %>
+            <% elsif @plant.weight == "Medium (2-5kg)" %>
               <p>
                 <i class="fas fa-weight-hanging" style="color: green"></i>
                 <i class="fas fa-weight-hanging" style="color: green"></i>
                 <i class="fas fa-weight-hanging" style="color: lightgrey"></i>
                 <i class="fas fa-weight-hanging" style="color: lightgrey"></i>
               </p>
-            <% elsif @plant.weight == "Heavy" %>
+            <% elsif @plant.weight == "Heavy (5-10kg)" %>
               <p>
                 <i class="fas fa-weight-hanging" style="color: green"></i>
                 <i class="fas fa-weight-hanging" style="color: green"></i>
                 <i class="fas fa-weight-hanging" style="color: green"></i>
                 <i class="fas fa-weight-hanging" style="color: lightgrey"></i>
               </p>
-            <% elsif @plant.weight == "Extra heavy" %>
+            <% elsif @plant.weight == "Extra heavy (>10kg)" %>
               <p>
                 <i class="fas fa-weight-hanging" style="color: green"></i>
                 <i class="fas fa-weight-hanging" style="color: green"></i>
