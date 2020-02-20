@@ -5,34 +5,22 @@
     <div class="row" style="justify-content: space-between;">
       <div class = "form-home">
         <%= form_tag plants_path, method: :get do %>
+            <div>
+              <p class="text-white font-weight-bold mt-3"><%= label_tag :query, 'Find your plant ' %></p>
+              <%= text_field_tag :query, params[:query]%>
+            </div>
+            <div>
+              <p class="text-white font-weight-bold mt-3"><%= label_tag :query, 'Where do you live' %></p>
+              <%= text_field_tag :address, params[:address]%>
+            </div>
+            <p class="text-white font-weight-bold mt-3"><%= label_tag 'indoor_outdoor', 'Indoor Outdoor' %></p>
           <div class="row">
-            <%= date_field_tag :start_date, Date.today() %>
-            <%= date_field_tag :end_date, Date.today() %>
-          </div>
-          <div class="row">
-            <div>
-              <p class="text-white mt-3 font-weight-bold"><%= label_tag 'indoor_outdoor', 'Indoor Outdoor' %></p>
-              <p class="text-white mt-3"><%= check_box_tag 'indoor_outdoor', 'Indoor' %> indoor </p>
-              <p class="text-white mt-3"><%= check_box_tag 'indoor_outdoor', 'Outdoor' %> Outdoor </p>
-            </div>
-
-            <div>
-              <p class="text-white mt-3 font-weight-bold"><%= label_tag 'size', 'Size' %></p>
-              <p class="text-white mt-3"><%= check_box_tag 'size', 'Small' %> Small </p>
-              <p class="text-white mt-3"><%= check_box_tag 'size', 'Middle' %> Middle </p>
-              <p class="text-white mt-3"><%= check_box_tag 'size', 'Tall' %> Tall </p>
-            </div>
-
-            <div>
-              <p class="text-white mt-3 font-weight-bold"><%= label_tag 'delivery', 'Delivery' %></p>
-              <p class="text-white mt-3"><%= check_box_tag 'delivery', 'pickup' %> pickup </p>
-              <p class="text-white mt-3"><%= check_box_tag 'delivery', 'delivery' %> delivery </p>
-            </div>
+              <p class="text-white"><%= check_box_tag :indoor_outdoor, 'Indoor' %> indoor </p>
+              <p class="text-white mb-3"><%= check_box_tag :indoor_outdoor, 'Outdoor' %> Outdoor </p>
           </div>
 
-          <%= submit_tag "Search", class: "btn btn-warning" %>
+          <%= submit_tag "Search", class: "btn btn-success" %>
           <%= submit_tag "Cancel", type: "reset", class: "btn btn-outline-white" %>
-            <%#= f.button :button, "Cancel", type: "reset", class: "btn-outline-white" %>
         <% end %>
       </div>
       <div class="text-format">

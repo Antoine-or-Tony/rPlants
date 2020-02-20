@@ -4,11 +4,32 @@ class PlantsController < ApplicationController
   def index
     @plants = policy_scope(Plant).order(created_at: :desc)
 
-    @plants = Plant.where(
-      indoor_outdoor: params[:indoor_outdoor],
-      size: params[:size])
-
+    @plants = @plants.all
     @plants_for_map = Plant.geocoded
+
+
+    if (params[:query].present? || params[:indoor_outdoor].present? || params[:address].present?)
+      # Si j ai un params query => premiere filtre
+      if params[:query].present?
+        @plants = @plants.search_by_name_and_species(params[:query])
+        @plants_for_map = @plants_for_map.search_by_name_and_species(params[:query])
+      end
+
+      # Si j ai un params indoor or outdoor => scd filtre
+      if params[:indoor_outdoor].present?
+        @plants = @plants.search_by_indoor_outdoor(params[:indoor_outdoor])
+        @plants_for_map = @plants_for_map.search_by_indoor_outdoor(params[:indoor_outdoor])
+      end
+
+      # Si j ai un params address => scd filtre
+      if params[:address].present?
+        @plants =@plants.near(params[:address], 10)
+        @plants_for_map = @plants_for_map.near(params[:address], 10)
+      end
+    else
+      @plants = @plants.all
+      @plants_for_map = Plant.geocoded
+    end
 
     @markers = @plants_for_map.map do |plant|
       {
