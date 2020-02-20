@@ -1,10 +1,10 @@
 <div class="container">
-
   <div class="row">
 <!-- Affichage de la plante et sa photo -->
     <div class="col-8">
       <div class="pt-3 pb-3">
-        <div class="card-booking-tony">
+
+        <div class="card-booking-tony" type="button" data-toggle="modal" data-target="#exampleModalLong">
           <div class="card-trip-infos">
             <div class="row">
               <div class="col-9">
@@ -14,11 +14,11 @@
                 <h3 class="card-trip-pricing"><%= @plant.price %>€ /day</h3>
               </div>
             </div>
+            </div>
+              <%= cl_image_tag @plant.photo.key, crop: :fill %>
+            </div>
           </div>
-          <%= cl_image_tag @plant.photo.key, crop: :fill %>
         </div>
-      </div>
-    </div>
 <!-- Affichage du booking -->
     <div class="col-4">
       <div class = "form-booking sticky-booking mt-3 pt-3 pl-3 pb-3">
@@ -187,4 +187,18 @@
     <p> <%= link_to "Back to plants", plants_path, class:"btn btn-secondary" %></p>
   </div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+  <div class="text-center">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  </div>
+  <div class="container text-center">
+    <%= cl_image_tag @plant.photo.key, class:"mt-5", height: 550; %>
+    </div>
+  </div>
+</div>
+
 
