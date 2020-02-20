@@ -1,106 +1,21 @@
-<div class="container mt-3">
-  <div class="row pl-3">
-    <p> <%= link_to "Back to plants", plants_path, class:"btn btn-secondary btn-width-100" %></p>
-  </div>
-</div>
-
-<div class="container">
-  <h1><%= @plant.name %></h1>
-    <p> <%= link_to "Consult the owner profile", user_path(@plant.user), class:"btn btn-primary btn-width-100"%></p>
-  <div class="row">
-    <div class="col-6">
-      <!-- Affichage des infos de la plante -->
-      <div class="container bg-white shadow mt-3 pt-3">
-        <h2> Product details </h2>
-        <div class="row">
-          <div class="col-12">
-            <p> <%=  @plant.comments %></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <p>Species</p>
-          </div>
-          <div class="col-6">
-            <p><%= @plant.species %></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <p>Size</p>
-          </div>
-          <div class="col-6">
-            <p><%= @plant.size %></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <p>Weight (kg)</p>
-          </div>
-          <div class="col-6">
-            <p><%= @plant.weight %></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <p>Indoor / Outdoor</p>
-          </div>
-          <div class="col-6">
-            <p><%= @plant.indoor_outdoor %></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <p>Address</p>
-          </div>
-          <div class="col-6">
-            <p><%= @plant.address %></p>
-          </div>
-        </div>
-
-      </div>
-
-    <!-- Affichage des reviews -->
-    <div class="container mt-3 pt-3 pb-2 bg-white shadow">
-      <h2>Reviews</h2>
-      <% @reviews.each do |review| %>
-        <div class="card-review">
-         <div class="card-review-infos">
-           <p><%= review.comments %></p>
-           <p><%= "⭐️"*review.rating%></p>
-         </div>
-        </div>
-      <% end %>
-    </div>
-
-
   <!-- Affichage du booking -->
-    <div class="col-6">
-      <h1>Booking request</h1>
 
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-<div class="container">
   <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
     <h2>Booking Request</h2>
     <%= simple_form_for [@plant, @booking] do |f| %>
       <%= f.input :start_date, as: :string, placeholder: "Choose date", required: false, input_html: {id: "range_start"} %>
       <%= f.input :end_date, as: :string, placeholder: "Choose date", required: false, input_html: {id: "range_end"} %>
-
+      <h5 id="available_dates" data-date="<%= @plant.disponibility_end %>">Dates available from <%= @plant.disponibility_start %> to <%= @plant.disponibility_end %></h5>
       <h4>The total price will be:</h4>
       <h4 data-price="<%= @plant.price %>" id="total_price">Price</h4>
       <%= f.submit "Confirm booking", class: "btn-plant"%>
     <% end %>
-
-
   </div>
-</div>
+
+
+
+
+
+
+
 
