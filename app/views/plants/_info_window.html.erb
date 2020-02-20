@@ -1,4 +1,7 @@
-<h2><%= plant.name %></h2>
-<p><%= plant.address %></p>
-<p><%= plant.price %>€</p>
-<p>review.count</p>
+<div class= "container">
+  <h2><%= plant.name %></h2>
+  <p><%= plant.address %></p>
+  <p><%= plant.price %>€</p>
+  <%= cl_image_tag plant.photo.key, height: 250, width: 250, crop: :fill, :class =>'image-trip'%>
+  <%= link_to "Book this plant", plant_path(plant),class:'button'%>
+</div>
