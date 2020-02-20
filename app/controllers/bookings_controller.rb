@@ -13,6 +13,8 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new()
     @plant = Plant.find(params[:plant_id])
+    @start_date = params[:dates].split("|start:")[1].split("|end:")[0]
+    @end_date = params[:dates].split("|start:")[1].split("|end:")[1]
     authorize @booking
   end
 
