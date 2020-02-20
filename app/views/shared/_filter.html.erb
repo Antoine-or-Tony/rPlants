@@ -11,7 +11,7 @@
       <div class = "filter-popup">
         <%= form_tag plants_path, method: :get do %>
           <%= label_tag :query, 'Find your plant', class:"text-success" %>
-          <%= text_field_tag :query, params[:query], class:"mb-2"%>
+          <%= text_field_tag :query, params[:query], class:"mb-2 input-query"%>
           <%= hidden_field_tag :address, params[:address] %>
           <%= hidden_field_tag :indoor_outdoor, params[:indoor_outdoor] %>
           <%= submit_tag "Select", class: "btn btn-success" %>
@@ -32,7 +32,7 @@
       <div class = "filter-popup">
         <%= form_tag plants_path, method: :get do %>
           <%= label_tag :address, 'Find your place', class:"text-success" %>
-          <%= text_field_tag :address, params[:address], class:"mb-2"%>
+          <%= text_field_tag :address, params[:address], id:"plant_address", class:"mb-2"%>
           <%= hidden_field_tag :query, params[:query] %>
           <%= hidden_field_tag :indoor_outdoor, params[:indoor_outdoor] %>
           <%= submit_tag "Select", class: "btn btn-success" %>
