@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RPlants</title>
+    <title>AIRplants</title>
+    <%= favicon_link_tag 'plant.png' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload', defer: true%>
-    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
   <body>
     <%= render 'shared/navbar' %>
-    <%= yield %>
+    <div class="content-wrapper">
+      <%= yield %>
+    </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 

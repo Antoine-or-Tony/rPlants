@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="row">
-    <!-- Affichage de la plante et sa photo -->
+<!-- Affichage de la plante et sa photo -->
     <div class="col-8">
       <div class="pt-3 pb-3">
         <div class="card-booking-tony">
@@ -19,8 +19,7 @@
         </div>
       </div>
     </div>
-
-      <!-- Affichage du booking -->
+<!-- Affichage du booking -->
     <div class="col-4">
       <div class = "form-booking sticky-booking mt-3 pt-3 pl-3 pb-3">
         <h4 class="text-center">Booking Request</h4>
@@ -43,7 +42,7 @@
       </div>
     </div>
   </div>
-
+  
   <div class="row">
     <div class="col-8">
 <!-- Affichage des infos & espèce de la plante -->
@@ -178,7 +177,7 @@
          </div>
         </div>
       <% end %>
-    <p> <%= link_to "Consult the owner profile", user_path(@plant.user), class:"btn btn-light"%></p>
+    <p> <%= link_to "Consult the owner profile: #{@plant.user.first_name} #{@plant.user.last_name}", user_path(@plant.user), class:"btn btn-light"%></p>
     </div>
   </div>
 </div>

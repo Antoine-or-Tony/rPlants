@@ -13,7 +13,6 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initFlatPickr } from '../plugins/flatpickr';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 
-
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initFlatPickr();
