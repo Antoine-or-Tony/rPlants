@@ -3,14 +3,13 @@
   <div class="mt-3">
     <% if @user == current_user %>
       <h3>Welcome to your profile <%= @user.first_name %></h3>
-      <p class="pl-3"><%= @user.bio %></p>
     <% else %>
       <h3>Profile - <%= @user.first_name %> <%= @user.last_name %></h3>
     <% end %>
   </div>
 
   <!-- Display current booking only if current_user is the user plage -->
-  <div class="mt-5">
+  <div class="mt-3">
     <h4 class=>My bookings</h4>
     <div class="row">
       <% @user.bookings.each do |booking|  %>
