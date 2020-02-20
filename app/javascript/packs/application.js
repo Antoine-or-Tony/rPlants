@@ -26,10 +26,12 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import flatpickr from "flatpickr";
 import "flatpickr/dist/themes/airbnb.css"
+import { initAutocomplete } from '../plugins/init_autocomplete'
 
 
 document.addEventListener('turbolinks:load', () => {
     initMapbox();
+    initAutocomplete();
 
 
 // if (document.querySelector(".choose-dates")) {

@@ -7,16 +7,16 @@
         <%= form_tag plants_path, method: :get do %>
             <div>
               <p class="text-white font-weight-bold mt-3"><%= label_tag :query, 'Find your plant ' %></p>
-              <%= text_field_tag :query, params[:query]%>
+              <%= text_field_tag :query, params[:query], class:"input-query"%>
             </div>
             <div>
               <p class="text-white font-weight-bold mt-3"><%= label_tag :query, 'Where do you live' %></p>
-              <%= text_field_tag :address, params[:address]%>
+              <%= text_field_tag :address, params[:address], id:"plant_address"%>
             </div>
             <p class="text-white font-weight-bold mt-3"><%= label_tag 'indoor_outdoor', 'Indoor Outdoor' %></p>
           <div class="row">
-              <p class="text-white"><%= check_box_tag :indoor_outdoor, 'Indoor' %> indoor </p>
-              <p class="text-white mb-3"><%= check_box_tag :indoor_outdoor, 'Outdoor' %> Outdoor </p>
+              <p class="text-white"><%= check_box_tag :indoor_outdoor, 'Indoor', false, id:"Indoor" %> indoor </p>
+              <p class="text-white mb-3"><%= check_box_tag :indoor_outdoor, 'Outdoor', false,id:"Outdoor" %> Outdoor </p>
           </div>
           <%= submit_tag "Search", class: "btn btn-success" %>
         <% end %>
