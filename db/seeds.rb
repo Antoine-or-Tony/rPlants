@@ -79,6 +79,9 @@ ficus_file = URI.open('https://www.jardinpourvous.com/media/catalog/product/cach
 sapin_file = URI.open('http://4.bp.blogspot.com/-7vIIL3fALU4/UMczMO-etLI/AAAAAAAA9I8/hakIlezSJcY/s1600/Christmas-Lighting-for-your-front-porch-christmas-decoration10.jpg')
 lierre_file = URI.open('https://assets.bakker.com/ProductPics/810x978/71916-00-BAKIE_20190222052326.jpg')
 geranium_file = URI.open('https://www.jardiner-malin.fr/wp-content/uploads/2018/10/geranium.jpg')
+cactus_file = URI.open('https://i.pinimg.com/originals/d4/67/96/d46796908df78cd9e243430ba6f460b7.jpg')
+senecio_file = URI.open('https://blog.damasketdentelle.com/wp-content/uploads/e3a1d62f5370bda3e38506d3a9cf8306.jpg')
+oak_file = URI.open('https://www.jardinsdefrance.org/wp-content/uploads/jdf-medias/images/JdF634/Chene%20Kremer%20670.jpeg')
 
 # --------------------------------------------------------------------------------------
 # PLANTS
@@ -200,6 +203,55 @@ geranium.photo.attach(io: geranium_file, filename: 'geranium.jpg', content_type:
 geranium.save!
 
 p "geranium created"
+
+cactus = Plant.new(name: "Opunta Cactus",
+                    price: 2,
+                    comments: "The Opunta albispina cactus or angel wings cactus is a member of the prickly pear family that grows evenly spaced clusters of hairs rather than sharp spines. The Mexican native grows clusters of pads that get no larger than two feet tall but can grow up to five feet across over time. Pale yellow blooms are followed by red, edible fruits on plants that receive a full day of sun. ",
+                    disponibility_start: DateTime.new(2020,4,7),
+                    disponibility_end: DateTime.new(2020,8,5),
+                    species: "Cactus",
+                    address: "13 rue Gabriel Péri, 94700 Maisons-Alfort",
+                    size: "Small",
+                    weight: "Light (0-2kg)",
+                    indoor_outdoor: "Indoor")
+cactus.user = julien
+cactus.photo.attach(io: cactus_file, filename: 'cactus.jpg', content_type: 'image/jpg')
+cactus.save!
+
+p "cactus created"
+
+senecio = Plant.new(name: "senecio",
+                    price: 10,
+                    comments: "The senecio or angel wings senecio is a member of the prickly pear family that grows evenly spaced clusters of hairs rather than sharp spines. The Mexican native grows clusters of pads that get no larger than two feet tall but can grow up to five feet across over time. Pale yellow blooms are followed by red, edible fruits on plants that receive a full day of sun. ",
+                    disponibility_start: DateTime.new(2020,4,7),
+                    disponibility_end: DateTime.new(2020,8,5),
+                    species: "senecio",
+                    address: "Château de Versailles, Versailles, Île-de-France, France",
+                    size: "Medium",
+                    weight: "Medium (10-20kg)",
+                    indoor_outdoor: "Indoor")
+senecio.user = julien
+senecio.photo.attach(io: senecio_file, filename: 'senecio.jpg', content_type: 'image/jpg')
+senecio.save!
+
+p "senecio created"
+
+
+oak = Plant.new(name: "oak",
+                    price: 10,
+                    comments: "The oak or angel wings oak is a member of the prickly pear family that grows evenly spaced clusters of hairs rather than sharp spines. The Mexican native grows clusters of pads that get no larger than two feet tall but can grow up to five feet across over time. Pale yellow blooms are followed by red, edible fruits on plants that receive a full day of sun. ",
+                    disponibility_start: DateTime.new(2020,4,7),
+                    disponibility_end: DateTime.new(2020,8,5),
+                    species: "oak",
+                    address: "Zi Nord, 60130 Saint-Just-en-Chaussée",
+                    size: "Large",
+                    weight: "Large (150-200kg)",
+                    indoor_outdoor: "Outdoor")
+oak.user = julien
+oak.photo.attach(io: oak_file, filename: 'oak.jpg', content_type: 'image/jpg')
+oak.save!
+
+p "oak created"
 
 # --------------------------------------------------------------------------------------
 # BOOKINGS
