@@ -37,6 +37,11 @@
         <% end %>
       <% end %>
     </div>
+
+    <!-- Message si page d'upcoming bookings -->
+    <% if @user.bookings.all? { |booking| booking.start_date <= DateTime.now } %>
+      <p>You don't have any upcoming booking. <%=link_to "Book now!", root_path %></p>
+    <% end %>
   </div>
 
   <!-- Current  bookings -->
@@ -68,6 +73,12 @@
         <% end %>
       <% end %>
     </div>
+
+    <!-- Message si page d'upcoming bookings -->
+    <% if @user.bookings.all? { |booking| (booking.start_date < DateTime.now and booking.end_date > DateTime.now) } %>
+      <p>You don't have any ongoing booking.</p>
+    <% end %>
+
   </div>
 
   <!-- previous bookings -->
@@ -178,8 +189,12 @@
   <!-- Display only if current_user is the user plage -->
           <% if @user == current_user %>
             <div class="m-3">
-              <%= link_to "Update plant", edit_plant_path(plant), class:"btn btn-secondary  btn-sm" %>
-              <%= link_to "Delete plant", plant_path(plant), method: :delete, class:"btn btn-danger  btn-sm" %>
+              <%= link_to edit_plant_path(plant), class:"text-success" do %>
+                <i class="far fa-edit style="></i>
+              <% end %>
+              <%= link_to plant_path(plant), method: :delete, class:"text-danger" do %>
+                <i class="fas fa-trash style="></i>
+              <% end %>
             </div>
           <% end %>
         </div>
