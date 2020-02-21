@@ -21,3 +21,10 @@
 .content-wrapper {
   min-height: calc(100vh - 70px - 80px);
 }
+
+
+.new-log-in {
+  background-size: cover;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.pexels.com/photos/1470168/pexels-photo-1470168.jpeg?cs=srgb&dl=above-ground-photo-of-succulent-plants-on-brown-wooden-board-1470168.jpg&fm=jpg');
+}
