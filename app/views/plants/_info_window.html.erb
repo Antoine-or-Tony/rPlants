@@ -4,8 +4,31 @@
       <h3><%= plant.name%></h3>
       <h3><strong><%= plant.price %>€</strong></h3>
       <h5><%= plant.address %></h4>
-       <h5><%= plant.reviews %></h5>
-    </div>
+      
+      <!-- Calcul rating average and count -->
+      <% rating_counter = 0 %>
+      <% rating_points = 0 %>
+      <% plant.reviews.each do |review| %>
+        <% rating_counter += 1 %>
+        <% rating_points += review.rating %>
+      <% end %>
+      <% if rating_counter == 0 %>
+        <% rating_average = 0 %>
+      <% else %>
+        <% rating_average = (rating_points / rating_counter).truncate %>
+      <% end %>
+
+      <!-- Display rating average and rating count -->
+      <p>
+        <% rating_average.times do %>
+          <i class="fas fa-star fa-sm" style="color: orange"></i>
+        <% end %>
+        <% (5 - rating_average).times do %>
+          <i class="fas fa-star fa-sm" style="color: lightgrey"></i>
+        <% end %>
+         (<%= rating_counter %>)
+      </p>
+  </div>
     <div class="pop-img">
       <%= cl_image_tag plant.photo.key, height: 150, width: 150, crop: :fill, class: 'img-pop-up'%>
     </div>
