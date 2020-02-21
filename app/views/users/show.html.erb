@@ -130,7 +130,34 @@
 
                   <!-- Affichage des notes -->
                 <div>
-                  <%= link_to "Add a review", new_plant_booking_review_path(booking.plant, booking), class:"btn btn-secondary btn-sm" %>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                  pending review
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div>
+                          <h2>Add a review on your booking</h2>
+                          <%= simple_form_for [booking.plant, booking, @review] do |f| %>
+                            <%= f.input :rating, label_html: {class: "review_rating"}, collection: (1..5).to_a, label: "Rate your experience" %>
+                            <%= f.input :comments, label_html: {class: "label_new"} %>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <%= f.submit "Submit review", class: "btn btn-success", id: "sweet-alert-demo" %>
+                            </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -221,5 +248,4 @@
       <%= link_to "Edit my password", edit_user_registration_path, class:"btn btn-secondary" %>
     <% end %>
     </div>
-
 </div>
