@@ -15,7 +15,7 @@
       <% @user.bookings.each do |booking|  %>
         <% if booking.start_date > DateTime.now %> <!-- Check que le booking n'a pas commencé -->
           <div class="col-3 mb-3">
-            <div class="card-trip">
+            <div class="card-trip larger-card">
               <%= cl_image_tag booking.plant.photo.key, height: 250, width: 250, crop: :fill, :class =>'image-trip'%>
               <div class="card-trip-infos">
 
@@ -51,7 +51,7 @@
       <% @user.bookings.each do |booking|  %>
         <% if booking.start_date < DateTime.now and booking.end_date > DateTime.now %> <!-- Check que l'on est dans la période du booking -->
           <div class="col-3 mb-3">
-            <div class="card-trip">
+            <div class="card-trip larger-card">
               <%= cl_image_tag booking.plant.photo.key, height: 250, width: 250, crop: :fill, :class =>'image-trip'%>
               <div class="card-trip-infos">
 
@@ -91,7 +91,7 @@
           <!-- Cas ou il y a une review -->
           <% if booking.reviews[0].nil? == false %>
             <div class="col-3 mb-3">
-              <div class="card-trip mb-3">
+              <div class="card-trip  larger-card mb-3">
                 <%= cl_image_tag booking.plant.photo.key, height: 250, width: 250, crop: :fill, :class =>'image-trip'%>
                 <div class="card-trip-infos">
 
@@ -118,7 +118,7 @@
 
           <% else %> <!-- Cas ou il n'y a pas de review -->
             <div class="col-3 mb-3">
-              <div class="card-trip mb-3">
+              <div class="card-trip larger-card mb-3">
                 <%= cl_image_tag booking.plant.photo.key, height: 250, width: 250, crop: :fill, :class =>'image-trip'%>
                 <div class="card-trip-infos">
 
@@ -185,10 +185,10 @@
             <!-- Display only if current_user is the user plage -->
             <% if @user == current_user %>
               <div class="card-update-delete-buttons">
-                <%= link_to edit_plant_path(plant), class:"text-secondary" do %>
+                <%= link_to edit_plant_path(plant), class:"text-white" do %>
                   <i class="far fa-edit fa-lg"></i>
                 <% end %>
-                <%= link_to plant_path(plant), method: :delete, class:"text-danger" do %>
+                <%= link_to plant_path(plant), method: :delete, class:"text-warning" do %>
                   <i class="fas fa-trash fa-lg"></i>
                 <% end %>
               </div>
