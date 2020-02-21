@@ -15,7 +15,7 @@
       <% @user.bookings.each do |booking|  %>
         <% if booking.start_date > DateTime.now %> <!-- Check que le booking n'a pas commencé -->
           <div class="col-3 mb-3">
-            <div class="card-trip">
+            <div class="card-trip larger-card">
               <%= cl_image_tag booking.plant.photo.key, height: 250, width: 250, crop: :fill, :class =>'image-trip'%>
               <div class="card-trip-infos">
 
@@ -51,7 +51,7 @@
       <% @user.bookings.each do |booking|  %>
         <% if booking.start_date < DateTime.now and booking.end_date > DateTime.now %> <!-- Check que l'on est dans la période du booking -->
           <div class="col-3 mb-3">
-            <div class="card-trip">
+            <div class="card-trip larger-card">
               <%= cl_image_tag booking.plant.photo.key, height: 250, width: 250, crop: :fill, :class =>'image-trip'%>
               <div class="card-trip-infos">
 
@@ -86,76 +86,78 @@
     <h4 class=>My previous bookings</h4>
     <div class="row">
       <% @user.bookings.each do |booking|  %>
+        <% if booking.end_date < DateTime.now %>
 
-        <!-- Cas ou il y a une review -->
-        <% if booking.reviews[0].nil? == false %>
-          <div class="col-3 mb-3">
-            <div class="card-trip mb-3">
-              <%= cl_image_tag booking.plant.photo.key, height: 250, width: 250, crop: :fill, :class =>'image-trip'%>
-              <div class="card-trip-infos">
+          <!-- Cas ou il y a une review -->
+          <% if booking.reviews[0].nil? == false %>
+            <div class="col-3 mb-3">
+              <div class="card-trip  larger-card mb-3">
+                <%= cl_image_tag booking.plant.photo.key, height: 250, width: 250, crop: :fill, :class =>'image-trip'%>
+                <div class="card-trip-infos">
 
-               <!-- Div à gauche -->
-                <div>
-                  <h2><%= booking.plant.name %></h2>
-                  <h2><%= booking.total_price%> €</h2>
-                  <p>From <%= booking.start_date.strftime("%d/%m/%y") %></p>
-                  <p>to <%= booking.end_date.strftime("%d/%m/%y") %></p>
-                </div>
+                 <!-- Div à gauche -->
+                  <div>
+                    <h2><%= booking.plant.name %></h2>
+                    <h2><%= booking.total_price%> €</h2>
+                    <p>From <%= booking.start_date.strftime("%d/%m/%y") %></p>
+                    <p>to <%= booking.end_date.strftime("%d/%m/%y") %></p>
+                  </div>
 
-                  <!-- Affichage des notes à droite -->
-                <div>
-                  <% booking.reviews[0].rating.times do %>
-                    <i class="fas fa-star" style="color: orange"></i>
-                  <% end %>
-                  <% (5 - booking.reviews[0].rating).times do  %>
-                    <i class="fas fa-star" style="color: lightgrey"></i>
-                  <% end %>
+                    <!-- Affichage des notes à droite -->
+                  <div>
+                    <% booking.reviews[0].rating.times do %>
+                      <i class="fas fa-star" style="color: orange"></i>
+                    <% end %>
+                    <% (5 - booking.reviews[0].rating).times do  %>
+                      <i class="fas fa-star" style="color: lightgrey"></i>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-        <% else %> <!-- Cas ou il n'y a pas de review -->
-          <div class="col-3 mb-3">
-            <div class="card-trip mb-3">
-              <%= cl_image_tag booking.plant.photo.key, height: 250, width: 250, crop: :fill, :class =>'image-trip'%>
-              <div class="card-trip-infos">
+          <% else %> <!-- Cas ou il n'y a pas de review -->
+            <div class="col-3 mb-3">
+              <div class="card-trip larger-card mb-3">
+                <%= cl_image_tag booking.plant.photo.key, height: 250, width: 250, crop: :fill, :class =>'image-trip'%>
+                <div class="card-trip-infos">
 
-               <!-- Div à gauche -->
-                <div>
-                  <h2><%= booking.plant.name %></h2>
-                  <h2><%= booking.total_price%> €</h2>
-                  <p>From <%= booking.start_date.strftime("%d/%m/%y") %></p>
-                  <p>to <%= booking.end_date.strftime("%d/%m/%y") %></p>
-                </div>
+                 <!-- Div à gauche -->
+                  <div>
+                    <h2><%= booking.plant.name %></h2>
+                    <h2><%= booking.total_price%> €</h2>
+                    <p>From <%= booking.start_date.strftime("%d/%m/%y") %></p>
+                    <p>to <%= booking.end_date.strftime("%d/%m/%y") %></p>
+                  </div>
 
-                  <!-- Affichage des notes -->
-                <div>
-                  <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal">
-                    <p>Pending <br>review</p>
-                  </button>
+                    <!-- Affichage des notes -->
+                  <div>
+                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal">
+                      <p>Pending <br>review</p>
+                    </button>
 
-                  <!-- Modal -->
-                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <div>
-                            <h2>Add a review on your booking</h2>
-                            <%= simple_form_for [booking.plant, booking, @review] do |f| %>
-                              <%= f.input :rating, label_html: {class: "review_rating"}, collection: (1..5).to_a, label: "Rate your experience" %>
-                              <%= f.input :comments, label_html: {class: "label_new"} %>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <%= f.submit "Submit review", class: "btn btn-success", id: "sweet-alert-demo" %>
-                              </div>
-                            <% end %>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <div>
+                              <h2>Add a review on your booking</h2>
+                              <%= simple_form_for [booking.plant, booking, @review] do |f| %>
+                                <%= f.input :rating, label_html: {class: "review_rating"}, collection: (1..5).to_a, label: "Rate your experience" %>
+                                <%= f.input :comments, label_html: {class: "label_new"} %>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  <%= f.submit "Submit review", class: "btn btn-success", id: "sweet-alert-demo" %>
+                                </div>
+                              <% end %>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -164,7 +166,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
@@ -183,10 +185,10 @@
             <!-- Display only if current_user is the user plage -->
             <% if @user == current_user %>
               <div class="card-update-delete-buttons">
-                <%= link_to edit_plant_path(plant), class:"text-secondary" do %>
+                <%= link_to edit_plant_path(plant), class:"text-white" do %>
                   <i class="far fa-edit fa-lg"></i>
                 <% end %>
-                <%= link_to plant_path(plant), method: :delete, class:"text-danger" do %>
+                <%= link_to plant_path(plant), method: :delete, class:"text-warning" do %>
                   <i class="fas fa-trash fa-lg"></i>
                 <% end %>
               </div>
