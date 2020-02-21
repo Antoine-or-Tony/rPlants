@@ -14,21 +14,22 @@
     <div class="row">
       <% @user.bookings.each do |booking|  %>
         <% if booking.reviews[0].nil? %> <!-- Check si il y a des reviews -->
-          <div class="col-4 mb-3">
+          <div class="col-3 mb-3">
             <div class="card-trip">
               <%= cl_image_tag booking.plant.photo.key, height: 250, width: 250, crop: :fill, :class =>'image-trip'%>
               <div class="card-trip-infos">
 
                <!-- Div à gauche -->
                 <div>
-                  <h2><%= booking.plant.name %> - <%= booking.total_price%> €</h2>
+                  <h2><%= booking.plant.name %></h2>
+                  <h2><%= booking.total_price%> €</h2>
                   <p>From <%= booking.start_date %></p>
-                   <p>to <%= booking.end_date %></p>
+                  <p>to <%= booking.end_date %></p>
                 </div>
 
                   <!-- Bouton review -->
                 <div>
-                    <%= link_to "Add a review", new_plant_booking_review_path(booking.plant, booking), class:"btn btn-secondary" %>  <!--  si pas de reviews: bouton a ajouter  -->
+                    <%= link_to "Add a review", new_plant_booking_review_path(booking.plant, booking), class:"btn btn-secondary btn-sm" %>  <!--  si pas de reviews: bouton a ajouter  -->
                 </div>
               </div>
             </div>
@@ -46,14 +47,15 @@
     <div class="row">
       <% @user.bookings.each do |booking|  %>
         <% if booking.reviews[0].nil? == false %> <!-- Check si il y a des reviews -->
-          <div class="col-4 mb-3">
-            <div class="card-trip">
+          <div class="col-3 mb-3">
+            <div class="card-trip mb-3">
               <%= cl_image_tag booking.plant.photo.key, height: 250, width: 250, crop: :fill, :class =>'image-trip'%>
               <div class="card-trip-infos">
 
                <!-- Div à gauche -->
                 <div>
-                  <h2><%= booking.plant.name %> - <%= booking.total_price%> €</h2>
+                  <h2><%= booking.plant.name %></h2>
+                  <h2><%= booking.total_price%> €</h2>
                   <p>From <%= booking.start_date %></p>
                    <p>to <%= booking.end_date %></p>
                 </div>
@@ -97,8 +99,8 @@
   <!-- Display only if current_user is the user plage -->
           <% if @user == current_user %>
             <div class="m-3">
-              <%= link_to "Update plant", edit_plant_path(plant), class:"btn btn-secondary" %>
-              <%= link_to "Delete plant", plant_path(plant), method: :delete, class:"btn btn-danger" %>
+              <%= link_to "Update plant", edit_plant_path(plant), class:"btn btn-secondary  btn-sm" %>
+              <%= link_to "Delete plant", plant_path(plant), method: :delete, class:"btn btn-danger  btn-sm" %>
             </div>
           <% end %>
         </div>

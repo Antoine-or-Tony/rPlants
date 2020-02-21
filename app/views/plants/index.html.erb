@@ -10,7 +10,31 @@
               <div class="card-trip-infos">
                 <div>
                   <h2><%= link_to plant.name, plant_path(plant)%></h2>
-                  <p>review + review.count<i class="fas fa-star"></i></p>
+
+                  <!-- Calcul rating average and rating count -->
+                  <% rating_counter = 0 %>
+                  <% rating_points = 0 %>
+                  <% plant.reviews.each do |review| %>
+                    <% rating_counter += 1 %>
+                    <% rating_points += review.rating %>
+                    <%=  %>
+                  <% end %>
+                  <% if rating_counter == 0 %>
+                    <% rating_average = 0 %>
+                  <% else %>
+                    <% rating_average = (rating_points / rating_counter).truncate %>
+                  <% end %>
+
+                  <!-- Display rating average and rating count -->
+                  <p>
+                    <% rating_average.times do %>
+                      <i class="fas fa-star fa-sm" style="color: orange"></i>
+                    <% end %>
+                    <% (5 - rating_average).times do %>
+                      <i class="fas fa-star fa-sm" style="color: lightgrey"></i>
+                    <% end %>
+                     (<%= rating_counter %>)
+                   </p>
                 </div>
                 <h2><%= link_to plant.price, plant_path(plant), class:"card-trip-pricing"%>€</h2>
               </div>

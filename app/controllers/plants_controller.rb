@@ -7,6 +7,9 @@ class PlantsController < ApplicationController
     # @plants = @plants.all
     # @plants_for_map = Plant.geocoded
 
+    # Calcul du nombre de review et de la note moyenne
+
+
 
     if (params[:query].present? || params[:indoor_outdoor].present? || params[:address].present?)
       # Si j ai un params query => premiere filtre
