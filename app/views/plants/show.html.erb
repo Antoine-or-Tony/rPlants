@@ -166,6 +166,11 @@
           <h3>Reviews</h3>
           <% @reviews.each do |review| %>
             <div class="card-review">
+              <% if review.booking.user.photo.attached?  %>
+                <%= cl_image_tag review.booking.user.photo.key, :crop=>"fill", class:"avatar ml-3", style:"width:50px; height:50px"%>
+              <% else %>
+                <%= image_tag "http://www.tafecafe.com/wp-content/uploads/2015/09/default_avatar.png", class:"avatar ml-3", style:"width:50px; height:50px"%>
+              <% end %>
              <div class="card-review-infos">
                 <p><%= review.comments %></p>
                 <% review.rating.times do %>

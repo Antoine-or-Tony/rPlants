@@ -21,6 +21,16 @@ Plant.destroy_all
 User.destroy_all
 
 # --------------------------------------------------------------------------------------
+# IMAGES USERS
+# --------------------------------------------------------------------------------------
+
+p "save images avatar"
+
+avatar_julien_file = URI.open('https://www.aquinum.fr/images/comprofiler/632_5bf032441a375.jpg')
+avatar_antoine_file = URI.open('https://3wpie932p5cn1pgjba40gtkbm83-wpengine.netdna-ssl.com/wp-content/uploads/2018/10/Julien-Lachance.jpg')
+avatar_laurent_file = URI.open('http://www.agenceartistique.com/DATA/PHOTO/359_grande.jpg')
+
+# --------------------------------------------------------------------------------------
 # USERS
 # --------------------------------------------------------------------------------------
 
@@ -30,6 +40,7 @@ julien = User.new(email: "julien-du-93@gmail.com",
                   first_name: "Julien",
                   last_name: "Dupuis",
                   bio: "I love begonias!")
+julien.photo.attach(io: avatar_julien_file, filename: 'review_julien.jpg', content_type: 'image/jpg')
 julien.save!
 
 p "julien created"
@@ -39,6 +50,7 @@ antoine = User.new(email: "antoine-du-93@gmail.com",
                    first_name: "Antoine",
                   last_name: "Durand",
                   bio: "I have amazing roses to share :)")
+antoine.photo.attach(io: avatar_antoine_file, filename: 'review_antoine.jpg', content_type: 'image/jpg')
 antoine.save!
 
 p "antoine created"
@@ -48,6 +60,7 @@ p laurent = User.new(email: "laurent@gmail.com",
                     first_name: "Laurent",
                     last_name: "Martin",
                     bio: "A real plant lover!")
+laurent.photo.attach(io: avatar_laurent_file, filename: 'review_laurent.jpg', content_type: 'image/jpg')
 laurent.save!
 
 p "laurent created"
@@ -59,7 +72,7 @@ manu = User.new(email: "manu@ciao.fr",
                     bio: "A real plant lover!")
 
 # --------------------------------------------------------------------------------------
-# IMAGES
+# IMAGES PLANTS
 # --------------------------------------------------------------------------------------
 
 
@@ -73,6 +86,7 @@ lierre_file = URI.open('https://assets.bakker.com/ProductPics/810x978/71916-00-B
 geranium_file = URI.open('https://www.jardiner-malin.fr/wp-content/uploads/2018/10/geranium.jpg')
 monstera_file = URI.open('https://cdn.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_517,h_592/https://www.lemeubleniobe.fr/wp-content/uploads/2019/09/Monstera-2-e1569420369898.jpg')
 pilea_file = URI.open("https://cdn.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_596/https://www.lemeubleniobe.fr/wp-content/uploads/2019/09/Pilea.jpg")
+
 
 
 begonia_file = URI.open('https://www.queenflowerbulbs.fr/media/product/187/bulbes-begonia-begonia-bertinii-c25.jpg')
