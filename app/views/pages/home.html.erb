@@ -13,13 +13,10 @@
               <p class="text-white font-weight-bold mt-3"><%= label_tag :query, 'Where do you live' %></p>
               <%= text_field_tag :address, params[:address], id:"plant_address"%>
             </div>
-            <p class="text-white font-weight-bold mt-3"><%= label_tag 'indoor_outdoor', 'Indoor / Outdoor' %></p>
-          <div class="row">
-            <div>
-              <p class="text-white"><%= check_box_tag :indoor_outdoor, 'Indoor', false, id:"Indoor" %> Indoor       <%= check_box_tag :indoor_outdoor, 'Outdoor', false,id:"Outdoor" %> Outdoor </p>
-              <br>
+            <div class="my-2">
+                <p class="text-white"><%= check_box_tag :indoor_outdoor, 'Indoor', false, id:"Indoor" %> Indoor plants </p>
+                <p class="text-white"><%= check_box_tag :indoor_outdoor, 'Outdoor', false,id:"Outdoor" %> Outdoor plants </p>
             </div>
-          </div>
           <%= submit_tag "Find your plants", class: "btn btn-success btn-lg" %>
         <% end %>
       </div>

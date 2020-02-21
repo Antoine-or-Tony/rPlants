@@ -63,8 +63,8 @@ begonia_file = URI.open('https://www.queenflowerbulbs.fr/media/product/187/bulbe
 tulipe_file = URI.open('https://media.ooreka.fr/public/image/plant/80/mainImage-source-9412304.jpg')
 rose_file = URI.open('https://www.jacksonandperkins.com/images/xxl/v1780.jpg')
 ficus_file = URI.open('https://www.jardinpourvous.com/media/catalog/product/cache/13/image/500x/9df78eab33525d08d6e5fb8d27136e95/F/D/FD19307WH_13.jpg')
-sapin_file = URI.open('https://photos.gammvert.fr/v5/products/full/50697-sapin-de-noel-artificiel-vert-tsuga-h215xd137cm-2.jpg')
-lierre_file = URI.open('https://www.artificielles.com/Files/24827/Img/23/12372-80430-Lierre-artificiel-Hedera-Helix-en-chute-80-cm-artificielles-com-.jpg')
+sapin_file = URI.open('http://4.bp.blogspot.com/-7vIIL3fALU4/UMczMO-etLI/AAAAAAAA9I8/hakIlezSJcY/s1600/Christmas-Lighting-for-your-front-porch-christmas-decoration10.jpg')
+lierre_file = URI.open('https://assets.bakker.com/ProductPics/810x978/71916-00-BAKIE_20190222052326.jpg')
 geranium_file = URI.open('https://www.jardiner-malin.fr/wp-content/uploads/2018/10/geranium.jpg')
 
 
@@ -77,7 +77,7 @@ p "generate seed plants"
 begonia = Plant.new(name: "Begonia",
                     price: 10,
                     comments: "Typically used as houseplants and in shaded summer beds. Some are grown for their asymmetrical, patterned and variegated foliage, and others to add color to shady garden areas with their bright blooms.",
-                    address: "16 Villa Gaudelet Paris",
+                    address: "3 B Chemin de la Mer, 76310 Sainte-Adresse, Le Havre, France",
                     disponibility_start: DateTime.new(2020,5,1),
                     disponibility_end: DateTime.new(2020,8,4),
                     species: "Begonia scharffii",
@@ -162,7 +162,7 @@ lierre = Plant.new(name: "Ivy",
                     comments: "1m high evergreen climbing or ground-creeping woody plants, native to central Europe.",
                     disponibility_start: DateTime.new(2020,4,7),
                     disponibility_end: DateTime.new(2020,8,5),
-                    species: "Lierre hongrois",
+                    species: "Hungarian ivy",
                     address: "129 rue de l'Abbé Groult, Paris",
                     size: "Medium",
                     weight: "Medium (2-5kg)",

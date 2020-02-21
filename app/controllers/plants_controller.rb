@@ -4,8 +4,11 @@ class PlantsController < ApplicationController
   def index
     @plants = policy_scope(Plant).order(created_at: :desc)
 
-    # @plants = @plants.all
-    # @plants_for_map = Plant.geocoded
+    @plants = @plants.all
+    @plants_for_map = Plant.geocoded
+
+    # Calcul du nombre de review et de la note moyenne
+
 
 
     if (params[:query].present? || params[:indoor_outdoor].present? || params[:address].present?)
