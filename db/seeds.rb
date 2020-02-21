@@ -688,18 +688,18 @@ p "review_booking2_begonia3 created"
 # ---------------------------------------------------------------
 # FIR
 
-booking1_fir = Booking.new(start_date: DateTime.now,
+booking1_sapin = Booking.new(start_date: DateTime.now,
                     end_date: DateTime.now,
                     total_price: 10)
-booking1_fir.user = julien
-booking1_fir.plant = fir
-booking1_fir.save!
+booking1_sapin.user = julien
+booking1_sapin.plant = sapin
+booking1_sapin.save!
 
-p "booking1_fir created"
+p "booking1_sapin created"
 
-review_booking1_fir = Review.new(rating: 5, comments: "Nice fir, perfect for Christmas!")
-review_booking1_fir.booking = booking1_fir
-review_booking1_fir.save!
+review_booking1_sapin = Review.new(rating: 5, comments: "Nice sapin, perfect for Christmas!")
+review_booking1_sapin.booking = booking1_sapin
+review_booking1_sapin.save!
 
 
 
