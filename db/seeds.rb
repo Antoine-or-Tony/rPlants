@@ -703,3 +703,25 @@ review_booking1_sapin.save!
 
 
 
+# ---------------------------------------------------------------
+# BOOKING DEMO
+
+booking1_sapin = Booking.new(start_date: DateTime.new(2019,12,23),
+                    end_date: DateTime.new(2019,12,26),
+                    total_price: 10)
+booking1_sapin.user = manu
+booking1_sapin.plant = sapin
+booking1_sapin.save!
+
+p "booking1_sapin created"
+
+
+booking4_pilea = Booking.new(start_date: DateTime.new(2020,01,01),
+                    end_date: DateTime.new(2020,01,05),
+                    total_price: 10)
+booking4_pilea.user = manu
+booking4_pilea.plant = pilea
+booking4_pilea.save!
+
+p "booking3_pilea created"
+
