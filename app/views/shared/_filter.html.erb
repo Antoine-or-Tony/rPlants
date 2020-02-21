@@ -1,64 +1,66 @@
-<div class="d-flex">
-  <div class="dropdown mr-1 my-3">
-    <button type="button" class="btn btn-success dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-      <% if params[:query].present? %>
-        <%= params[:query] %>
-      <% else %>
-        <%= "Plants" %>
-      <% end %>
-    </button>
-    <div class="dropdown-menu bg-secondary" aria-labelledby="dropdownMenuOffset">
-      <div class = "filter-popup">
-        <%= form_tag plants_path, method: :get do %>
-          <%= label_tag :query, 'Find your plant', class:"text-success" %>
-          <%= text_field_tag :query, params[:query], class:"mb-2 input-query"%>
-          <%= hidden_field_tag :address, params[:address] %>
-          <%= hidden_field_tag :indoor_outdoor, params[:indoor_outdoor] %>
-          <%= submit_tag "Select", class: "btn btn-success" %>
+<div class="container">
+  <div class="d-flex">
+    <div class="dropdown mr-1 my-3">
+      <button type="button" class="btn btn-success dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+        <% if params[:query].present? %>
+          <%= params[:query] %>
+        <% else %>
+          <%= "Plants" %>
         <% end %>
+      </button>
+      <div class="dropdown-menu bg-secondary" aria-labelledby="dropdownMenuOffset">
+        <div class = "filter-popup">
+          <%= form_tag plants_path, method: :get do %>
+            <%= label_tag :query, 'Find your plant', class:"text-success" %>
+            <%= text_field_tag :query, params[:query], class:"mb-2 input-query"%>
+            <%= hidden_field_tag :address, params[:address] %>
+            <%= hidden_field_tag :indoor_outdoor, params[:indoor_outdoor] %>
+            <%= submit_tag "Select", class: "btn btn-success" %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="dropdown mr-1 my-3">
-    <button type="button" class="btn btn-success dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-      <% if params[:address].present? %>
-        <%= params[:address] %>
-      <% else %>
-        <%= "Your place" %>
-      <% end %>
-    </button>
-    <div class="dropdown-menu bg-secondary" aria-labelledby="dropdownMenuOffset">
-      <div class = "filter-popup">
-        <%= form_tag plants_path, method: :get do %>
-          <%= label_tag :address, 'Find your place', class:"text-success" %>
-          <%= text_field_tag :address, params[:address], id:"plant_address", class:"mb-2"%>
-          <%= hidden_field_tag :query, params[:query] %>
-          <%= hidden_field_tag :indoor_outdoor, params[:indoor_outdoor] %>
-          <%= submit_tag "Select", class: "btn btn-success" %>
+    <div class="dropdown mr-1 my-3">
+      <button type="button" class="btn btn-success dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+        <% if params[:address].present? %>
+          <%= params[:address] %>
+        <% else %>
+          <%= "Your place" %>
         <% end %>
+      </button>
+      <div class="dropdown-menu bg-secondary" aria-labelledby="dropdownMenuOffset">
+        <div class = "filter-popup">
+          <%= form_tag plants_path, method: :get do %>
+            <%= label_tag :address, 'Find your place', class:"text-success" %>
+            <%= text_field_tag :address, params[:address], id:"plant_address", class:"mb-2"%>
+            <%= hidden_field_tag :query, params[:query] %>
+            <%= hidden_field_tag :indoor_outdoor, params[:indoor_outdoor] %>
+            <%= submit_tag "Select", class: "btn btn-success" %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="dropdown mr-1 my-3">
-    <button type="button" class="btn btn-success dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-      <% if params[:indoor_outdoor].present? %>
-        <%= params[:indoor_outdoor] %>
-      <% else %>
-        <%= "Indoor/Outdoor" %>
-      <% end %>
-    </button>
-    <div class="dropdown-menu bg-secondary" aria-labelledby="dropdownMenuOffset">
-      <div class = "filter-popup">
-        <%= form_tag plants_path, method: :get do %>
-          <%= label_tag :indoor_outdoor, 'Find your place', class:"text-success" %>
-          <p class="text-white"><%= check_box_tag :indoor_outdoor, 'Indoor' %> indoor </p>
-          <p class="text-white mb-3"><%= check_box_tag :indoor_outdoor, 'Outdoor' %> Outdoor </p>
-          <%= hidden_field_tag :address, params[:address] %>
-          <%= hidden_field_tag :query, params[:query] %>
-          <%= submit_tag "Select", class: "btn btn-success" %>
+    <div class="dropdown mr-1 my-3">
+      <button type="button" class="btn btn-success dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+        <% if params[:indoor_outdoor].present? %>
+          <%= params[:indoor_outdoor] %>
+        <% else %>
+          <%= "Indoor/Outdoor" %>
         <% end %>
+      </button>
+      <div class="dropdown-menu bg-secondary" aria-labelledby="dropdownMenuOffset">
+        <div class = "filter-popup">
+          <%= form_tag plants_path, method: :get do %>
+            <%= label_tag :indoor_outdoor, 'Find your place', class:"text-success" %>
+            <p class="text-white"><%= check_box_tag :indoor_outdoor, 'Indoor' %> indoor </p>
+            <p class="text-white mb-3"><%= check_box_tag :indoor_outdoor, 'Outdoor' %> Outdoor </p>
+            <%= hidden_field_tag :address, params[:address] %>
+            <%= hidden_field_tag :query, params[:query] %>
+            <%= submit_tag "Select", class: "btn btn-success" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

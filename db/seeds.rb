@@ -65,31 +65,45 @@ laurent.save!
 
 p "laurent created"
 
+manu = User.new(email: "manu@ciao.fr",
+                    password: "123456",
+                    first_name: "Manu",
+                    last_name: "Ciao",
+                    bio: "A real plant lover!")
+
 # --------------------------------------------------------------------------------------
 # IMAGES PLANTS
 # --------------------------------------------------------------------------------------
 
 
-p "save images"
+p "save plants images"
 
-begonia_file = URI.open('https://www.queenflowerbulbs.fr/media/product/187/bulbes-begonia-begonia-bertinii-c25.jpg')
 tulipe_file = URI.open('https://media.ooreka.fr/public/image/plant/80/mainImage-source-9412304.jpg')
 rose_file = URI.open('https://www.jacksonandperkins.com/images/xxl/v1780.jpg')
 ficus_file = URI.open('https://www.jardinpourvous.com/media/catalog/product/cache/13/image/500x/9df78eab33525d08d6e5fb8d27136e95/F/D/FD19307WH_13.jpg')
 sapin_file = URI.open('http://4.bp.blogspot.com/-7vIIL3fALU4/UMczMO-etLI/AAAAAAAA9I8/hakIlezSJcY/s1600/Christmas-Lighting-for-your-front-porch-christmas-decoration10.jpg')
 lierre_file = URI.open('https://assets.bakker.com/ProductPics/810x978/71916-00-BAKIE_20190222052326.jpg')
 geranium_file = URI.open('https://www.jardiner-malin.fr/wp-content/uploads/2018/10/geranium.jpg')
+monstera_file = URI.open('https://cdn.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_517,h_592/https://www.lemeubleniobe.fr/wp-content/uploads/2019/09/Monstera-2-e1569420369898.jpg')
+pilea_file = URI.open("https://cdn.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_596/https://www.lemeubleniobe.fr/wp-content/uploads/2019/09/Pilea.jpg")
+
+
+
+begonia_file = URI.open('https://www.queenflowerbulbs.fr/media/product/187/bulbes-begonia-begonia-bertinii-c25.jpg')
+begonia2_file = URI.open('https://s3.amazonaws.com/cdn.gurneys.com/images/800/67890.jpg')
+begonia3_file = URI.open('https://media.ooreka.fr/public/image/plant/128/mainImage-full-11364528.jpg')
 
 # --------------------------------------------------------------------------------------
 # PLANTS
 # --------------------------------------------------------------------------------------
 
 
+
 p "generate seed plants"
 begonia = Plant.new(name: "Begonia",
-                    price: 10,
+                    price: 2,
                     comments: "Typically used as houseplants and in shaded summer beds. Some are grown for their asymmetrical, patterned and variegated foliage, and others to add color to shady garden areas with their bright blooms.",
-                    address: "3 B Chemin de la Mer, 76310 Sainte-Adresse, Le Havre, France",
+                    address: "10 rue des Batignolles, Paris, France",
                     disponibility_start: DateTime.new(2020,5,1),
                     disponibility_end: DateTime.new(2020,8,4),
                     species: "Begonia scharffii",
@@ -100,12 +114,42 @@ begonia.user = laurent
 begonia.photo.attach(io: begonia_file, filename: 'begonia.jpg', content_type: 'image/jpg')
 begonia.save!
 
-p "begonia created"
+monstera = Plant.new(name: "Monstera",
+                    price: 3,
+                    comments: "A very fancy plant, perfect for your living room.",
+                    address: "3 rue Jean Mermoz, Versailles, France",
+                    disponibility_start: DateTime.new(2020,5,1),
+                    disponibility_end: DateTime.new(2020,8,4),
+                    species: "Monstera splendida",
+                    size: "Medium",
+                    weight: "Medium (2-5kg)",
+                    indoor_outdoor: "Indoor")
+monstera.user = laurent
+monstera.photo.attach(io: monstera_file, filename: 'monstera.jpg', content_type: 'image/jpg')
+monstera.save!
+
+p "monstera created"
+
+pilea = Plant.new(name: "pilea",
+                    price: 3,
+                    comments: "A very fancy plant, perfect for your living room.",
+                    address: "8 place de la Sorbonne, Paris",
+                    disponibility_start: DateTime.new(2020,5,1),
+                    disponibility_end: DateTime.new(2020,8,4),
+                    species: "pilea splendida",
+                    size: "Medium",
+                    weight: "Medium (2-5kg)",
+                    indoor_outdoor: "Indoor")
+pilea.user = antoine
+pilea.photo.attach(io: pilea_file, filename: 'pilea.jpg', content_type: 'image/jpg')
+pilea.save!
+
+p "pilea created"
 
 p tulipe = Plant.new(name: "Tulipes",
-                    price: 10,
+                    price: 2,
                     comments: "An unusual member of the iris family, snake’s head iris has striking yellow-green standards and velvety, nearly black falls that have a high-fashion cocktail-dress allure.",
-                    address: "10 rue des batignolles Paris",
+                    address: "3 B Chemin de la Mer, 76310 Sainte-Adresse, Le Havre, France",
                     disponibility_start: DateTime.new(2020,3,6),
                     disponibility_end: DateTime.new(2020,5,7),
                     species: "Tulipa clusiana ",
@@ -122,7 +166,7 @@ tulipe.save!
 p "tulipe created"
 
 rose = Plant.new(name: "Roses",
-                    price: 10,
+                    price: 2,
                     comments: "15 white and red flowers, typically last 2 weeks.",
                     disponibility_start: DateTime.new(2020,4,9),
                     disponibility_end: DateTime.new(2020,5,3),
@@ -138,7 +182,7 @@ rose.save!
 p "rose created"
 
 ficus = Plant.new(name: "Korean Ficus",
-                    price: 10,
+                    price: 5,
                     comments: "A nice small tree with glossy deep green leaves with white along the edges on short drooping branches. 1m high, perfect for your living room!",
                     disponibility_start: DateTime.new(2020,6,3),
                     disponibility_end: DateTime.new(2020,9,12),
@@ -154,7 +198,7 @@ ficus.save!
 p "ficus created"
 
 sapin = Plant.new(name: "Fir",
-                    price: 10,
+                    price: 6,
                     comments: "A large evergreen coniferous tree. 2m high, perfect for Christmas!",
                     disponibility_start: DateTime.new(2020,12,11),
                     disponibility_end: DateTime.new(2021,8,4),
@@ -169,12 +213,27 @@ sapin.save!
 
 p "sapin created"
 
+begonia2 = Plant.new(name: "Begonia flowers",
+                    price: 3,
+                    comments: "Typically used as houseplants and in shaded summer beds. Some are grown for their asymmetrical, patterned and variegated foliage, and others to add color to shady garden areas with their bright blooms.",
+                    address: "5 place du Panthéon, Paris, France",
+                    disponibility_start: DateTime.new(2020,5,1),
+                    disponibility_end: DateTime.new(2020,8,4),
+                    species: "begonia scharffii",
+                    size: "Medium",
+                    weight: "Light (0-2kg)",
+                    indoor_outdoor: "Indoor/Outdoor")
+begonia2.user = antoine
+begonia2.photo.attach(io: begonia2_file, filename: 'begonia2.jpg', content_type: 'image/jpg')
+begonia2.save!
+
+
 lierre = Plant.new(name: "Ivy",
-                    price: 10,
+                    price: 3,
                     comments: "1m high evergreen climbing or ground-creeping woody plants, native to central Europe.",
                     disponibility_start: DateTime.new(2020,4,7),
                     disponibility_end: DateTime.new(2020,8,5),
-                    species: "Lierre hongrois",
+                    species: "Hungarian ivy",
                     address: "129 rue de l'Abbé Groult, Paris",
                     size: "Medium",
                     weight: "Medium (2-5kg)",
@@ -186,7 +245,7 @@ lierre.save!
 p "lierre created"
 
 geranium = Plant.new(name: "Geranium",
-                    price: 10,
+                    price: 2,
                     comments: "The flowers have five petals and are coloured white, pink, purple and blue",
                     disponibility_start: DateTime.new(2020,4,7),
                     disponibility_end: DateTime.new(2020,8,5),
@@ -201,16 +260,32 @@ geranium.save!
 
 p "geranium created"
 
+begonia3 = Plant.new(name: "Begonia flowers",
+                    price: 3,
+                    comments: "Very nice set of begonias for your balcony. Some are grown for their asymmetrical, patterned and variegated foliage, and others to add color to shady garden areas with their bright blooms.",
+                    address: "5 rue Roger Duval, Le Havre, France",
+                    disponibility_start: DateTime.new(2020,5,1),
+                    disponibility_end: DateTime.new(2020,8,4),
+                    species: "begonia scharffii",
+                    size: "Medium",
+                    weight: "Light (0-2kg)",
+                    indoor_outdoor: "Indoor/Outdoor")
+begonia3.user = antoine
+begonia3.photo.attach(io: begonia3_file, filename: 'begonia3.jpg', content_type: 'image/jpg')
+begonia3.save!
+
+p "begonia3 created"
+
 # --------------------------------------------------------------------------------------
 # BOOKINGS
 # --------------------------------------------------------------------------------------
 
 
 p "generate seed bookings"
-booking_geranium1 = Booking.new(start_date: DateTime.now,
-                    end_date: DateTime.now,
+booking_geranium1 = Booking.new(start_date: DateTime.new(2020,01,01),
+                    end_date: DateTime.new(2020,01,07),
                     total_price: 5)
-booking_geranium1.user = antoine
+booking_geranium1.user = manu
 booking_geranium1.plant = geranium
 booking_geranium1.save!
 
@@ -277,10 +352,6 @@ p "booking_tulipe3 created"
 # REVIEWS
 # --------------------------------------------------------------------------------------
 
-p "generate seed reviews"
-review1_booking_geranium1 = Review.new(rating: 5, comments: "Very nice geraniums, it all went fine!")
-review1_booking_geranium1.booking = booking_geranium1
-review1_booking_geranium1.save!
 
 p "review1_booking_begonia1 created"
 
