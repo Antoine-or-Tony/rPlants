@@ -97,8 +97,6 @@ begonia3_file = URI.open('https://media.ooreka.fr/public/image/plant/128/mainIma
 # PLANTS
 # --------------------------------------------------------------------------------------
 
-
-
 p "generate seed plants"
 begonia = Plant.new(name: "Begonia",
                     price: 2,
@@ -213,7 +211,7 @@ sapin.save!
 
 p "sapin created"
 
-begonia2 = Plant.new(name: "Begonia flowers",
+begonia2 = Plant.new(name: "My begonias",
                     price: 3,
                     comments: "Typically used as houseplants and in shaded summer beds. Some are grown for their asymmetrical, patterned and variegated foliage, and others to add color to shady garden areas with their bright blooms.",
                     address: "5 place du Panthéon, Paris, France",
@@ -280,8 +278,11 @@ p "begonia3 created"
 # BOOKINGS
 # --------------------------------------------------------------------------------------
 
-
 p "generate seed bookings"
+
+# --------------------------------------------------------------------------------------
+# GERANIUM
+
 booking_geranium1 = Booking.new(start_date: DateTime.new(2020,01,01),
                     end_date: DateTime.new(2020,01,07),
                     total_price: 5)
@@ -291,91 +292,365 @@ booking_geranium1.save!
 
 p "booking_geranium1 created"
 
-booking_begonia1 = Booking.new(start_date: DateTime.now,
+review_booking_geranium1 = Review.new(rating: 4, comments: "Good geranium, I strongly recommend!")
+review_booking_geranium1.booking = booking_geranium1
+review_booking_geranium1.save!
+
+p "review_booking_geranium1 created"
+
+
+# BEGONIA (1/2/3)
+# ---------------------------------------------------------------
+
+booking1_begonia = Booking.new(start_date: DateTime.now,
                     end_date: DateTime.now,
                     total_price: 10)
-booking_begonia1.user = julien
-booking_begonia1.plant = begonia
-booking_begonia1.save!
+booking1_begonia.user = julien
+booking1_begonia.plant = begonia
+booking1_begonia.save!
 
 p "booking_begonia1 created"
 
+review_booking1_begonia = Review.new(rating: 5, comments: "Amazing begonias for the week, I strongly recommend!")
+review_booking1_begonia.booking = booking1_begonia
+review_booking1_begonia.save!
 
-booking_begonia2 = Booking.new(start_date: DateTime.now,
+p "review_booking1_begonia created"
+
+
+booking2_begonia = Booking.new(start_date: DateTime.now,
                     end_date: DateTime.now,
                     total_price: 10)
-booking_begonia2.user = julien
-booking_begonia2.plant = begonia
-booking_begonia2.save!
+booking2_begonia.user = julien
+booking2_begonia.plant = begonia
+booking2_begonia.save!
 
 p "booking_begonia2 created"
 
-booking_rose = Booking.new(start_date: DateTime.now,
+review_booking_begonia2 = Review.new(rating: 4, comments: "Nice plants")
+review_booking_begonia2.booking = booking2_begonia
+review_booking_begonia2.save!
+
+p "review_booking_begonia2 created"
+
+begonia3_begonia = Booking.new(start_date: DateTime.now,
+                    end_date: DateTime.now,
+                    total_price: 8)
+begonia3_begonia.user = laurent
+begonia3_begonia.plant = begonia
+begonia3_begonia.save!
+
+p "begonia3_begonia created"
+
+review_begonia3_begonia = Review.new(rating: 5, comments: "Very beautiful, was very nice on my balcony")
+review_begonia3_begonia.booking = begonia3_begonia
+review_begonia3_begonia.save!
+
+p "review_begonia3_begonia created"
+
+
+# BEGONIA2 (1/2)
+# ---------------------------------------------------------------
+
+booking1_begonia2 = Booking.new(start_date: DateTime.now,
                     end_date: DateTime.now,
                     total_price: 10)
-booking_rose.user = laurent
-booking_rose.plant = rose
-booking_rose.save!
+booking1_begonia2.user = julien
+booking1_begonia2.plant = begonia2
+booking1_begonia2.save!
 
-p "booking_rose created"
+p "booking1_begonia2 created"
 
+review_booking1_begonia2 = Review.new(rating: 3, comments: "Nice begonias, but colors are not so vivid")
+review_booking1_begonia2.booking = booking1_begonia2
+review_booking1_begonia2.save!
 
-booking_tulipe1 = Booking.new(start_date: DateTime.now,
+p "review_booking1_begonia2 created"
+
+booking2_begonia2 = Booking.new(start_date: DateTime.now,
                     end_date: DateTime.now,
                     total_price: 10)
-booking_tulipe1.user = julien
-booking_tulipe1.plant = tulipe
-booking_tulipe1.save!
+booking2_begonia2.user = julien
+booking2_begonia2.plant = begonia2
+booking2_begonia2.save!
 
-p "booking_tulipe1 created"
+p "booking2_begonia2 created"
 
-booking_tulipe2 = Booking.new(start_date: DateTime.now,
+review_booking2_begonia2 = Review.new(rating: 2, comments: "A bit disappointing, I expected more flowers")
+review_booking2_begonia2.booking = booking2_begonia2
+review_booking2_begonia2.save!
+
+p "review_booking2_begonia2 created"
+
+
+
+# -----------------------------------------------------------------------
+# ROSE 1 & 2
+
+booking1_rose = Booking.new(start_date: DateTime.now,
                     end_date: DateTime.now,
                     total_price: 10)
-booking_tulipe2.user = julien
-booking_tulipe2.plant = tulipe
-booking_tulipe2.save!
+booking1_rose.user = laurent
+booking1_rose.plant = rose
+booking1_rose.save!
 
-p "booking_tulipe2 created"
+p "booking1_rose created"
 
-booking_tulipe3 = Booking.new(start_date: DateTime.now,
+
+review_booking1_rose = Review.new(rating: 4, comments: "Very nice roses, thank you!")
+review_booking1_rose.booking = booking1_rose
+review_booking1_rose.save!
+
+p "review_booking1_rose created"
+
+booking2_rose = Booking.new(start_date: DateTime.new(2020,01,01),
+                    end_date: DateTime.new(2020,02,01),
+                    total_price: 10)
+booking2_rose.user = laurent
+booking2_rose.plant = rose
+booking2_rose.save!
+
+p "booking2_rose created"
+
+review_booking2_rose = Review.new(rating: 5, comments: "Amazing roses, definitely recommend!")
+review_booking2_rose.booking = booking2_rose
+review_booking2_rose.save!
+
+p "review_booking2_rose created"
+
+
+# -----------------------------------------------------------------------
+# TULIPE1
+
+booking1_tulipe = Booking.new(start_date: DateTime.now,
                     end_date: DateTime.now,
                     total_price: 10)
-booking_tulipe3.user = antoine
-booking_tulipe3.plant = tulipe
-booking_tulipe3.save!
+booking1_tulipe.user = julien
+booking1_tulipe.plant = tulipe
+booking1_tulipe.save!
+
+p "booking1_tulipe created"
+
+review_booking1_tulipe = Review.new(rating: 1, comments: "Owner didn't come to meeting point")
+review_booking1_tulipe.booking = booking1_tulipe
+review_booking1_tulipe.save!
+
+p "review_booking_tulipe1 created"
+
+# -----------------------------------------------------------------------
+# TULIPE2
+
+booking2_tulipe = Booking.new(start_date: DateTime.now,
+                    end_date: DateTime.now,
+                    total_price: 10)
+booking2_tulipe.user = julien
+booking2_tulipe.plant = tulipe
+booking2_tulipe.save!
+
+p "booking2_tulipe created"
+
+review_booking_tulipe2 = Review.new(rating: 3, comments: "Nice flowers but owner hard to reach")
+review_booking_tulipe2.booking = booking2_tulipe
+review_booking_tulipe2.save!
+
+p "review_booking_tulipe2 created"
+
+# -----------------------------------------------------------------------
+# TULIPE3
+
+booking3_tulipe = Booking.new(start_date: DateTime.now,
+                    end_date: DateTime.now,
+                    total_price: 10)
+booking3_tulipe.user = antoine
+booking3_tulipe.plant = tulipe
+booking3_tulipe.save!
 
 p "booking_tulipe3 created"
 
 
-# --------------------------------------------------------------------------------------
-# REVIEWS
-# --------------------------------------------------------------------------------------
+review_booking_tulipe3 = Review.new(rating: 4, comments: "Very nice tulipes, thank you!")
+review_booking_tulipe3.booking = booking3_tulipe
+review_booking_tulipe3.save!
+
+p "review_booking_tulipe3 created"
 
 
-p "review1_booking_begonia1 created"
+# ---------------------------------------------------------------
+# LIERRE
 
-review1_booking_begonia2 = Review.new(rating: 4, comments: "Nice plants")
-review1_booking_begonia2.booking = booking_begonia2
-review1_booking_begonia2.save!
+booking1_lierre = Booking.new(start_date: DateTime.now,
+                    end_date: DateTime.now,
+                    total_price: 10)
+booking1_lierre.user = julien
+booking1_lierre.plant = lierre
+booking1_lierre.save!
 
-p "review1_booking_begonia2 created"
+p "booking1_lierre created"
+
+review_booking1_lierre = Review.new(rating: 4, comments: "Nice lierre, but colors are not so vivid")
+review_booking1_lierre.booking = booking1_lierre
+review_booking1_lierre.save!
+
+p "review_booking1_lierre created"
 
 
-review1_booking_tulipe1 = Review.new(rating: 1, comments: "Owner didn't come to meeting point")
-review1_booking_tulipe1.booking = booking_tulipe1
-review1_booking_tulipe1.save!
 
-p "review1_booking_tulipe1 created"
+# ---------------------------------------------------------------
+# FICUS
 
-review1_booking_tulipe2 = Review.new(rating: 3, comments: "Nice flowers but owner hard to reach")
-review1_booking_tulipe2.booking = booking_tulipe2
-review1_booking_tulipe2.save!
+booking1_ficus = Booking.new(start_date: DateTime.now,
+                    end_date: DateTime.now,
+                    total_price: 10)
+booking1_ficus.user = julien
+booking1_ficus.plant = ficus
+booking1_ficus.save!
 
-p "review1_booking_tulipe2 created"
+p "booking1_ficus created"
 
-review1_booking_tulipe3 = Review.new(rating: 4, comments: "Very nice tulipes, thank you!")
-review1_booking_tulipe3.booking = booking_tulipe3
-review1_booking_tulipe3.save!
+review_booking1_ficus = Review.new(rating: 5, comments: "Nice ficus, but colors are not so vivid")
+review_booking1_ficus.booking = booking1_ficus
+review_booking1_ficus.save!
 
-p "review3_booking_tulipe created"
+p "review_booking1_ficus created"
+
+
+# ---------------------------------------------------------------
+# PILEA (1,2,3)
+
+booking1_pilea = Booking.new(start_date: DateTime.now,
+                    end_date: DateTime.now,
+                    total_price: 10)
+booking1_pilea.user = julien
+booking1_pilea.plant = pilea
+booking1_pilea.save!
+
+p "booking1_pilea created"
+
+review_booking1_pilea = Review.new(rating: 5, comments: "Nice pilea, but colors are not so vivid")
+review_booking1_pilea.booking = booking1_pilea
+review_booking1_pilea.save!
+
+p "review_booking1_pilea created"
+
+
+booking2_pilea = Booking.new(start_date: DateTime.now,
+                    end_date: DateTime.now,
+                    total_price: 10)
+booking2_pilea.user = laurent
+booking2_pilea.plant = pilea
+booking2_pilea.save!
+
+p "booking2_pilea created"
+
+review_booking2_pilea = Review.new(rating: 4, comments: "Very cool pilea, but colors are not so vivid")
+review_booking2_pilea.booking = booking2_pilea
+review_booking2_pilea.save!
+
+p "review_booking2_pilea created"
+
+booking3_pilea = Booking.new(start_date: DateTime.now,
+                    end_date: DateTime.now,
+                    total_price: 10)
+booking3_pilea.user = laurent
+booking3_pilea.plant = pilea
+booking3_pilea.save!
+
+p "booking3_pilea created"
+
+review_booking3_pilea = Review.new(rating: 4, comments: "Amazing pilea!")
+review_booking3_pilea.booking = booking3_pilea
+review_booking3_pilea.save!
+
+p "review_booking3_pilea created"
+
+
+
+
+# ---------------------------------------------------------------
+# MONSTERA (1,2)
+
+booking1_monstera = Booking.new(start_date: DateTime.now,
+                    end_date: DateTime.now,
+                    total_price: 10)
+booking1_monstera.user = julien
+booking1_monstera.plant = monstera
+booking1_monstera.save!
+
+p "booking1_monstera created"
+
+review_booking1_monstera = Review.new(rating: 5, comments: "Nice monstera, I love it!")
+review_booking1_monstera.booking = booking1_monstera
+review_booking1_monstera.save!
+
+p "review_booking1_monstera created"
+
+
+booking2_monstera = Booking.new(start_date: DateTime.now,
+                    end_date: DateTime.now,
+                    total_price: 10)
+booking2_monstera.user = julien
+booking2_monstera.plant = monstera
+booking2_monstera.save!
+
+p "booking2_monstera created"
+
+review_booking2_monstera = Review.new(rating: 4, comments: "Cool monstera, I strongly recommend!")
+review_booking2_monstera.booking = booking2_monstera
+review_booking2_monstera.save!
+
+p "review_booking2_monstera created"
+
+
+# ---------------------------------------------------------------
+# BEGONIA3 (1,2)
+
+booking1_begonia3 = Booking.new(start_date: DateTime.now,
+                    end_date: DateTime.now,
+                    total_price: 10)
+booking1_begonia3.user = julien
+booking1_begonia3.plant = begonia3
+booking1_begonia3.save!
+
+p "booking1_begonia3 created"
+
+review_booking1_begonia3 = Review.new(rating: 5, comments: "Nice begonia3, I love it!")
+review_booking1_begonia3.booking = booking1_begonia3
+review_booking1_begonia3.save!
+
+p "review_booking1_begonia3 created"
+
+booking2_begonia3 = Booking.new(start_date: DateTime.now,
+                    end_date: DateTime.now,
+                    total_price: 10)
+booking2_begonia3.user = julien
+booking2_begonia3.plant = begonia3
+booking2_begonia3.save!
+
+p "booking2_begonia3 created"
+
+review_booking2_begonia3 = Review.new(rating: 4, comments: "Very cool begonia, I definitely recommend!")
+review_booking2_begonia3.booking = booking2_begonia3
+review_booking2_begonia3.save!
+
+p "review_booking2_begonia3 created"
+
+
+
+# ---------------------------------------------------------------
+# FIR
+
+booking1_fir = Booking.new(start_date: DateTime.now,
+                    end_date: DateTime.now,
+                    total_price: 10)
+booking1_fir.user = julien
+booking1_fir.plant = fir
+booking1_fir.save!
+
+p "booking1_fir created"
+
+review_booking1_fir = Review.new(rating: 5, comments: "Nice fir, perfect for Christmas!")
+review_booking1_fir.booking = booking1_fir
+review_booking1_fir.save!
+
+
+

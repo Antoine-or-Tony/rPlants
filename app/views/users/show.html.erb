@@ -40,7 +40,7 @@
 
     <!-- Message si page d'upcoming bookings -->
     <% if @user.bookings.all? { |booking| booking.start_date <= DateTime.now } %>
-      <p>You don't have any upcoming booking. <%=link_to "Book now!", root_path %></p>
+      <p>You don't have any upcoming booking. <%=link_to "Book now!", root_path, class:"btn btn-success btn-sm" %></p>
     <% end %>
   </div>
 
