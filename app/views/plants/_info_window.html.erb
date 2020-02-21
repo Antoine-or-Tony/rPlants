@@ -1,10 +1,7 @@
 <div class= "container">
-  <div class="pop-up-content">
     <div class="pop-infos">
       <h3><%= plant.name%></h3>
       <h3><strong><%= plant.price %>€</strong></h3>
-      <h5><%= plant.address %></h4>
-      
       <!-- Calcul rating average and count -->
       <% rating_counter = 0 %>
       <% rating_points = 0 %>
@@ -29,11 +26,11 @@
          (<%= rating_counter %>)
       </p>
   </div>
+  <h5><%= plant.address %></h4>
     <div class="pop-img">
       <%= cl_image_tag plant.photo.key, height: 150, width: 150, crop: :fill, class: 'img-pop-up'%>
     </div>
     <div class="button-book">
       <%= link_to "Book this 🌿", plant_path(plant),class:'btn btn-success'%>
     </div>
-  </div>
 </div>
