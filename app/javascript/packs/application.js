@@ -16,11 +16,11 @@ import { initStarRating } from '../plugins/init_star_rating';
 import { initSweetalert } from '../plugins/init_sweetalert';
 
 document.addEventListener('turbolinks:load', () => {
-  initMapbox();
   initFlatPickr();
   initAutocomplete();
   initStarRating();
   initSweetalert();
+  initMapbox();
 })
 
 
