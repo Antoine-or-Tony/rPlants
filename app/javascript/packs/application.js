@@ -12,9 +12,15 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initFlatPickr } from '../plugins/flatpickr';
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initStarRating } from '../plugins/init_star_rating';
+import { initSweetalert } from '../plugins/init_sweetalert';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initFlatPickr();
   initAutocomplete();
+  initStarRating();
+  initSweetalert();
 })
+
+

@@ -3,10 +3,13 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 7px;
+  margin: 6px;
+  height: 240px;
 }
 
 .image-trip{
-  height: 200px;
+  height: 160px;
   width: 100%;
   object-fit: cover;
 }
@@ -25,12 +28,23 @@
 
 
 .card-trip .card-trip-infos {
-  padding: 16px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
   background-color: white;
+}
+
+
+.larger-card {
+  height: 270px !important;
+}
+
+.card-update-delete-buttons {
+  position: absolute;
+  right: 25px;
+  top: 10px;
 }
 
 // .card-trip-infos .card-trip-user {
@@ -39,6 +53,7 @@
 //   top: -20px;
 //   width: 40px;
 // }
+
 // a{
 //   color: white;
 //   text-decoration: none;
