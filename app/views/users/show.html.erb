@@ -150,6 +150,18 @@
       <% @user.plants.each do |plant| %>
         <div class="col-4">
           <div class="card-trip">
+
+            <!-- Display only if current_user is the user plage -->
+            <% if @user == current_user %>
+              <div class="card-update-delete-buttons">
+                <%= link_to edit_plant_path(plant), class:"text-secondary" do %>
+                  <i class="far fa-edit fa-lg"></i>
+                <% end %>
+                <%= link_to plant_path(plant), method: :delete, class:"text-danger" do %>
+                  <i class="fas fa-trash fa-lg"></i>
+                <% end %>
+              </div>
+            <% end %>
             <%= cl_image_tag plant.photo.key, height: 250, width: 250, crop: :fill, :class =>'image-trip'%>
             <div class="card-trip-infos">
               <div>
@@ -186,17 +198,6 @@
             </div>
           </div>
 
-  <!-- Display only if current_user is the user plage -->
-          <% if @user == current_user %>
-            <div class="m-3">
-              <%= link_to edit_plant_path(plant), class:"text-success" do %>
-                <i class="far fa-edit style="></i>
-              <% end %>
-              <%= link_to plant_path(plant), method: :delete, class:"text-danger" do %>
-                <i class="fas fa-trash style="></i>
-              <% end %>
-            </div>
-          <% end %>
         </div>
       <% end %>
     </div>
